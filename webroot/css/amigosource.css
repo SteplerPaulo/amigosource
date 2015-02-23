@@ -1,0 +1,9 @@
+a{
+	cursor: pointer;
+}
+#a-Header{
+	border-bottom: 10px;
+	border-bottom-color: darkgrey;
+	border-bottom-style: solid;
+	padding-top: 10px;
+}

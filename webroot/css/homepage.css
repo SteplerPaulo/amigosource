@@ -1,0 +1,16 @@
+#a-Header{
+	background-color: darkgrey;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#a-Links a{
+	padding-left: 35px;
+}
+#a-Links a:hover{
+	color:#23527c;
+	
+}
+a{
+	text-decoration: none !important;
+}

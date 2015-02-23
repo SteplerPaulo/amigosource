@@ -1,0 +1,61 @@
+#a-Links a{
+	padding-left: 35px;
+}
+
+/*1st Column*/
+.item-1st-col
+{
+	padding-top: 25px;
+}
+
+/*2nd Column*/
+.item-2nd-col
+{
+	padding-top:20px;
+	font-size: 13px;
+	color:#787878; /*Gray*/
+}
+.item-2nd-col value{
+	color:#100000;/*BLACK*/
+}
+
+.item-2nd-col .item-sponsored-listing{
+	font-size:10px;
+	text-align:right;
+	padding-right: 10px;
+}
+
+/*3rd Column*/
+.item-3rd-col{
+	padding-top:20px;
+	font-size: 13px;
+	color:#787878; /*Gray*/
+}
+.item-3rd-col .row{
+	padding-bottom:7px;
+}
+.item-3rd-col .glyphicon-certificate{
+	color:#FF9900;
+	font-size: 17px;
+}
+.item-3rd-col .glyphicon-star,.glyphicon-plus{
+	color:#337ab7;
+}
+.item-3rd-col .item-actions a{
+	text-decoration:none;
+	color:#787878; /*Gray*/
+}
+.item-3rd-col  .item-actions a:hover{
+	color:#989898 ;/*Slightly Light Gray*/
+}
+.item-3rd-col .popover{
+	font-size:11px;
+}
+.item-3rd-col value{
+	color:#100000;/*BLACK*/
+}
+.item-3rd-col .item-contact-chat{
+	padding-top: 20px;
+	font-size: 17px;
+}
+
