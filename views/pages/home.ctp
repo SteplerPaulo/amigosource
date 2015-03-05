@@ -17,8 +17,8 @@
 									&nbsp; <span class="caret"></span> &nbsp;
 									</button>
 									<ul class="dropdown-menu pull-right" role="menu">
-										<li><a href="http://localhost/amigosource/search-as">Supplier</a></li>
-										<li><a href="http://localhost/amigosource/search-as">Products</a></li>
+										<li><a href="/amigosource/search-as">Supplier</a></li>
+										<li><a href="/amigosource/search-as">Products</a></li>
 									</ul>
 								</div>
 							</div>
@@ -27,7 +27,7 @@
 				</center>
 				<center class="row">
 					<div class="col-lg-12">
-						<span class="btn btn-default"><a href="http://localhost/amigosource/user-account">Register</a></span>
+						<span class="btn btn-default"><a href="/amigosource/user-account">Register</a></span>
 						<span class="btn btn-default"><a>Sign in</a></span>
 					</div>
 				</center>
