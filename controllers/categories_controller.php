@@ -2,7 +2,8 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
-
+	var $helpers = array('Html', 'Crumb');
+	
 	function index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());

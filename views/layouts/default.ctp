@@ -54,7 +54,7 @@
 				</div>
 				<div class="row" style="padding-bottom: 5px;">
 					<center class="col-md-2 col-xs-12">
-						<img src="img/amigosource.png" height="60px;"/>
+						<img src="/amigosource/webroot/img/amigosource.png" height="60px;"/>
 					</center>
 					<span class="col-md-4 col-md-offset-6 col-xs-12" style="padding-top: 15px;">
 						<div class="input-group">

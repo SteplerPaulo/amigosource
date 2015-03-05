@@ -1,14 +1,17 @@
+<h2>
+<?php
+echo $crumb->getHtml('Edit', null, 'auto' ) ; 
+?> 
+</h2>
+<hr>
 <div class="categories form">
 <?php echo $this->Form->create('Category');?>
-	<fieldset>
-		<legend><?php __('Edit Category'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('description');
 		echo $this->Form->input('seq_order_no');
 		echo $this->Form->input('is_active');
 	?>
-	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
 </div>
 <div class="actions">
