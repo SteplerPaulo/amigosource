@@ -1,5 +1,10 @@
+<h2>
+<?php
+echo $crumb->getHtml('Category', 'reset') ; 
+?> 
+</h2>
+<hr>
 <div class="categories index">
-	<h2><?php __('Categories');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>

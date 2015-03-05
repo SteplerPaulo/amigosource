@@ -1,17 +1,33 @@
-<div class="row" style="margin-top:100px;">
+<div class="row" style="margin-top:200px;">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="row">
 			<div class="col-sm-12">
-				<center><img src="img/amigosource.png" class="img-responsive" alt="Responsive image"></center>
 				<center class="row">
-					<div class="col-md-7"  style="padding-bottom: 10px;">
+					<img src="img/amigosource.png" class="img-responsive" alt="Responsive Image">
+				</center>
+				<center class="row" id="SearchRow">
+					<div class="col-lg-12">
 						<div class="input-group">
 							<input type="text" class="form-control">
 							<a href="slide-2" class="input-group-addon btn"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+							<span class="input-group-addon">Search All</span>
+							<div class="input-group-btn">
+								<div class="btn-group">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									&nbsp; <span class="caret"></span> &nbsp;
+									</button>
+									<ul class="dropdown-menu pull-right" role="menu">
+										<li><a href="http://localhost/amigosource/search-as">Supplier</a></li>
+										<li><a href="http://localhost/amigosource/search-as">Products</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="col-md-5">
-						<span class="btn btn-default"><a>Register</a></span>
+				</center>
+				<center class="row">
+					<div class="col-lg-12">
+						<span class="btn btn-default"><a href="http://localhost/amigosource/user-account">Register</a></span>
 						<span class="btn btn-default"><a>Sign in</a></span>
 					</div>
 				</center>

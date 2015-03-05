@@ -40,22 +40,12 @@
 </head>
 <body>
 	<div class="container-fluid">
+		<!--
 		<div id="a-Header" class="row">
-			<div id="a-Links">
-				<span class="dropdown">
-					<a data-toggle="dropdown" style="color:white;">Category</a>
-					<ul class="dropdown-menu">
-						<li><a>Electronics</a></li>
-						<li><a>Apparel, Textiles & Accesories</a></li>
-						<li><a>Health & Beauty</a></li>
-						<li><a>Jewelry, Bags & Shoes</a></li>
-						<li><a>Auto & Transportation</a></li>
-					</ul>
-				</span>
-				<a style="color:white;">Location</a>
-			</div>
+			<div class="col-lg-6">Update Profile</div>
+			<div class="col-lg-6 text-right">Administrator</div>
 		</div>
-		
+		-->
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>
