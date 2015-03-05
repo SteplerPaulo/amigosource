@@ -41,7 +41,7 @@
 			'action' => 'display' 
 		),  
 		array( 
-			'pagename' => 'slide-2',  
+			'pagename' => 'slide-2|search-as|user-account',  
 			'pass' => array( 
 				'pagename' 
 			) 
