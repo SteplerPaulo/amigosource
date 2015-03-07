@@ -1,6 +1,0 @@
-2015-02-28 06:37:26 Warning: Warning (2): Creating default object from empty value in [C:\xampp\htdocs\amigosource\controllers\categories_controller.php, line 9]
-2015-02-28 06:52:24 Warning: Warning (4096): Object of class CrumbHelper could not be converted to string in [C:\xampp\htdocs\amigosource\views\categories\index.ctp, line 3]
-2015-03-01 15:19:46 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
- in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
-2015-03-01 15:19:46 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
-2015-03-01 15:19:46 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
