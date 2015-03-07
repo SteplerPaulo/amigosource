@@ -48,14 +48,27 @@
 		<label><h4>I'm a</h4></label>
 		<div class="form-group">
 			<label class="radio-inline">
-				<input type="radio" name="data[User][type]" value="Supplier">Suppplier
+				<input type="radio" name="data[User][type]" value="Supplier" checked onclick="href('supplier')">Suppplier
 			</label>
 			<label class="radio-inline">
-				<input type="radio" name="data[User][type]" value="Buyer">Buyer
+				<input type="radio" name="data[User][type]" value="Buyer" onclick="href('buyer')">Buyer
 			</label>
 		</div>
-		<h2 class="pull-right">Next <a class="glyphicon glyphicon-circle-arrow-right"></a></h2>
+		<h3 class="pull-right">Next <a href="/amigosource/supplier-member-details" id="Next" class="glyphicon glyphicon-circle-arrow-right"></a></h3>
 		
 	<?php echo $this->Form->end();?>
 	</div>
 </div>
+
+<script>
+	function href(memberType){
+		switch(memberType){
+			case 'supplier':
+				document.getElementById('Next').setAttribute("href", "/amigosource/supplier-member-details");
+				break;
+			case 'buyer':
+				document.getElementById('Next').setAttribute("href", "/amigosource/buyer-member-details");
+				break;
+		}
+	}
+</script>

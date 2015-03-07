@@ -1,0 +1,5 @@
+2014-11-27 07:20:49 Debug: Notice (8): Undefined variable: page in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 64]
+2015-02-28 06:37:26 Debug: Notice (8): Undefined property: stdClass::$alias in [C:\cake\libs\controller\controller.php, line 1107]
+2015-02-28 06:41:29 Debug: Notice (8): Undefined variable: helpers in [C:\xampp\htdocs\amigosource\controllers\categories_controller.php, line 8]
+2015-02-28 06:52:15 Debug: Notice (8): Undefined variable: crumb in [C:\xampp\htdocs\amigosource\views\categories\index.ctp, line 3]
+2015-03-01 15:18:42 Debug: Notice (8): Undefined variable: crumb in [C:\xampp\htdocs\amigosource\views\pages\user-account.ctp, line 4]
