@@ -1,21 +1,5 @@
-<style>
-	.btn-circle{
-		width: 70px;
-		height: 70px;
-		padding: 10px 16px;
-		border-radius: 35px;
-		font-size: 24px;
-		line-height: 1.33;
-	}
-	.step .glyphicon-arrow-right{
-		font-size: 50px;
-		top: 10px;
-	}
-	a.glyphicon-circle-arrow-right{
-		text-decoration: none;
-	}
-</style>
-<div class="row step" style="padding-top:20px;">
+<?php echo $this->Html->css('breadcrumb');?>
+<div class="row step" id="Breadcrumb">
 	<div class="col-lg-1 col-lg-offset-3">
 		<button type="button" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-user"></i></button><div class="row">User Account</div>
 	</div>
@@ -41,11 +25,11 @@
 <div class="row">
 	<div class="col-lg-4 col-lg-offset-4">
 	<?php echo $this->Form->create('User');?>
-		<?php echo $this->Form->input('email',array('class'=>'form-control'));?>
-		<?php echo $this->Form->input('password',array('class'=>'form-control'));?>
-		<?php echo $this->Form->input('confirm_password',array('class'=>'form-control'));?>
+		<?php echo $this->Form->input('email',array('class'=>'form-control input-sm'));?><br/>
+		<?php echo $this->Form->input('password',array('class'=>'form-control input-sm'));?><br/>
+		<?php echo $this->Form->input('confirm_password',array('class'=>'form-control input-sm'));?><br/>
 		
-		<label><h4>I'm a</h4></label>
+		<label><b>I'm a</b></label>
 		<div class="form-group">
 			<label class="radio-inline">
 				<input type="radio" name="data[User][type]" value="Supplier" checked onclick="href('supplier')">Suppplier
