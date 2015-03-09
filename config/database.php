@@ -7,7 +7,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'amigosource',
+		'database' => 'amigosource_030615',
 	);
 }
 ?>
