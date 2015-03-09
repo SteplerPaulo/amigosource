@@ -2,8 +2,7 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
-	var $helpers = array('Html', 'Crumb');
-	
+
 	function index() {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());
@@ -17,7 +16,43 @@ class CategoriesController extends AppController {
 		$this->set('category', $this->Category->read(null, $id));
 	}
 
-	function add() {
+	function admin_index() {
+		$this->Category->recursive = 0;
+		$this->set('categories', $this->paginate());
+		
+		//$this->helpers[] = 'Tree';
+		//$categoriestree = $this->Category->find('all', array(
+          //  'recursive' => -1,
+           // 'order' => array(
+            //    'Category.lft' => 'ASC'
+            //),
+            //'conditions' => array(
+            //),
+        //));
+        //$this->set(compact('categoriestree'));
+    
+	}
+
+	function admin_view($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid category', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		
+        $category = $this->Category->find('first', array(
+            'contain' => array(
+                'ParentCategory'
+            ),
+            'conditions' => array(
+                'Category.id' => $id
+            )
+        ));
+        $this->set(compact('category'));
+		
+	}
+	
+
+	function admin_add() {
 		if (!empty($this->data)) {
 			$this->Category->create();
 			if ($this->Category->save($this->data)) {
@@ -27,9 +62,11 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
 			}
 		}
+		$parents = $this->Category->generateTreeList(null, null, null, ' -- ');
+		$this->set(compact('parents'));
 	}
 
-	function edit($id = null) {
+	function admin_edit($id = null) {
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash(__('Invalid category', true));
 			$this->redirect(array('action' => 'index'));
@@ -45,9 +82,13 @@ class CategoriesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Category->read(null, $id);
 		}
+		
+		
+        $parents = $this->Category->generateTreeList(null, null, null, ' -- ');
+        $this->set(compact('parents'));
 	}
 
-	function delete($id = null) {
+	function admin_delete($id = null) {
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for category', true));
 			$this->redirect(array('action'=>'index'));
