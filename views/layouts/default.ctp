@@ -36,6 +36,7 @@
 		echo $this->Html->script('jquery-1.11.0');
 		echo $this->Html->script('bootstrap');
 		echo $this->Html->css('font-awesome-4.1.0\css\font-awesome'); //Custom Fonts
+		echo $this->Html->css('admin');
 		echo $scripts_for_layout;
 	?>
 </head>
