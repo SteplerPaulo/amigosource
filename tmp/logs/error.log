@@ -4,3 +4,8 @@
  in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
 2015-03-01 15:19:46 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
 2015-03-01 15:19:46 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
+2015-03-07 14:35:22 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generateTreeList' at line 1</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 685]
+2015-03-07 14:35:50 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'generateTreeList' at line 1</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 685]
+2015-03-07 15:00:05 Warning: Warning (512): Method FormHelper::postLink does not exist in [C:\cake\libs\view\helper.php, line 154]
+2015-03-07 15:00:30 Warning: Warning (512): Method FormHelper::postLink does not exist in [C:\cake\libs\view\helper.php, line 154]
+2015-03-07 15:03:28 Warning: Warning (512): Method FormHelper::postLink does not exist in [C:\cake\libs\view\helper.php, line 154]
