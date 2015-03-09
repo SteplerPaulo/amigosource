@@ -41,7 +41,7 @@
 			'action' => 'display' 
 		),  
 		array( 
-			'pagename' => 'slide-2|search-as|user-account|supplier-member-details|buyer-member-details',  
+			'pagename' => 'slide-2|search-as|user-account|supplier-member-details|buyer-member-details|product-details',  
 			'pass' => array( 
 				'pagename' 
 			) 
