@@ -21,8 +21,6 @@ class CategoriesController extends AppController {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());
 		
-	
-		//$this->helpers[] = 'Tree';
 		$categoriestree = $this->Category->find('threaded', array(
            'recursive' => -1,
            'order' => array(
@@ -33,10 +31,6 @@ class CategoriesController extends AppController {
         ));
 		
 		$this->set(compact('categoriestree'));
-    
-	
-		$this->set('data',$categoriestree); 
-		//pr($categoriestree);exit;
 	}
 
 	function admin_view($id = null) {
@@ -56,7 +50,6 @@ class CategoriesController extends AppController {
         $this->set(compact('category'));
 		
 	}
-	
 
 	function admin_add() {
 		if (!empty($this->data)) {
