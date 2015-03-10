@@ -2,6 +2,7 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
+	var $helpers = array('Html', 'Tree'); 
 
 	function index() {
 		$this->Category->recursive = 0;
@@ -20,17 +21,22 @@ class CategoriesController extends AppController {
 		$this->Category->recursive = 0;
 		$this->set('categories', $this->paginate());
 		
+	
 		//$this->helpers[] = 'Tree';
-		//$categoriestree = $this->Category->find('all', array(
-          //  'recursive' => -1,
-           // 'order' => array(
-            //    'Category.lft' => 'ASC'
-            //),
-            //'conditions' => array(
-            //),
-        //));
-        //$this->set(compact('categoriestree'));
+		$categoriestree = $this->Category->find('threaded', array(
+           'recursive' => -1,
+           'order' => array(
+               'Category.lft' => 'ASC'
+            ),
+            'conditions' => array(
+            ),
+        ));
+		
+		$this->set(compact('categoriestree'));
     
+	
+		$this->set('data',$categoriestree); 
+		//pr($categoriestree);exit;
 	}
 
 	function admin_view($id = null) {
