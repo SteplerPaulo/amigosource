@@ -14,7 +14,15 @@
 		<br />
 		<?php echo $this->Form->button('Submit', array('class' => 'btn btn-primary')); ?>
 		<?php echo $this->Form->end(); ?>
-
+		<br />
+		<br />
+		<h3>Actions</h3>
+			<?php echo $this->Html->link(
+								'Delete',
+								array('action' => 'delete', $this->Form->value('Category.id')), 
+								array('escape' => false,'class' => 'btn btn-danger'), 
+								sprintf(__('Are you sure you want to delete record of category %s?', true), $this->Form->value('Category.name'))
+							);?>		
 		<br />
 		<br />
 	</div>
