@@ -70,62 +70,29 @@ class ProductsController extends AppController {
 	
 	function admin_index() {
 		if ($this->RequestHandler->isPost()) {
-            if($this->data['Product']['active'] == '1' || $this->data['Product']['active'] == '0') {
-                $conditions[] = array(
-                    'Product.active' => $this->data['Product']['active']
-                );
-                $this->Session->write('Product.active', $this->data['Product']['active']);
-            } else {
-                $this->Session->write('Product.active', '');
-            }
+			
+			$conditions[] = array('Product.active' => $this->data['Product']['active']);
 
             if(!empty($this->data['Product']['brand_id'])) {
-                $conditions[] = array(
-                    'Product.brand_id' => $this->data['Product']['brand_id']
-                );
-                $this->Session->write('Product.brand_id', $this->data['Product']['brand_id']);
-            } else {
-                $this->Session->write('Product.brand_id', '');
+               $conditions[] = array('Product.brand_id' => $this->data['Product']['brand_id']);
             }
-
+			
             if(!empty($this->data['Product']['name'])) {
                 $filter = $this->data['Product']['filter'];
-                $this->Session->write('Product.filter', $filter);
                 $name = $this->data['Product']['name'];
-                $this->Session->write('Product.name', $name);
                 $conditions[] = array(
                     'Product.' . $filter . ' LIKE' => '%' . $name . '%'
                 );
-            } else {
-                $this->Session->write('Product.filter', '');
-                $this->Session->write('Product.name', '');
             }
-
-            $this->Session->write('Product.conditions', $conditions);
-            return $this->redirect(array('action' => 'index'));
+			$this->set('$this->data',$this->data);
         }
-	
-	
-		if($this->Session->check('Product')) {
-            $all = $this->Session->read('Product');
-        } else {
-            $all = array(
-                'active' => '',
-                'brand_id' => '',
-                'name' => '',
-                'filter' => '',
-                'conditions' => ''
-            );
-        }
-        $this->set(compact('all'));
-		
 		
 		//PRODUCTS
 		$this->paginate = array(
 			'Product' => array(
                 'recursive' => 0,
                 'limit' => 50,
-                'conditions' => $all['conditions'],
+                'conditions' => isset($conditions)?$conditions:'',
                 'order' => array(
                     'Product.name' => 'ASC'
                 ),

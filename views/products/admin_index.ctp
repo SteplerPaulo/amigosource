@@ -81,16 +81,13 @@ $(document).ready(function() {
 </script>
 <h2>Products</h2>
 <div class="row">
-
-    <?php echo $this->Form->create('Product', array()); ?>
-    <?php echo $this->Form->hidden('search', array('value' => 1)); ?>
-
+    <?php echo $this->Form->create('Product'); ?>
     <div class="col-lg-2">
-        <?php echo $this->Form->input('active', array('label' => false, 'class' => 'form-control', 'empty' => 'All Status', 'options' => array(1 => 'Active', 0 => 'Not Active'), 'selected' => $all['active'])); ?>
+        <?php echo $this->Form->input('active', array('label' => false, 'class' => 'form-control', 'empty' => 'All Status', 'options' => array(1 => 'Active', 0 => 'Not Active'))); ?>
     </div>
 
     <div class="col-lg-2">
-        <?php echo $this->Form->input('brand_id', array('label' => false, 'class' => 'form-control', 'empty' => 'Brand', 'selected' => $all['brand_id'])); ?>
+        <?php echo $this->Form->input('brand_id', array('label' => false, 'class' => 'form-control', 'empty' => 'Brand')); ?>
     </div>
 
     <div class="col-lg-2">
@@ -102,13 +99,12 @@ $(document).ready(function() {
                 'description' => 'Description',
                 'price' => 'Price',
                 'created' => 'Created',
-            ),
-            'selected' => $all['filter']
+            )
         )); ?>
 
     </div>
     <div class="col-lg-2">
-        <?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'form-control', 'value' => $all['name'])); ?>
+        <?php echo $this->Form->input('name', array('label' => false, 'id' => false, 'class' => 'form-control')); ?>
     </div>
     <div class="col-lg-4">
         <?php echo $this->Form->button('Search', array('class' => 'btn btn-default')); ?>
