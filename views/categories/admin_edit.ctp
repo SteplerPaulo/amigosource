@@ -4,11 +4,11 @@
 		<?php echo $this->Form->create('Category'); ?>
 		<?php echo $this->Form->input('id'); ?>
 		<br />
-		<?php echo $this->Form->input('parent_id', array('class' => 'form-control input-sm', 'empty' => true)); ?>
+		<?php echo $this->Form->input('parent_id', array('class' => 'form-control input-sm', 'empty' => 'Select')); ?>
 		<br />
-		<?php echo $this->Form->input('name', array('class' => 'form-control input-sm','required'=>'resuired')); ?>
+		<?php echo $this->Form->input('name', array('class' => 'form-control input-sm','required'=>'required')); ?>
 		<br />
-		<?php echo $this->Form->input('slug', array('class' => 'form-control input-sm','required'=>'resuired')); ?>
+		<?php echo $this->Form->input('slug', array('class' => 'form-control input-sm','required'=>'required')); ?>
 		<br />
 		<?php echo $this->Form->input('description', array('class' => 'form-control input-sm')); ?>
 		<br />
