@@ -4,16 +4,16 @@
 	}
 </style>
 <div class="row">
-	<div class="col-lg-8 col-lg-offset-2">
+	<div class="col-lg-10 col-lg-offset-1">
 
 		<h2>Categories</h2>	
 		<table class="table-striped table-bordered table-condensed table-hover">
 			<tr>
 				<th><?php echo $this->Paginator->sort('id'); ?></th>
+				<th><?php echo $this->Paginator->sort('name'); ?></th>
 				<th><?php echo $this->Paginator->sort('parent_id'); ?></th>
 				<th><?php echo $this->Paginator->sort('lft'); ?></th>
 				<th><?php echo $this->Paginator->sort('rght'); ?></th>
-				<th><?php echo $this->Paginator->sort('name'); ?></th>
 				<th><?php echo $this->Paginator->sort('slug'); ?></th>
 				<th><?php echo $this->Paginator->sort('description'); ?></th>
 				<th><?php echo $this->Paginator->sort('created'); ?></th>
@@ -23,12 +23,12 @@
 			<?php foreach ($categories as $category): ?>
 				<tr>
 					<td><?php echo h($category['Category']['id']); ?></td>
+					<td><?php echo h($category['Category']['name']); ?></td>
 					<td>
 						<?php echo $this->Html->link($category['ParentCategory']['name'], array('controller' => 'categories', 'action' => 'view', $category['ParentCategory']['id'])); ?>
 					</td>
 					<td><?php echo h($category['Category']['lft']); ?></td>
 					<td><?php echo h($category['Category']['rght']); ?></td>
-					<td><?php echo h($category['Category']['name']); ?></td>
 					<td><?php echo h($category['Category']['slug']); ?></td>
 					<td><?php echo h($category['Category']['description']); ?></td>
 					<td><?php echo h($category['Category']['created']); ?></td>
@@ -60,15 +60,16 @@
 		<?php echo $tree->show('Category/name', $categoriestree); ?>  
 
 		<!-- This will give you a list of Categorys and edit/delete links next to  
-		Category name as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam --> 
+		Category name as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam
 		<h3>Basic hierarchical list with admin links</h3> 
 		<?php echo $tree->show('Category/name', $categoriestree, 'admin'); ?>  
+		 --> 
 
 		<!-- This will turn the Category name into a link  
-		as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam --> 
+		as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam 
 		<h3>Basic hierarchical list with name as link</h3> 
 		<?php echo $tree->show('Category/name', $categoriestree, 'link'); ?>  
-
+		 -->
 
 		<br />
 		<br />
