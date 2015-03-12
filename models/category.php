@@ -33,8 +33,8 @@ class Category extends AppModel {
                 'required' => false,
             ),
             'rule2' => array(
-                'rule' => '/^[a-z\-]{3,50}$/',
-                'message' => 'Only lowercase letters and dashes, between 3-50 characters',
+                'rule' => '/^[a-z\-\d]{3,50}$/',
+                'message' => 'Only lowercase letters,numbers and dashes, between 3-50 characters',
                 'allowEmpty' => false,
                 'required' => false,
             ),
