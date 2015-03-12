@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array();
+	var $uses = array('Category');
 
 /**
  * Displays a view
@@ -83,6 +83,11 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		if ($page == 'home') $this->layout = 'homepage';
+		
+		if ($page == 'product-details'){
+			$categories = $this->Category->generateTreeList(null, null, null, ' -- ');
+			$this->set(compact('categories'));
+		};
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));

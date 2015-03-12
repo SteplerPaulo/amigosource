@@ -37,7 +37,7 @@
 			<tbody>
 				<tr>
 					<td><?php echo $this->Form->input('brand_name',array('class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
-					<td><?php echo $this->Form->input('category',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+					<td><?php echo $this->Form->input('category_id',array('options'=>$categories,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 					<td><?php echo $this->Form->input('classification',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 					<td class="text-center">
 						<a class="glyphicon glyphicon-plus-sign"></a>  &nbsp;
