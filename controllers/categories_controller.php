@@ -19,6 +19,7 @@ class CategoriesController extends AppController {
 
 	function admin_index() {
 		$this->Category->recursive = 0;
+		$this->paginate = array('conditions' => array());		
 		$this->set('categories', $this->paginate());
 		
 		$categoriestree = $this->Category->find('threaded', array(
@@ -99,4 +100,38 @@ class CategoriesController extends AppController {
 		$this->Session->setFlash(__('Category was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+
+	/* 
+	//FORCE INIT SLUG (Obselete REGEX. Digits are now being accepted)
+	function force_slug($status = true){
+		if($status == true){
+			$results = $this->Category->find('list');
+			
+			foreach($results as $id => $string){
+				$string = str_replace(" ", "-", strtolower(trim($string)));//Convert string to lower case & replace spaces by dash symbol(-)
+				$string = preg_replace('/[^A-Za-z:space:\-]/', '', $string); // Removes special chars.
+				$string = preg_replace('/-+/', '-', $string);//Remove double dash (--)
+				
+				
+				//DOUBLE CHECK DUPLICATE SLUG
+				$this->Category->recursive = 0;
+				$catToUpdate = $this->Category->findById($id);
+				if(empty($catToUpdate['Category']['slug'])){
+						pr($catToUpdate['Category']['parent_id'].' => '. $catToUpdate['Category']['name']);
+						$parent = $this->Category->findById($catToUpdate['Category']['parent_id']);
+						$string = $parent['Category']['slug'].'-'.$string;
+						pr($string);
+				}
+				
+				//SLUG SAVING
+				$this->Category->id = $id;
+				$this->data['Category']['slug'] = $string;
+				$this->Category->save($this->data);
+			}
+			exit;
+		}
+	}
+	 */
+
 }
+
