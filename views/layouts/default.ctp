@@ -38,6 +38,7 @@
 		echo $this->Html->css('font-awesome-4.1.0\css\font-awesome'); //Custom Fonts
 		echo $this->Html->css('admin');
 		echo $this->Html->script('admin');
+		echo $this->Html->script('slug');
 		echo $scripts_for_layout;
 	?>
 </head>
