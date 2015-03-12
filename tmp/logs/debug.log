@@ -184,3 +184,5 @@
 2015-03-11 02:30:48 Debug: Notice (8): Undefined variable: conditions in [C:\xampp\htdocs\amigosource\controllers\products_controller.php, line 95]
 2015-03-11 17:51:32 Debug: Notice (8): Undefined variable: string in [C:\xampp\htdocs\amigosource\controllers\categories_controller.php, line 107]
 2015-03-11 18:15:54 Debug: Notice (8): Array to string conversion in [C:\cake\libs\model\datasources\dbo_source.php, line 1648]
+2015-03-12 09:08:35 Debug: Notice (8): Undefined property: PagesController::$Category in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 89]
+2015-03-12 09:09:33 Debug: Notice (8): Undefined property: PagesController::$Category in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 89]
