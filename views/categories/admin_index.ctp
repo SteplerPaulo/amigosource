@@ -4,7 +4,7 @@
 	}
 </style>
 <div class="row">
-	<div class="col-lg-10 col-lg-offset-1">
+	<div class="col-lg-12">
 
 		<h2>Categories</h2>	
 		<table class="table-striped table-bordered table-condensed table-hover">
@@ -55,15 +55,17 @@
 		<!--REFERENCE: http://bakery.cakephp.org/articles/MrRio/2006/09/24/threaded-lists-->
 		<h1>List of Categories</h1> 
 
-		<!-- This will give you a basic list as per the original tutorial --> 
+		<!-- This will give you a basic list as per the original tutorial -->
 		<h3>Basic hierarchical list</h3> 
 		<?php echo $tree->show('Category/name', $categoriestree); ?>  
-
+		
+		
 		<!-- This will give you a list of Categorys and edit/delete links next to  
 		Category name as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam
 		<h3>Basic hierarchical list with admin links</h3> 
 		<?php echo $tree->show('Category/name', $categoriestree, 'admin'); ?>  
-		 --> 
+		-->
+			
 
 		<!-- This will turn the Category name into a link  
 		as per tutorial comment  posted Mon, Apr 2nd 2007, 15:49 by sam 
