@@ -85,8 +85,30 @@ class PagesController extends AppController {
 		if ($page == 'home') $this->layout = 'homepage';
 		
 		if ($page == 'product-details'){
-			$categories = $this->Category->generateTreeList(null, null, null, ' -- ');
-			$this->set(compact('categories'));
+			//CATEGORIES
+			$categories = $this->Category->find('threaded', array('recursive' => -1,'order' => array('Category.lft' => 'ASC')));
+			
+			$child_index = 0;
+			$generalCategoristLists = array();
+			$classificationLists = array();
+			
+			foreach($categories  as $mainCategories){
+				//Add main category on the general category list
+				$generalCategoristLists[$mainCategories['Category']['id']]=$mainCategories['Category']['name'];
+			
+				foreach($mainCategories['children'] as $child){
+					//Add main category children on classification list
+					$classificationLists[$child_index]= array(
+										'value'=>$child['Category']['id'],
+										'name'=>$child['Category']['name'], 
+										'parent-id'=>$child['Category']['parent_id'],
+										//'style'=>'display:none;',
+									);
+					$child_index++;
+				}	
+			}
+			
+			$this->set(compact('generalCategoristLists','classificationLists'));
 		};
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));

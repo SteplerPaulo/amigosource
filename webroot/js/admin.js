@@ -14,5 +14,12 @@ $(document).ready(function() {
 		$.get(this.href + "?" + new Date().getTime());
 		return false;
 	});
-
+	
+	//User-Account Product Details
+	$(".general-category").change(function(){
+		$('.general-category-classification option:not(:first)').remove();
+		$('.general-category-classification').append($('.classification-category option[parent-id="'+$(this).val()+'"]').clone())
+	});
+	
+	$('[data-toggle="tooltip"]').tooltip()
 });
