@@ -1,27 +1,4 @@
-<?php echo $this->Html->css('breadcrumb');?>
-<div class="row step" id="Breadcrumb">
-	<div class="col-lg-1 col-lg-offset-3">
-		<button type="button" class="btn btn-primary btn-circle"><i class="glyphicon glyphicon-user"></i></button><div class="row">User Account</div>
-	</div>
-	<div class="col-lg-1">
-		<i class="glyphicon glyphicon-arrow-right"></i>
-	</div>
-	<div class="col-lg-1">
-		<button type="button" class="btn btn-circle"><i class="glyphicon glyphicon-file"></i></button><div class="row">Member Details</div>
-	</div>
-	<div class="col-lg-1">
-		<i class="glyphicon glyphicon-arrow-right"></i>
-	</div>
-	<div class="col-lg-1">
-		<button type="button" class="btn btn-circle"><i class="glyphicon glyphicon-shopping-cart"></i></button><div class="row">Product Details</div>
-	</div>
-	<div class="col-lg-1">
-		<i class="glyphicon glyphicon-arrow-right"></i>
-	</div>
-	<div class="col-lg-1">
-		<button type="button" class="btn btn-circle"><i class="glyphicon glyphicon-thumbs-up"></i></button><div class="row">Confirmation</div>
-	</div>
-</div><hr>
+<?php echo $this->element('breadcrumb');?>
 <div class="row">
 	<div class="col-lg-4 col-lg-offset-4">
 	<?php echo $this->Form->create('User');?>
