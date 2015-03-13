@@ -62,7 +62,7 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
 			}
 		}
-		$parents = $this->Category->generateTreeList(null, null, null, ' -- ');
+		//$parents = $this->Category->generateTreeList(null, null, null, ' -- ');
 		$this->set(compact('parents'));
 	}
 
@@ -133,5 +133,11 @@ class CategoriesController extends AppController {
 	}
 	 */
 
+
+	function admin_delete_node($status = false){
+		if($status == true){
+			$this->Category->removeFromTree(1,true);
+		}
+	}
 }
 
