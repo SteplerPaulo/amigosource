@@ -22,7 +22,7 @@
 				<?php echo $this->Form->input('city_municipality',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 			</div>
 			<div class="col-lg-5">
-				<?php echo $this->Form->input('house_info',array('class'=>'form-control input-sm','label'=>'House No. & Street'));?>
+				<?php echo $this->Form->input('house_info',array('class'=>'form-control input-sm','label'=>'No. & Street'));?>
 			</div>
 			<div class="col-lg-1">
 				<?php echo $this->Form->input('zipcode',array('class'=>'form-control input-sm'));?>
