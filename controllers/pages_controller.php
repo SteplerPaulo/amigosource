@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Category');
+	var $uses = array('Category','MonetaryCurrency','Country','Province');
 
 /**
  * Displays a view
@@ -110,6 +110,61 @@ class PagesController extends AppController {
 			
 			$this->set(compact('generalCategoristLists','classificationLists'));
 		};
+		
+		if($page=='credential-profile'){
+			$monetrayCurrencies = array();
+			foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
+				$monetrayCurrencies[$key]= array(
+										'value'=>$cur['MonetaryCurrency']['id'],
+										'name'=>$cur['MonetaryCurrency']['description'], 
+										'symbol'=>$cur['MonetaryCurrency']['symbol']
+									);
+			}
+			
+			$totalAnnualSalesVolume = array(
+				 '1-1,000,000'=>'1 - 1,000,000',		
+				 '1,000,001–5,000,000'=>'1,000,001 – 5,000,000',		
+				 '5,000,001–10,000,000'=>'5,000,001 – 10,000,000',		
+				 '10,000,001–50,000,000'=>'10,000,000 – 50,000,000',		
+				 '50,000,001–100,000,000'=>'50,000,001 – 100,000,000',		
+				 '100,000,001–500,000,000'=>'100,000,001 – 500,000,000',		
+				 '>500,000,000'=>'>500,000,000'		
+			);
+
+			
+			
+			$noOfEmployees = array(
+						'1-25' =>'1 - 25',
+						'26-50' =>'26 - 50',
+						'51-75' =>'51 - 75',
+						'76-100' =>'76 - 100',
+						'101–500'	=>'101 – 500',
+						'501–1000' =>'501 – 1000',
+						'1001–2000' =>'1001 – 2000',
+						'2001–5000' =>'2001 – 5000',
+						'5001–10000' =>'5001 – 10000',
+						'> 10000' =>'> 10000',
+			);
+			
+			$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees'));
+		}
+		
+		
+		if($page == 'supplier-member-details'){
+			$countries = $this->Country->find('list');			
+			
+			$provinces = array();
+			foreach($this->Province->find('all') as $key=>$prov){
+				$provinces[$key]= array(
+										'value'=>$prov['Province']['name'],
+										'name'=>$prov['Province']['name'], 
+										'country_id'=>$prov['Province']['country_id'],
+										//'style'=>'display:none;',
+									);
+			}
+		
+			$this->set(compact('countries','provinces'));
+		}
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
