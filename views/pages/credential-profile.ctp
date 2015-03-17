@@ -1,3 +1,10 @@
+<style>
+	.currency_symbol{
+		padding-top: 10px !important;
+		text-align:center;
+		border-right: none !important;
+	}
+</style>
 <?php echo $this->element('breadcrumb');?>
 <div class="panel panel-primary">
 	<div class="panel-heading">Credential</div>
@@ -31,21 +38,36 @@
 	<div class="panel-heading">Profile</div>
 	<div class="panel-body">
 		<h4>Trade & Market</h4>
-		<div class="row">
-			<div class="col-lg-5">
-				<?php echo $this->Form->input('main_market',array('placeholder'=>'Countries, areas','class'=>'form-control input-sm'));?>
-							
-			</div>
-			<div class="col-lg-5">
-				<?php echo $this->Form->input('main_costumer',array('placeholder'=>'Countries, areas, companies','class'=>'form-control input-sm'));?>
-			</div>
-			<div class="col-lg-2">
-				<?php echo $this->Form->input('total_annual_sales_volume',array('class'=>'form-control input-sm'));?>
-			</div>
-		</div>
+		
+		<table class="table table-bordered table-hovered table-condensed">
+			<thead>
+				<tr>
+					<th class="text-center w22">Main Market</th>
+					<th class="text-center w22">Main Costumer</th>
+					<th class="text-center w16">Currency</th>
+					<th class="text-center w20" colspan="2">Total Annual Sales Volume</th>
+					<th class="text-center w10">Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><?php echo $this->Form->input('main_market',array('placeholder'=>'Countries, areas','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+					<td><?php echo $this->Form->input('main_costumer',array('placeholder'=>'Countries, areas, companies','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+					<td><?php echo $this->Form->input('monetary_currency_id',array('options'=>$monetrayCurrencies,'empty'=>'Select','class'=>'form-control input-sm monetary-currency','div'=>false,'label'=>false))?></td>
+					<td class='currency_symbol'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td  style="border-left: none;"><?php echo $this->Form->input('total_annual_sales_volume',array('options'=>$totalAnnualSalesVolume,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+					<td class="text-center">
+						<a class="glyphicon glyphicon-plus-sign" data-toggle="tooltip" title="Add Row"></a>  &nbsp;
+						<a class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Row"></a> &nbsp;
+						<a class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete Row"></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
 		<h4>Factory Information</h4>
 		<div class="row">
-			<div class="col-lg-3">
+			<div class="col-lg-4">
 				<?php echo $this->Form->input('factory_location',array('class'=>'form-control input-sm'));?>	
 			</div>
 		</div><br/>
@@ -60,7 +82,7 @@
 				<?php echo $this->Form->input('no_of_qc_staff',array('label'=>'No Of QC Staff','class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-3">
-				<?php echo $this->Form->input('management_certification',array('class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('no_of_employees',array('options'=>$noOfEmployees,'empty'=>'Select','class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-3">
 				<?php echo $this->Form->input('contract_manufacturing',array('class'=>'form-control input-sm'));?>
@@ -83,3 +105,4 @@
 		<h3 class="pull-right">Back To Top <a href="#" id="Next" class="glyphicon glyphicon-circle-arrow-up" ></a></h3>
 	</div>
 </div>
+
