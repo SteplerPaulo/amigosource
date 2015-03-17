@@ -197,3 +197,7 @@
 2015-03-12 13:33:30 Debug: Notice (8): Undefined variable: genCat in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 97]
 2015-03-12 13:33:30 Debug: Notice (8): Undefined variable: categoryLists in [C:\xampp\htdocs\amigosource\views\pages\product-details.ctp, line 41]
 2015-03-12 13:33:45 Debug: Notice (8): Undefined variable: categoryLists in [C:\xampp\htdocs\amigosource\views\pages\product-details.ctp, line 41]
+2015-03-17 02:45:38 Debug: Notice (8): Undefined index: Province in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 119]
+2015-03-17 02:45:38 Debug: Notice (8): Undefined index: Province in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 120]
+2015-03-17 02:50:51 Debug: Notice (8): Undefined index: MonetaryCurrency in [C:\xampp\htdocs\amigosource\views\pages\credential-profile.ctp, line 54]
+2015-03-17 02:55:25 Debug: Notice (8): Undefined index: id in [C:\xampp\htdocs\amigosource\views\pages\credential-profile.ctp, line 54]
