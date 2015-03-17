@@ -13,13 +13,14 @@
 		<h4>Business Address</h4>
 		<div class="row">
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('country_id',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('country_id',array('id'=>'CountryId','options'=>$countries,'empty'=>'Select','class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('province',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('province',array('id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('province',array('id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('city_municipality',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+				<?php echo $this->Form->input('city_municipality',array('class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 			</div>
 			<div class="col-lg-5">
 				<?php echo $this->Form->input('house_info',array('class'=>'form-control input-sm','label'=>'No. & Street'));?>
@@ -30,6 +31,12 @@
 		</div>
 		<h4>Contact</h4>
 		<div class="row">
+			<div class="col-lg-4">
+				<?php echo $this->Form->input('name',array('class'=>'form-control input-sm'));?>
+			</div>
+			<div class="col-lg-2">
+				<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm'));?>
+			</div>
 			<div class="col-lg-2">
 				<?php echo $this->Form->input('landline',array('class'=>'form-control input-sm'));?>
 			</div>
@@ -38,12 +45,6 @@
 			</div>
 			<div class="col-lg-2">
 				<?php echo $this->Form->input('fax',array('class'=>'form-control input-sm'));?>
-			</div>
-			<div class="col-lg-4">
-				<?php echo $this->Form->input('name',array('class'=>'form-control input-sm'));?>
-			</div>
-			<div class="col-lg-2">
-				<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm'));?>
 			</div>
 		</div>
 	</div>
