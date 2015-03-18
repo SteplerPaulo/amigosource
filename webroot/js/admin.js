@@ -43,6 +43,7 @@ $(document).ready(function() {
 	//COUNTRY EVENT HANDLER
 	$('#CountryId').change(function(){
 		toggle_province_form_input($(this).val());
+		mobile_country_code($(this).find('option:selected').attr('country_code'));
 	});
 
 	//ALLOW TO SET PROVINCE ON LOAD
@@ -78,6 +79,12 @@ $(document).ready(function() {
 	function toggle_city_municipality_form_input(province_id){
 		$('#CityAndMunicipalityDropdown option:not(:first)').remove();
 		$('#CityAndMunicipalityDropdown').append($('#CityAndMunicipalityList option[province_id="'+province_id+'"]').clone());
+	
+	}
+
+	function mobile_country_code(country_code){
+		if(country_code != undefined) $('.country-code').text('+'+country_code);
+		else $('.country-code').text('');
 	
 	}
 });
