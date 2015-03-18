@@ -42,23 +42,42 @@ $(document).ready(function() {
 	/****************SUPPLIER-MEMBER-DETAILS****************/
 	//COUNTRY EVENT HANDLER
 	$('#CountryId').change(function(){
-		toggle_curr_province_form_input($(this).val());
+		toggle_province_form_input($(this).val());
 	});
-	
-	
+
 	//ALLOW TO SET PROVINCE ON LOAD
-	toggle_curr_province_form_input($('#CountryId').val());
+	toggle_province_form_input($('#CountryId').val());
 	
-	//TOGGLE CURRENT PROVINCE FORM INPUT
-	function toggle_curr_province_form_input(curr_country_id){
-		if(curr_country_id == 175){
+	//TOGGLE PROVINCE FORM INPUT
+	function toggle_province_form_input(country_id){
+		if(country_id == 166){
 			$('#ProvinceDropDown').removeAttr('disabled').parents('div:first').show();
+			$('#CityAndMunicipalityDropdown').removeAttr('disabled').parents('div:first').show();
 			$('#ProvinceText').attr('disabled','disabled').parents('div:first').hide();
-			$('#ProvinceText').val('');
+			$('#CityAndMunicipalityText').attr('disabled','disabled').parents('div:first').hide();
+			$('#ProvinceText, #CityAndMunicipalityText').val('');
 		}else{
 			$('#ProvinceText').removeAttr('disabled').parents('div:first').show();
+			$('#CityAndMunicipalityText').removeAttr('disabled').parents('div:first').show();
 			$('#ProvinceDropDown').attr('disabled','disabled').parents('div:first').hide();
-			$('#ProvinceDropDown').val('');
+			$('#CityAndMunicipalityDropdown').attr('disabled','disabled').parents('div:first').hide();
+			$('#ProvinceDropDown, #CityAndMunicipalityDropdown').val('');
 		}
+	}
+	
+	//PROVINCE EVENT HANDLER
+	$('#ProvinceDropDown').change(function(){
+		toggle_city_municipality_form_input($(this).find('option:selected').attr('province_id'));
+	});
+	
+	//ALLOW TO SET CITY||MUNICIPALITY ON LOAD
+	toggle_city_municipality_form_input($('#ProvinceDropDown option:selected').attr('province_id'));
+	
+	
+	//TOGGLE CITY/MUNICIPALITY FORM INPUT
+	function toggle_city_municipality_form_input(province_id){
+		$('#CityAndMunicipalityDropdown option:not(:first)').remove();
+		$('#CityAndMunicipalityDropdown').append($('#CityAndMunicipalityList option[province_id="'+province_id+'"]').clone());
+	
 	}
 });

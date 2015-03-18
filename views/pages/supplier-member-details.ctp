@@ -20,7 +20,8 @@
 				<?php echo $this->Form->input('province',array('id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('city_municipality',array('class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+				<?php echo $this->Form->input('city_municipality',array('id'=>'CityAndMunicipalityText','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+				<?php echo $this->Form->input('city_municipality',array('id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 			</div>
 			<div class="col-lg-5">
 				<?php echo $this->Form->input('house_info',array('class'=>'form-control input-sm','label'=>'No. & Street'));?>
@@ -80,3 +81,10 @@
 		<h3 class="pull-right">Back To Top <a href="#" id="Next" class="glyphicon glyphicon-circle-arrow-up" ></a></h3>
 	</div>
 </div>
+
+<div class="row hide">
+	<div class="col-lg-2">
+		<?php echo $this->Form->input('city_municipality_lists',array('id'=>'CityAndMunicipalityList','options'=>$cityAndMunicipalities,'empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+	</div>
+</div>
+			

@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Category','MonetaryCurrency','Country','Province');
+	var $uses = array('Category','MonetaryCurrency','Country','Province','CityAndMunicipalities');
 
 /**
  * Displays a view
@@ -151,19 +151,30 @@ class PagesController extends AppController {
 		
 		
 		if($page == 'supplier-member-details'){
-			$countries = $this->Country->find('list');			
+			$countries = $this->Country->find('list',array('order'=>'seq_order'));
 			
 			$provinces = array();
 			foreach($this->Province->find('all') as $key=>$prov){
 				$provinces[$key]= array(
 										'value'=>$prov['Province']['name'],
 										'name'=>$prov['Province']['name'], 
+										'province_id'=>$prov['Province']['id'],
 										'country_id'=>$prov['Province']['country_id'],
 										//'style'=>'display:none;',
 									);
 			}
+			
+			$cityAndMunicipalities = array();
+			foreach($this->CityAndMunicipalities->find('all') as $key=>$munc){
+				$cityAndMunicipalities[$key]= array(
+										'value'=>$munc['CityAndMunicipalities']['name'],
+										'name'=>$munc['CityAndMunicipalities']['name'], 
+										'province_id'=>$munc['CityAndMunicipalities']['province_id'],
+										//'style'=>'display:none;',
+									);
+			}
 		
-			$this->set(compact('countries','provinces'));
+			$this->set(compact('countries','provinces','cityAndMunicipalities'));
 		}
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
