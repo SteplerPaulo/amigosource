@@ -52,7 +52,7 @@ class PagesController extends AppController {
  * @var array
  * @access public
  */
-	var $uses = array('Category','MonetaryCurrency','Country','Province','CityAndMunicipalities');
+	var $uses = array('Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType');
 
 /**
  * Displays a view
@@ -151,7 +151,7 @@ class PagesController extends AppController {
 		
 		
 		if($page == 'supplier-member-details'){
-			//$countries = $this->Country->find('list',array('order'=>'seq_order'));
+			$businessTypes = $this->BusinessType->find('list');
 			
 			
 			$countries = array();
@@ -185,7 +185,7 @@ class PagesController extends AppController {
 									);
 			}
 		
-			$this->set(compact('countries','provinces','cityAndMunicipalities'));
+			$this->set(compact('countries','provinces','cityAndMunicipalities','businessTypes'));
 		}
 		
 		$this->set(compact('page', 'subpage', 'title_for_layout'));

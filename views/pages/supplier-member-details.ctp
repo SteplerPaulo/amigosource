@@ -7,7 +7,7 @@
 				<?php echo $this->Form->input('Business Name',array('class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('Business Type',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('business_type_id',array('options'=>$businessTypes,'empty'=>'Select','class'=>'form-control input-sm'));?>
 			</div>
 		</div>
 		<h4>Business Address</h4>
