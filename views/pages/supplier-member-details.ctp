@@ -39,10 +39,18 @@
 				<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('landline',array('class'=>'form-control input-sm'));?>
+				<label for="mobile">Landline</label>
+				<div class="input-group">
+					<span class="input-group-addon country-code"></span>
+					<input name="data[landline]" type="text" class="form-control input-sm" id="landline">
+				</div>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('mobile',array('class'=>'form-control input-sm'));?>
+				<label for="mobile">Mobile</label>
+				<div class="input-group">
+					<span class="input-group-addon country-code"></span>
+					<input name="data[mobile]" type="text" class="form-control input-sm" id="mobile">
+				</div>
 			</div>
 			<div class="col-lg-2">
 				<?php echo $this->Form->input('fax',array('class'=>'form-control input-sm'));?>

@@ -151,7 +151,18 @@ class PagesController extends AppController {
 		
 		
 		if($page == 'supplier-member-details'){
-			$countries = $this->Country->find('list',array('order'=>'seq_order'));
+			//$countries = $this->Country->find('list',array('order'=>'seq_order'));
+			
+			
+			$countries = array();
+			foreach($this->Country->find('all',array('order'=>'seq_order')) as $key=>$country){
+				$countries[$key]= array(
+										'value'=>$country['Country']['id'],
+										'name'=>$country['Country']['name'], 
+										'country_code'=>$country['Country']['country_code']
+									);
+			}
+			
 			
 			$provinces = array();
 			foreach($this->Province->find('all') as $key=>$prov){
