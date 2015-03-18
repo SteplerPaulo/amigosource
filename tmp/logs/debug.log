@@ -201,3 +201,5 @@
 2015-03-17 02:45:38 Debug: Notice (8): Undefined index: Province in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 120]
 2015-03-17 02:50:51 Debug: Notice (8): Undefined index: MonetaryCurrency in [C:\xampp\htdocs\amigosource\views\pages\credential-profile.ctp, line 54]
 2015-03-17 02:55:25 Debug: Notice (8): Undefined index: id in [C:\xampp\htdocs\amigosource\views\pages\credential-profile.ctp, line 54]
+2015-03-18 03:27:41 Debug: Notice (8): Undefined index: country-id in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 162]
+2015-03-18 03:27:41 Debug: Notice (8): Undefined index: province-id in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 172]
