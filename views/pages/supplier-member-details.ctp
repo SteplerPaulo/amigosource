@@ -39,21 +39,25 @@
 				<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm'));?>
 			</div>
 			<div class="col-lg-2">
-				<label for="mobile">Landline</label>
+				<label for="landline">Landline</label>
 				<div class="input-group">
 					<span class="input-group-addon country-code"></span>
-					<input name="data[landline]" type="text" class="form-control input-sm" id="landline">
+					<input name="data[landline]" type="text" class="form-control input-sm" id="landline" placeholder="Area Code & Phone No.">
 				</div>
 			</div>
 			<div class="col-lg-2">
 				<label for="mobile">Mobile</label>
 				<div class="input-group">
 					<span class="input-group-addon country-code"></span>
-					<input name="data[mobile]" type="text" class="form-control input-sm" id="mobile">
+					<input name="data[mobile]" type="text" class="form-control input-sm" id="mobile" placeholder="Mobile No.">
 				</div>
 			</div>
 			<div class="col-lg-2">
-				<?php echo $this->Form->input('fax',array('class'=>'form-control input-sm'));?>
+				<label for="fax">Fax</label>
+				<div class="input-group">
+					<span class="input-group-addon country-code"></span>
+					<input name="data[fax]" type="text" class="form-control input-sm" id="fax" placeholder="Fax No.">
+				</div>
 			</div>
 		</div>
 	</div>
