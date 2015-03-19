@@ -14,7 +14,7 @@
 		<i class="glyphicon glyphicon-arrow-right"></i>
 	</div>
 	<div class="col-lg-1">
-		<button type="button" class="btn btn-circle" pathname="credential-profile"><i class="glyphicon glyphicon-folder-close"></i></button><div class="row">Credentials & Profile </div>
+		<button type="button" class="btn btn-circle" pathname="certification-profile"><i class="glyphicon glyphicon-folder-close"></i></button><div class="row">Certifications & Profile </div>
 	</div>
 	<div class="col-lg-1">
 		<i class="glyphicon glyphicon-arrow-right"></i>
@@ -59,7 +59,7 @@
 		<tr>
 			<td>User Account</td>
 			<td>Member Details</td>
-			<td>Credentials</td>
+			<td>Certifications</td>
 			<td>Product Details</td>
 			<td>Confirmation</td>
 		</tr>
