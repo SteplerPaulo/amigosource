@@ -111,7 +111,7 @@ class PagesController extends AppController {
 			$this->set(compact('generalCategoristLists','classificationLists'));
 		};
 		
-		if($page=='credential-profile'){
+		if($page=='certification-profile'){
 			$monetrayCurrencies = array();
 			foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
 				$monetrayCurrencies[$key]= array(
@@ -125,13 +125,18 @@ class PagesController extends AppController {
 				 '1-1,000,000'=>'1 - 1,000,000',		
 				 '1,000,001–5,000,000'=>'1,000,001 – 5,000,000',		
 				 '5,000,001–10,000,000'=>'5,000,001 – 10,000,000',		
-				 '10,000,001–50,000,000'=>'10,000,000 – 50,000,000',		
+				 '10,000,001–50,000,000'=>'10,000,001 – 50,000,000',		
 				 '50,000,001–100,000,000'=>'50,000,001 – 100,000,000',		
 				 '100,000,001–500,000,000'=>'100,000,001 – 500,000,000',		
-				 '>500,000,000'=>'>500,000,000'		
+				 '>500,000,001'=>'>500,000,001'		
 			);
 
-			
+			$exportPercentage = array(
+									'10 – 25%'=>'10 – 25%',	
+									'25 – 50%'=>'25 – 50%',	
+									'50 – 75%'=>'50 – 75%',	
+									'>75%'=>'>75%',	
+								);
 			
 			$noOfEmployees = array(
 						'1-25' =>'1 - 25',
@@ -146,7 +151,7 @@ class PagesController extends AppController {
 						'> 10000' =>'> 10000',
 			);
 			
-			$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees'));
+			$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage'));
 		}
 		
 		
