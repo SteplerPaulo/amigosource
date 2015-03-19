@@ -56,7 +56,7 @@
 				<label for="fax">Fax</label>
 				<div class="input-group">
 					<span class="input-group-addon country-code"></span>
-					<input name="data[fax]" type="text" class="form-control input-sm" id="fax" placeholder="Fax No.">
+					<input name="data[fax]" type="text" class="form-control input-sm" id="fax" placeholder="Area Code & Fax No.">
 				</div>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 		<h3 class="pull-right"><a href="/amigosource/user-account" id="Next" class="glyphicon glyphicon-circle-arrow-left"></a> Back</h3>
 	</div>
 	<div class="col-lg-2">
-		<h3 class="pull-left">Next <a href="/amigosource/credential-profile" id="Next" class="glyphicon glyphicon-circle-arrow-right"></a></h3>
+		<h3 class="pull-left">Next <a href="/amigosource/certification-profile" id="Next" class="glyphicon glyphicon-circle-arrow-right"></a></h3>
 	</div>
 	
 	<div class="col-lg-3 col-lg-offset-1">
