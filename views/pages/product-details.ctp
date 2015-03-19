@@ -29,7 +29,7 @@
 </div>
 <div class="row">
 	<div class="col-lg-2 col-lg-offset-4">
-		<h3 class="pull-right"><a href="/amigosource/credential-profile" id="Next" class="glyphicon glyphicon-circle-arrow-left"></a> Back</h3>
+		<h3 class="pull-right"><a href="/amigosource/certification-profile" id="Next" class="glyphicon glyphicon-circle-arrow-left"></a> Back</h3>
 	</div>
 	<div class="col-lg-2">
 		<h3 class="pull-left">Next <a href="javascript:void()" id="Next" class="glyphicon glyphicon-circle-arrow-right" onclick="alert('Your web page that are trying to access is under construction. Please contact your system administrator for updates')"></a></h3>
