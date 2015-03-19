@@ -40,6 +40,8 @@
 		echo $this->Html->css('ss/ssMetrics');
 		echo $this->Html->script('admin');
 		echo $this->Html->script('slug');
+		echo $this->Html->script('bootstrap-datepicker');
+		echo $this->Html->css('datepicker');
 		echo $scripts_for_layout;
 	?>
 </head>

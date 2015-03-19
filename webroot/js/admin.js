@@ -15,8 +15,11 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	//TOOL TIP INITIALIZATION
+	//INITIALIZE TOOL TIP
 	$('[data-toggle="tooltip"]').tooltip();
+	
+	//INITIALIZE DATEPICKER
+	$('.datepicker').datepicker();
 	
 	/**************USER-ACCOUNT PRODUCT DETAILS**************/
 	//GENERAL CATEGORY
