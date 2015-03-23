@@ -113,3 +113,23 @@
 2015-03-18 03:42:21 Warning: Warning (2): Illegal string offset 'name' in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 161]
 2015-03-18 03:42:21 Warning: Warning (2): Illegal string offset 'Country' in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 162]
 2015-03-18 03:42:21 Warning: Warning (2): Illegal string offset 'country_code' in [C:\xampp\htdocs\amigosource\controllers\pages_controller.php, line 162]
+2015-03-20 15:42:47 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: No connection could be made because the target machine actively refused it.
+ in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
+2015-03-20 15:42:47 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
+2015-03-20 15:42:47 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
+2015-03-20 15:42:52 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: No connection could be made because the target machine actively refused it.
+ in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
+2015-03-20 15:42:52 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
+2015-03-20 15:42:52 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
+2015-03-23 03:06:08 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: No connection could be made because the target machine actively refused it.
+ in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
+2015-03-23 03:06:08 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: No connection could be made because the target machine actively refused it.
+ in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
+2015-03-23 03:06:08 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
+2015-03-23 03:06:08 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
+2015-03-23 03:06:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
+2015-03-23 03:06:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
+2015-03-23 03:06:36 Warning: Warning (2): mysql_connect() [<a href='http://php.net/function.mysql-connect'>function.mysql-connect</a>]: No connection could be made because the target machine actively refused it.
+ in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 561]
+2015-03-23 03:06:36 Warning: Warning (2): mysql_query() expects parameter 2 to be resource, boolean given in [C:\cake\libs\model\datasources\dbo\dbo_mysql.php, line 613]
+2015-03-23 03:06:36 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at C:\cake\libs\debugger.php:686) in [C:\cake\libs\controller\controller.php, line 742]
