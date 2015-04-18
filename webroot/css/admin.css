@@ -44,3 +44,10 @@ body {
 	display: inline;
 	padding-left: 0px;
 }
+
+.onSuccess{
+	background-color: #5cb85c;
+}
+.onEdit{
+	background-color: #ec971f;
+}

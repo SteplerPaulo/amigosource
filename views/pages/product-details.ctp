@@ -1,35 +1,4 @@
 <?php echo $this->element('breadcrumb');?>
-<!--
-<div class="panel panel-primary">
-	<div class="panel-heading">Products</div>
-	<div class="panel-body">
-		<table class="table table-bordered table-hovered table-condensed">
-			<thead>
-				<tr>
-					<th class="text-center">Brand Name</th>
-					<th class="text-center">General Category</th>
-					<th class="text-center">Classification</th>
-					<th class="text-center">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><?php echo $this->Form->input('brand_name',array('class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
-					<td><?php echo $this->Form->input('category_id',array('options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm general-category','div'=>false,'label'=>false))?></td>
-					<td><?php echo $this->Form->input('classification',array('options'=>'','empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false,'label'=>false))?></td>
-					<td class="text-center">
-						<a class="glyphicon glyphicon-plus-sign" data-toggle="tooltip" title="Add Row"></a>  &nbsp;
-						<a class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Row"></a> &nbsp;
-						<a class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete Row"></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	
-	</div>
-</div>
--->
-
 <div class="panel panel-primary">
 	<div class="panel-heading">Products</div>
 	<div class="panel-body">
@@ -124,7 +93,7 @@
 			</div>
 			<div class="col-lg-6">
 				
-				<center><h4><b>Products Added</b><h4></center>
+				<center><h4><b>Products Added</b></h4></center>
 				<table class="table table-bordered table-hovered table-condensed">
 					<thead>
 						<tr>
@@ -153,16 +122,6 @@
 	
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="row">
