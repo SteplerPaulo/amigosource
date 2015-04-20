@@ -229,3 +229,4 @@
 2015-04-16 15:28:58 Debug: Notice (8): Undefined variable: totalAnnualSalesVolume in [C:\xampp\htdocs\amigosource\views\tempory_registrations\user_account.ctp, line 173]
 2015-04-16 15:28:58 Debug: Notice (8): Undefined variable: exportPercentage in [C:\xampp\htdocs\amigosource\views\tempory_registrations\user_account.ctp, line 174]
 2015-04-16 15:28:58 Debug: Notice (8): Undefined variable: noOfEmployees in [C:\xampp\htdocs\amigosource\views\tempory_registrations\user_account.ctp, line 204]
+2015-04-20 09:52:55 Debug: Notice (8): Undefined variable: temporyRegistrations in [C:\xampp\htdocs\amigosource\views\temporary_registrations\index.ctp, line 43]

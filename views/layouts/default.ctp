@@ -33,7 +33,7 @@
 		echo $this->Html->css('bootstrap');
 		echo $this->Html->css('amigosource');
 		echo $this->Html->css('slide-2');
-		echo $this->Html->css('font-awesome-4.1.0\css\font-awesome'); //Custom Fonts
+		//echo $this->Html->css('font-awesome-4.1.0/css/font-awesome'); //Custom Fonts
 		echo $this->Html->css('admin');
 		echo $this->Html->css('ss/ssMetrics');
 		echo $this->Html->css('datepicker');
@@ -44,6 +44,7 @@
 		echo $this->Html->script('admin');
 		echo $this->Html->script('slug');
 		echo $this->Html->script('bootstrap-datepicker');
+		echo $this->Html->script(array('ui/uiInputNumeric'));
 		//ANGULAR JS
 		echo $this->Html->script(array('angular'));	
 		echo $this->Html->script(array('biz/app'));

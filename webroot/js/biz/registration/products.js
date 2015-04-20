@@ -88,7 +88,6 @@ $(document).ready(function(){
 
 	//VALIDATE PRODUCT DATA
 	function validate_product_form(data){
-
 		for(var key in data){
 			console.log(data[key]);
 			if(data[key].field == 'id'){

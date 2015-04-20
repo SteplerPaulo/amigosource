@@ -19,9 +19,14 @@ class TemporaryRegistrationsController extends AppController {
 	}
 
 	function add() {
+		
+			unset($this->data['Pr']);
+			pr($this->data);exit;
+	
+	
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
-			if ($this->TemporaryRegistration->save($this->data)) {
+			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				$this->Session->setFlash(__('The tempory registration has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -73,7 +78,7 @@ class TemporaryRegistrationsController extends AppController {
 		//Step-2
 		$businessTypes = $this->BusinessType->find('list');		
 		$countries = array();
-		foreach($this->Country->find('all',array('order'=>'seq_order')) as $key=>$country){
+		foreach($this->Country->find('all',array('order'=>'seq_order','conditions'=>array('is_active'=>1))) as $key=>$country){
 			$countries[$key]= array('value'=>$country['Country']['id'],
 									'name'=>$country['Country']['name'], 
 									'country_code'=>$country['Country']['country_code']
@@ -171,12 +176,6 @@ class TemporaryRegistrationsController extends AppController {
 	
 	}
 	
-	function temp(){
-			
-		if(!empty($this->data)){
-			pr($this->data);exit;
-		}
-	}
 	function test(){
 	
 	}

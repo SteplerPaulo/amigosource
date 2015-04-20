@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'temp'));?>
+<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add'));?>
 <div class="container" ng-controller="PageController">
 <!--------------------BREADCRUMBS---------------------------->
 	<center class="page-header">
@@ -23,17 +23,17 @@
 		<!--------------------------STEP 1----------------------------->
 		<div class="row" ng-show="current_step_index === 0" id="Step-1">
 			<div class="col-lg-4 col-lg-offset-4">
-				<?php echo $this->Form->input('email',array('class'=>'form-control input-sm'));?><br/>
-				<?php echo $this->Form->input('password',array('type'=>'password','class'=>'form-control input-sm'));?><br/>
+				<?php echo $this->Form->input('email',array('class'=>'form-control input-sm'));?>
+				<?php echo $this->Form->input('password',array('type'=>'password','class'=>'form-control input-sm'));?>
 				<?php echo $this->Form->input('confirm_password',array('type'=>'password','class'=>'form-control input-sm'));?><br/>
 				
 				<label><b>I'm a</b></label>
 				<div class="form-group">
 					<label class="radio-inline">
-						<input type="radio" name="data[TemporaryRegistration][type]" value="Supplier" checked onclick="href('supplier')">Suppplier
+						<input type="radio" name="data[TemporaryRegistration][type]" value="Supplier" ng-model="type">Suppplier
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="data[TemporaryRegistration][type]" value="Buyer" onclick="href('buyer')">Buyer
+						<input type="radio" name="data[TemporaryRegistration][type]" value="Buyer" ng-model="type">Buyer
 					</label>
 				</div>
 			</div>
@@ -111,7 +111,7 @@
 						<div class="col-lg-4">
 							<label>Business Logo</label>
 							<div class="input-group">
-								<input type="text" class="form-control input-sm" name="data['TemporaryRegistration']['logo_path']"id="LogoPath">
+								<input type="text" class="form-control input-sm" name="data[TemporaryRegistration][logo_path]"id="LogoPath">
 								<span class="input-group-btn">
 									<button class="btn btn-default btn-sm" type="button" id="BrowseLogo">Browse</button>
 								</span>
@@ -146,13 +146,12 @@
 						</thead>
 						<tbody>
 							<tr>
-								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.description',array('class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
-								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
-								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('class'=>'form-control input-sm datepicker','data-date-format'=>'yyyy-mm-dd','div'=>false,'label'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.description',array('field'=>'description','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('field'=>'issuing_agency','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('field'=>'date_issued','class'=>'form-control input-sm datepicker','data-date-format'=>'yyyy-mm-dd','div'=>false,'label'=>false,'id'=>false))?></td>
 								<td class="text-center">
 									<a class="glyphicon glyphicon-plus-sign add-certificate" data-toggle="tooltip" title="Add Row"></a>  &nbsp;
-									<a class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Row"></a> &nbsp;
-									<a class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete Row"></a>
+									<a class="glyphicon glyphicon-trash delete-certificate" data-toggle="tooltip" title="Delete Row"></a>
 								</td>
 							</tr>
 						</tbody>
@@ -163,8 +162,8 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading">Profile</div>
 				<div class="panel-body">
+					<!--
 					<h4>Trade & Market</h4>
-					
 					<table class="table table-bordered table-hovered table-condensed">
 						<thead>
 							<tr>
@@ -192,7 +191,7 @@
 							</tr>
 						</tbody>
 					</table>
-					
+					-->
 					<h4>Factory Information</h4>
 					<div class="row">
 						<div class="col-lg-4">
@@ -260,7 +259,7 @@
 									<?php echo $this->Form->input('Pr.cost_currency',array('field'=>'cost_currency','options'=>$monetrayCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
 								</div>
 								<div class="col-lg-3">
-									<?php echo $this->Form->input('Pr.cost',array('field'=>'cost','class'=>'form-control input-sm','div'=>false))?>			
+									<?php echo $this->Form->input('Pr.cost',array('field'=>'cost','class'=>'form-control input-sm numeric monetary','div'=>false))?>			
 								</div>
 							</div>
 							<div class="row">
@@ -268,10 +267,10 @@
 									<?php echo $this->Form->input('Pr.unit_of_measure_code',array('field'=>'unit_of_measure_code','class'=>'form-control input-sm','div'=>false))?>
 								</div>
 								<div class="col-lg-3">
-									<?php echo $this->Form->input('Pr.qty_on_hand',array('field'=>'qty_on_hand','class'=>'form-control input-sm','div'=>false))?>			
+									<?php echo $this->Form->input('Pr.qty_on_hand',array('field'=>'qty_on_hand','class'=>'form-control input-sm numeric','div'=>false))?>			
 								</div>
 								<div class="col-lg-3">
-									<?php echo $this->Form->input('Pr.minimum_order_quantity',array('field'=>'minimum_order_quantity','label'=>'Min. Order Qty','class'=>'form-control input-sm','div'=>false))?>
+									<?php echo $this->Form->input('Pr.minimum_order_quantity',array('field'=>'minimum_order_quantity','label'=>'Min. Order Qty','class'=>'form-control input-sm numeric','div'=>false))?>
 								</div>
 							</div>
 							<div class="row">
@@ -395,3 +394,4 @@
 </div>
 
 <?php echo $this->Html->script('biz/registration/products',array('inline'=>false))?>
+<?php echo $this->Html->script('biz/registration/certifications',array('inline'=>false))?>

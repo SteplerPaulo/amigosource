@@ -144,3 +144,7 @@
 2015-04-16 13:43:20 Warning: Warning (2): unlink(C:\xampp\htdocs\amigosource\tmp\cache\persistent\cake_core_default_) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\cake\libs\file.php, line 298]
 2015-04-16 13:43:20 Warning: Warning (2): fopen(C:\xampp\htdocs\amigosource\tmp\cache\models\cake_model_default_productmods) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: No such file or directory in [C:\cake\libs\file.php, line 152]
 2015-04-16 13:43:20 Warning: Warning (2): unlink(C:\xampp\htdocs\amigosource\tmp\cache\models\cake_model_default_products) [<a href='http://php.net/function.unlink'>function.unlink</a>]: Permission denied in [C:\cake\libs\file.php, line 298]
+2015-04-20 02:52:29 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in [C:\cake\libs\view\helpers\html.php, line 414]
+2015-04-20 08:11:40 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in [C:\cake\libs\view\helpers\html.php, line 414]
+2015-04-20 08:11:47 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in [C:\cake\libs\view\helpers\html.php, line 414]
+2015-04-20 09:52:55 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\amigosource\views\temporary_registrations\index.ctp, line 43]

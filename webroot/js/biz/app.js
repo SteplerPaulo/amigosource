@@ -1,11 +1,12 @@
 var app = angular.module('app', []);
  
 app.controller('PageController', ['$scope', function($scope) {
-	$scope.page = steps;
+	$scope.page = supplier_steps;
 	$scope.current_step_index = 0;
 	$scope.previous_step_index = 0;
 	$scope.previous_step = null;
 	$scope.current_step = $scope.page.steps[$scope.current_step_index];
+	
 	$scope.isCurrent =  function(step){
 		return $scope.current_step_index === step;
 	}
@@ -25,7 +26,7 @@ app.controller('PageController', ['$scope', function($scope) {
 
 $(document).ready(function(){
 	$('#ConfirmRegistration').click(function(){
-		$('#TemporaryRegistrationTempForm').submit();
+		$('#TemporaryRegistrationAddForm').submit();
 	});
 
 	
