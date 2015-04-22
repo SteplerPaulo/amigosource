@@ -7,7 +7,8 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'amigosource_030615',
+		'encoding'=>'utf8',
+		'database' => 'amigosource_031115',
 	);
 }
 ?>
