@@ -4,7 +4,6 @@ class TemporaryRegistrationsController extends AppController {
 	var $name = 'TemporaryRegistrations';
 	var $uses = array('TemporaryRegistration','Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType');
 
-
 	function index() {
 		$this->TemporaryRegistration->recursive = 0;
 		$this->set('temporaryRegistrations', $this->paginate());
@@ -12,67 +11,66 @@ class TemporaryRegistrationsController extends AppController {
 
 	function view($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid tempory registration', true));
+			$this->Session->setFlash(__('Invalid temporary registration', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('TemporaryRegistration', $this->TemporaryRegistration->read(null, $id));
+		$this->set('temporaryRegistration', $this->TemporaryRegistration->read(null, $id));
 	}
 
 	function add() {
+		unset($this->data['Pr']);
+		pr($this->data);exit;
+	
 		
-			unset($this->data['Pr']);
-			pr($this->data);exit;
-	
-	
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
-			if ($this->TemporaryRegistration->saveAll($this->data)) {
-				$this->Session->setFlash(__('The tempory registration has been saved', true));
+			if ($this->TemporaryRegistration->save($this->data)) {
+				$this->Session->setFlash(__('The temporary registration has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tempory registration could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
 		}
 		$businessTypes = $this->TemporaryRegistration->BusinessType->find('list');
-		$currencies = $this->TemporaryRegistration->Currency->find('list');
-		$this->set(compact('businessTypes', 'currencies'));
+		$monetaryCurrencies = $this->TemporaryRegistration->MonetaryCurrency->find('list');
+		$this->set(compact('businessTypes', 'monetaryCurrencies'));
 	}
 
 	function edit($id = null) {
 		if (!$id && empty($this->data)) {
-			$this->Session->setFlash(__('Invalid tempory registration', true));
+			$this->Session->setFlash(__('Invalid temporary registration', true));
 			$this->redirect(array('action' => 'index'));
 		}
 		if (!empty($this->data)) {
 			if ($this->TemporaryRegistration->save($this->data)) {
-				$this->Session->setFlash(__('The tempory registration has been saved', true));
+				$this->Session->setFlash(__('The temporary registration has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The tempory registration could not be saved. Please, try again.', true));
+				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
 		}
 		if (empty($this->data)) {
 			$this->data = $this->TemporaryRegistration->read(null, $id);
 		}
 		$businessTypes = $this->TemporaryRegistration->BusinessType->find('list');
-		$currencies = $this->TemporaryRegistration->Currency->find('list');
-		$this->set(compact('businessTypes', 'currencies'));
+		$monetaryCurrencies = $this->TemporaryRegistration->MonetaryCurrency->find('list');
+		$this->set(compact('businessTypes', 'monetaryCurrencies'));
 	}
 
 	function delete($id = null) {
 		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for tempory registration', true));
+			$this->Session->setFlash(__('Invalid id for temporary registration', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->TemporaryRegistration->delete($id)) {
-			$this->Session->setFlash(__('Tempory registration deleted', true));
+			$this->Session->setFlash(__('Temporary registration deleted', true));
 			$this->redirect(array('action'=>'index'));
 		}
-		$this->Session->setFlash(__('Tempory registration was not deleted', true));
+		$this->Session->setFlash(__('Temporary registration was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
 	
-	function user(){
+		function user(){
 	
 	
 		//Step-2

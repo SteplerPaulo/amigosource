@@ -45,11 +45,4 @@ $(document).ready(function(){
 	$('#ProductLogoOpenFile').change(function(){
 		$('#ProductLogoPath').val($(this).val());
 	});
-	
-	//CERTIFICATES ADD NEW ROW
-	$('.add-certificate').on('click',function(){
-		$(this).parents('tr:first').clone().insertAfter('#CertificationsTable tr:last');
-
-	});
-	
 });

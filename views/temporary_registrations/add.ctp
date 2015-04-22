@@ -1,7 +1,7 @@
-<div class="temporyRegistrations form">
-<?php echo $this->Form->create('TemporyRegistration');?>
+<div class="temporaryRegistrations form">
+<?php echo $this->Form->create('TemporaryRegistration');?>
 	<fieldset>
-		<legend><?php __('Add Tempory Registration'); ?></legend>
+		<legend><?php __('Add Temporary Registration'); ?></legend>
 	<?php
 		echo $this->Form->input('email');
 		echo $this->Form->input('password');
@@ -26,7 +26,7 @@
 		echo $this->Form->input('website_address');
 		echo $this->Form->input('main_market');
 		echo $this->Form->input('main_costumer');
-		echo $this->Form->input('currency_id');
+		echo $this->Form->input('monetary_currency_id');
 		echo $this->Form->input('total_annual_sale');
 		echo $this->Form->input('export_percentage');
 		echo $this->Form->input('factory_location');
@@ -44,16 +44,16 @@
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Tempory Registrations', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Temporary Registrations', true), array('action' => 'index'));?></li>
 		<li><?php echo $this->Html->link(__('List Business Types', true), array('controller' => 'business_types', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Business Type', true), array('controller' => 'business_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Currencies', true), array('controller' => 'currencies', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Currency', true), array('controller' => 'currencies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Monetary Currencies', true), array('controller' => 'monetary_currencies', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Monetary Currency', true), array('controller' => 'monetary_currencies', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Temporary Registration Address Not Philippines', true), array('controller' => 'temporary_registration_address_not_philippines', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Temporary Registration Address Not Philippine', true), array('controller' => 'temporary_registration_address_not_philippines', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tempory Registration Certifications', true), array('controller' => 'tempory_registration_certifications', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tempory Registration Certification', true), array('controller' => 'tempory_registration_certifications', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tempory Registration Products', true), array('controller' => 'tempory_registration_products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tempory Registration Product', true), array('controller' => 'tempory_registration_products', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Temporary Registration Certifications', true), array('controller' => 'temporary_registration_certifications', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Temporary Registration Certification', true), array('controller' => 'temporary_registration_certifications', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Temporary Registration Products', true), array('controller' => 'temporary_registration_products', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Temporary Registration Product', true), array('controller' => 'temporary_registration_products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

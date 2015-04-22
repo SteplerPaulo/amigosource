@@ -34,8 +34,8 @@ class TemporaryRegistration extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'TemporyRegistrationCertification' => array(
-			'className' => 'TemporyRegistrationCertification',
+		'TemporaryRegistrationCertification' => array(
+			'className' => 'TemporaryRegistrationCertification',
 			'foreignKey' => 'temporary_registration_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -47,8 +47,8 @@ class TemporaryRegistration extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'TemporyRegistrationProduct' => array(
-			'className' => 'TemporyRegistrationProduct',
+		'TemporaryRegistrationProduct' => array(
+			'className' => 'TemporaryRegistrationProduct',
 			'foreignKey' => 'temporary_registration_id',
 			'dependent' => false,
 			'conditions' => '',

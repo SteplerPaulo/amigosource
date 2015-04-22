@@ -62,15 +62,6 @@ $(document).ready(function(){
 		$('#AddProductButton').text('Update');
 	});
 	
-	//VIEW PRODUCT HANDLER
-	$(document).on('click','.view-product',function(){
-		var row = $(this).parents('tr:first');
-		$('#ProductTable tr').removeClass('onEdit onSuccess');
-		$(row).addClass('onEdit');
-		populate_table_row_data(row);
-		$('#AddProductButton').text('Update');
-	});
-	
 	//GET PRODUCT FORM DATA
 	function get_product_form_data(){
 		var data = [];

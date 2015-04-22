@@ -1,5 +1,5 @@
-<div class="temporyRegistrations index">
-	<h2><?php __('Tempory Registrations');?></h2>
+<div class="temporaryRegistrations index">
+	<h2><?php __('Temporary Registrations');?></h2>
 	<table cellpadding="0" cellspacing="0">
 	<tr>
 			<th><?php echo $this->Paginator->sort('id');?></th>
@@ -26,7 +26,7 @@
 			<th><?php echo $this->Paginator->sort('website_address');?></th>
 			<th><?php echo $this->Paginator->sort('main_market');?></th>
 			<th><?php echo $this->Paginator->sort('main_costumer');?></th>
-			<th><?php echo $this->Paginator->sort('currency_id');?></th>
+			<th><?php echo $this->Paginator->sort('monetary_currency_id');?></th>
 			<th><?php echo $this->Paginator->sort('total_annual_sale');?></th>
 			<th><?php echo $this->Paginator->sort('export_percentage');?></th>
 			<th><?php echo $this->Paginator->sort('factory_location');?></th>
@@ -40,55 +40,55 @@
 	</tr>
 	<?php
 	$i = 0;
-	foreach ($temporyRegistrations as $temporyRegistration):
+	foreach ($temporaryRegistrations as $temporaryRegistration):
 		$class = null;
 		if ($i++ % 2 == 0) {
 			$class = ' class="altrow"';
 		}
 	?>
 	<tr<?php echo $class;?>>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['id']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['email']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['password']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['registration_type']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['registration_date']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_name']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['id']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['email']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['password']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['registration_type']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['registration_date']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_name']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($temporyRegistration['BusinessType']['name'], array('controller' => 'business_types', 'action' => 'view', $temporyRegistration['BusinessType']['id'])); ?>
+			<?php echo $this->Html->link($temporaryRegistration['BusinessType']['name'], array('controller' => 'business_types', 'action' => 'view', $temporaryRegistration['BusinessType']['id'])); ?>
 		</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_country']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_province']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_city']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_street_no']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['business_zipcode']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['contact_name']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['designation']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['landline_area_code']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['landline_no']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['mobile_area_code']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['mobile_no']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['fax_area_code']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['fax_no']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['logo']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['website_address']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['main_market']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['main_costumer']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_country']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_province']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_city']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_street_no']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['business_zipcode']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['contact_name']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['designation']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['landline_area_code']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['landline_no']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['mobile_area_code']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['mobile_no']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['fax_area_code']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['fax_no']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['logo']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['website_address']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['main_market']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['main_costumer']; ?>&nbsp;</td>
 		<td>
-			<?php echo $this->Html->link($temporyRegistration['Currency']['name'], array('controller' => 'currencies', 'action' => 'view', $temporyRegistration['Currency']['id'])); ?>
+			<?php echo $this->Html->link($temporaryRegistration['MonetaryCurrency']['id'], array('controller' => 'monetary_currencies', 'action' => 'view', $temporaryRegistration['MonetaryCurrency']['id'])); ?>
 		</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['total_annual_sale']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['export_percentage']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['factory_location']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['contract_manufacturing']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['production_line_count']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['r_and_d_staff_count']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['qc_staff_count']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['employee_count']; ?>&nbsp;</td>
-		<td><?php echo $temporyRegistration['TemporyRegistration']['pkey']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['total_annual_sale']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['export_percentage']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['factory_location']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['contract_manufacturing']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['production_line_count']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['r_and_d_staff_count']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['qc_staff_count']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['employee_count']; ?>&nbsp;</td>
+		<td><?php echo $temporaryRegistration['TemporaryRegistration']['pkey']; ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $temporyRegistration['TemporyRegistration']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $temporyRegistration['TemporyRegistration']['id'])); ?>
-			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $temporyRegistration['TemporyRegistration']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $temporyRegistration['TemporyRegistration']['id'])); ?>
+			<?php echo $this->Html->link(__('View', true), array('action' => 'view', $temporaryRegistration['TemporaryRegistration']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit', true), array('action' => 'edit', $temporaryRegistration['TemporaryRegistration']['id'])); ?>
+			<?php echo $this->Html->link(__('Delete', true), array('action' => 'delete', $temporaryRegistration['TemporaryRegistration']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $temporaryRegistration['TemporaryRegistration']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -110,16 +110,16 @@
 <div class="actions">
 	<h3><?php __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Tempory Registration', true), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Temporary Registration', true), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Business Types', true), array('controller' => 'business_types', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Business Type', true), array('controller' => 'business_types', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Currencies', true), array('controller' => 'currencies', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Currency', true), array('controller' => 'currencies', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Monetary Currencies', true), array('controller' => 'monetary_currencies', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Monetary Currency', true), array('controller' => 'monetary_currencies', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Temporary Registration Address Not Philippines', true), array('controller' => 'temporary_registration_address_not_philippines', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Temporary Registration Address Not Philippine', true), array('controller' => 'temporary_registration_address_not_philippines', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tempory Registration Certifications', true), array('controller' => 'tempory_registration_certifications', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tempory Registration Certification', true), array('controller' => 'tempory_registration_certifications', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Tempory Registration Products', true), array('controller' => 'tempory_registration_products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Tempory Registration Product', true), array('controller' => 'tempory_registration_products', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Temporary Registration Certifications', true), array('controller' => 'temporary_registration_certifications', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Temporary Registration Certification', true), array('controller' => 'temporary_registration_certifications', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Temporary Registration Products', true), array('controller' => 'temporary_registration_products', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Temporary Registration Product', true), array('controller' => 'temporary_registration_products', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

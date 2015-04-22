@@ -4,7 +4,7 @@ $(document).ready(function(){
 	//ADD NEW ROW
 	$(document).on('click','a.add-certificate',function(){
 		var row = $(this).parents('tr:first');
-		
+
 		if(validate_cetification_data(row)){  //VALIDATE ROW
 			row.clone().insertAfter('#CertificationsTable tr:last'); //CLONE ROW
 			row.find('input,select,textarea').attr('readonly','readonly'); //ADD READ ONLY ATTRIBUTE ON ROW INPUT ELEMENTS
