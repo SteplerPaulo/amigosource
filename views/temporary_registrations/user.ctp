@@ -31,10 +31,10 @@
 				<label><b>I'm a</b></label>
 				<div class="form-group">
 					<label class="radio-inline">
-						<input type="radio" name="data[TemporaryRegistration][registration_type]" value="Supplier" ng-model="type">Suppplier
+						<input type="radio" name="data[TemporaryRegistration][registration_type]" value="1" ng-model="type">Suppplier
 					</label>
 					<label class="radio-inline">
-						<input type="radio" name="data[TemporaryRegistration][registration_type]" value="Buyer" ng-model="type">Buyer
+						<input type="radio" name="data[TemporaryRegistration][registration_type]" value="2" ng-model="type">Buyer
 					</label>
 				</div>
 			</div>
@@ -85,22 +85,26 @@
 							<label for="landline">Landline</label>
 							<div class="input-group">
 								<span class="input-group-addon country-code"></span>
-								<input name="data[TemporaryRegistration][landline_no]" type="text" class="form-control input-sm" id="landline" placeholder="Area Code+Phone No.">
+								<input name="data[TemporaryRegistration][landline_no]" type="text" class="form-control input-sm numeric" id="landline" placeholder="Area Code+Phone No.">
 							</div>
 						</div>
 						<div class="col-lg-2">
 							<label for="mobile">Mobile</label>
 							<div class="input-group">
 								<span class="input-group-addon country-code"></span>
-								<input name="data[TemporaryRegistration][mobile_no]" type="text" class="form-control input-sm" id="mobile" placeholder="Mobile No.">
+								<input name="data[TemporaryRegistration][mobile_no]" type="text" class="form-control input-sm numeric" id="mobile" placeholder="Mobile No.">
+								
 							</div>
 						</div>
 						<div class="col-lg-2">
 							<label for="fax">Fax</label>
 							<div class="input-group">
 								<span class="input-group-addon country-code"></span>
-								<input name="data[TemporaryRegistration][fax_no]" type="text" class="form-control input-sm" id="fax" placeholder="Area Code+Fax No.">
+								<input name="data[TemporaryRegistration][fax_no]" type="text" class="form-control input-sm numeric" id="fax" placeholder="Area Code+Fax No.">
 							</div>
+							<input name="data[TemporaryRegistration][landline_area_code]" type="hidden" class="form-control input-sm country-code" placeholder="Area Code+Phone No.">
+							<input name="data[TemporaryRegistration][mobile_area_code]" type="hidden" class="form-control input-sm country-code"  placeholder="Mobile No.">
+							<input name="data[TemporaryRegistration][fax_area_code]" type="hidden" class="form-control input-sm country-code">							
 						</div>
 					</div>
 				</div>
@@ -233,7 +237,7 @@
 									<?php echo $this->Form->input('Pr.general_category_id',array('field'=>'general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm general-category','div'=>false))?>			
 								</div>
 								<div class="col-lg-6">
-									<?php echo $this->Form->input('Pr.classification_id',array('field'=>'classification','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false))?>
+									<?php echo $this->Form->input('Pr.classification_id',array('field'=>'classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false))?>
 								</div>
 							</div>
 							<div class="row">
@@ -257,7 +261,7 @@
 									<?php echo $this->Form->input('Pr.technical_description',array('field'=>'technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
 								</div>
 								<div class="col-lg-3">
-									<?php echo $this->Form->input('Pr.monetary_currency_id',array('Cost Currency','field'=>'monetary_currency_id','options'=>$monetrayCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
+									<?php echo $this->Form->input('Pr.monetary_currency_id',array('label'=>'Cost Currency','field'=>'monetary_currency_id','options'=>$monetrayCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
 								</div>
 								<div class="col-lg-3">
 									<?php echo $this->Form->input('Pr.cost',array('field'=>'cost','class'=>'form-control input-sm numeric monetary','div'=>false))?>			
@@ -326,7 +330,7 @@
 								</thead>
 								<tbody>
 									<tr style="display:none">
-										<td><?php echo $this->Form->input('TemporaryRegistrationProduct.name',array('field'=>'name','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+										<td><?php echo $this->Form->input('TemporaryRegistrationProduct.name',array('type'=>'text','field'=>'name','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 										<td><?php echo $this->Form->input('TemporaryRegistrationProduct.general_category_id',array('field'=>'general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 										<td><?php echo $this->Form->input('TemporaryRegistrationProduct.classification_id',array('field'=>'classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 										

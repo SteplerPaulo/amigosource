@@ -86,8 +86,11 @@ $(document).ready(function() {
 	}
 
 	function mobile_country_code(country_code){
-		if(country_code != undefined) $('.country-code').text('+'+country_code);
-		else $('.country-code').text('');
-	
+		if(country_code != undefined){
+			$('span.country-code').text('+'+country_code);
+			$('input.country-code').val('+'+country_code);
+		}else{
+			$('.country-code').text('');
+		}
 	}
 });

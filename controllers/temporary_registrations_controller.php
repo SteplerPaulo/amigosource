@@ -19,14 +19,13 @@ class TemporaryRegistrationsController extends AppController {
 
 	function add() {
 		unset($this->data['Pr']);
-		pr($this->data);exit;
 	
 		
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
-			if ($this->TemporaryRegistration->save($this->data)) {
+			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				$this->Session->setFlash(__('The temporary registration has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'user'));
 			} else {
 				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
@@ -95,6 +94,7 @@ class TemporaryRegistrationsController extends AppController {
 		
 		$cityAndMunicipalities = array();
 		foreach($this->CityAndMunicipalities->find('all') as $key=>$munc){
+				
 			$cityAndMunicipalities[$key]= array(
 									'value'=>$munc['CityAndMunicipalities']['name'],
 									'name'=>$munc['CityAndMunicipalities']['name'], 
@@ -102,7 +102,6 @@ class TemporaryRegistrationsController extends AppController {
 									//'style'=>'display:none;',
 								);
 		}
-		
 		$this->set(compact('countries','provinces','cityAndMunicipalities','businessTypes'));
 		
 		//Step 3
