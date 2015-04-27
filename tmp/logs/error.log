@@ -148,3 +148,7 @@
 2015-04-20 08:11:40 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in [C:\cake\libs\view\helpers\html.php, line 414]
 2015-04-20 08:11:47 Warning: Warning (2): array_merge() [<a href='http://php.net/function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in [C:\cake\libs\view\helpers\html.php, line 414]
 2015-04-20 09:52:55 Warning: Warning (2): Invalid argument supplied for foreach() in [C:\xampp\htdocs\amigosource\views\temporary_registrations\index.ctp, line 43]
+2015-04-27 03:46:03 Warning: Warning (2): date() expects parameter 2 to be long, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\index.ctp, line 25]
+2015-04-27 11:00:43 Warning: Warning (2): date() expects parameter 2 to be long, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]
+2015-04-27 11:03:03 Warning: Warning (2): date_format() expects parameter 1 to be DateTimeInterface, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]
+2015-04-27 11:03:50 Warning: Warning (2): date_format() expects parameter 1 to be DateTimeInterface, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]

@@ -56,15 +56,15 @@
 					<h4>Business Address</h4>
 					<div class="row">
 						<div class="col-lg-2">
-							<?php echo $this->Form->input('business_country',array('id'=>'CountryId','options'=>$countries,'empty'=>'Select','class'=>'form-control input-sm'));?>
+							<?php echo $this->Form->input('business_country',array('label'=>'Country','id'=>'CountryId','options'=>$countries,'empty'=>'Select','class'=>'form-control input-sm'));?>
 						</div>
 						<div class="col-lg-2">
-							<?php echo $this->Form->input('business_province',array('id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm'));?>
-							<?php echo $this->Form->input('business_province',array('id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm'));?>
+							<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm'));?>
+							<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm'));?>
 						</div>
 						<div class="col-lg-2">
-							<?php echo $this->Form->input('business_city',array('id'=>'CityAndMunicipalityText','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
-							<?php echo $this->Form->input('business_city',array('id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+							<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityText','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+							<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 						</div>
 						<div class="col-lg-5">
 							<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm','label'=>'No. & Street'));?>
@@ -153,7 +153,7 @@
 							<tr>
 								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.description',array('field'=>'description','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
 								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('field'=>'issuing_agency','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
-								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('field'=>'date_issued','type'=>'text','class'=>'form-control input-sm datepicker','div'=>false,'label'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('field'=>'date_issued','type'=>'text','class'=>'form-control input-sm datepicker','data-date-format'=>'yyyy-mm-dd','div'=>false,'label'=>false))?></td>
 								<td class="text-center">
 									<a class="glyphicon glyphicon-plus-sign add-certificate" data-toggle="tooltip" title="Add Row"></a>  &nbsp;
 									<a class="glyphicon glyphicon-trash delete-certificate" data-toggle="tooltip" title="Delete Row"></a>
@@ -200,7 +200,7 @@
 					<h4>Factory Information</h4>
 					<div class="row">
 						<div class="col-lg-4">
-							<?php echo $this->Form->input('factory_location',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm'));?>	
+							<?php echo $this->Form->input('factory_location',array('label'=>'Location','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm'));?>	
 						</div>
 						<div class="col-lg-4">
 							<?php echo $this->Form->input('contract_manufacturing',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm'));?>
@@ -224,7 +224,7 @@
 			</div>
 		</div>
 		
-		<!--------------------------STEP 4----------------------------->
+		<!--------------------------STEP 4
 		<div class="row" ng-show="current_step_index === 3" id="Step-4">			
 			<div class="panel panel-primary">
 				<div class="panel-heading">Products</div>
@@ -369,9 +369,10 @@
 				</div>
 			</div>
 		</div>
+		-->
 	
 		<!--------------------------STEP 5----------------------------->
-		<center class="row" ng-show="current_step_index === 4" id="Step-5">		
+		<center class="row" ng-show="current_step_index === 3" id="Step-4">		
 			<h5>Horay!You are one step away to complete our registration process.Please be advise that we will send you a confirmation message on the email address you provided... Oh, and don't forget to click send button to send your registration form to us.Thank you!</h5>
 			<h6>(This is a confirmation message example)</h6>
 		</center>
@@ -382,8 +383,8 @@
 	<center class="row">
 		<div class="col-lg-2 col-lg-offset-5">
 			<span class="pull-left"  ng-hide="current_step_index === 0"><h3><a style="text-decoration: none;" ng-click="backStep()" class="glyphicon glyphicon-backward"></a></h3>Prev</span>
-			<span class="pull-right" ng-hide="current_step_index === 4"><h3><a style="text-decoration: none;" ng-click="advanceStep($index)" class="glyphicon glyphicon-forward"></a></h3>Next</span>
-			<span class="pull-right" ng-show="current_step_index === 4"><h3><a style="text-decoration: none;" id="ConfirmRegistration" class="glyphicon glyphicon-send"></a></h3>Send Registration</span>
+			<span class="pull-right" ng-hide="current_step_index === 3"><h3><a style="text-decoration: none;" ng-click="advanceStep($index)" class="glyphicon glyphicon-forward"></a></h3>Next</span>
+			<span class="pull-right" ng-show="current_step_index === 3"><h3><a style="text-decoration: none;" id="ConfirmRegistration" class="glyphicon glyphicon-send"></a></h3>Send Registration</span>
 		</div>
 	</center>
 	<hr/>

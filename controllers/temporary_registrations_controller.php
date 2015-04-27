@@ -14,7 +14,7 @@ class TemporaryRegistrationsController extends AppController {
 			$this->Session->setFlash(__('Invalid temporary registration', true));
 			$this->redirect(array('action' => 'index'));
 		}
-		$this->set('temporaryRegistration', $this->TemporaryRegistration->read(null, $id));
+		$this->set('tempReg', $this->TemporaryRegistration->read(null, $id));
 	}
 
 	function add() {
@@ -25,7 +25,7 @@ class TemporaryRegistrationsController extends AppController {
 			$this->TemporaryRegistration->create();
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				$this->Session->setFlash(__('The temporary registration has been saved', true));
-				$this->redirect(array('action' => 'user'));
+				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
