@@ -174,6 +174,32 @@ class TemporaryRegistrationsController extends AppController {
 	}
 	
 	function test(){
-	
+		require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
+
+		$mail = new PHPMailer;
+
+		$mail->isSMTP();                                      // Set mailer to use SMTP
+		$mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$mail->Username = 'amigosource@gmail.com';                 // SMTP username
+		$mail->Password = '@mig0s0ource';                           // SMTP password
+		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port = 465;                                    // TCP port to connect to
+
+		//$mail->From = 'joeytdy@gmail.com';
+		$mail->FromName = 'Amigosource';
+		$mail->addAddress('paulobiscocho@gmail.com', 'To our valued costumer');     // Add a recipient
+
+		$mail->Subject = 'Here is the subject';
+		$mail->Body    ='to verify your account you need to visit this url: www.tssi-erb.com/amigosource/users/username/'.substr(md5(microtime()),rand(0,26),5);
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+		if(!$mail->send()) {
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+			echo 'Message has been sent';
+		}
+
 	}
 }
