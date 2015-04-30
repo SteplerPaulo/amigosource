@@ -12,6 +12,10 @@ var supplier_steps = {'steps':[
 		'icon':'glyphicon glyphicon-folder-close',
 	}},
 	{'step':{
+		'name':'Product Details',
+		'icon':'glyphicon glyphicon-shopping-cart',
+	}},
+	{'step':{
 		'name':'Confirmation',
 		'icon':'glyphicon glyphicon-thumbs-up',
 	}},

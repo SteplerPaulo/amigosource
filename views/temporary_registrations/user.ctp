@@ -224,7 +224,7 @@
 			</div>
 		</div>
 		
-		<!--------------------------STEP 4
+		<!--------------------------STEP 4----------------------------->
 		<div class="row" ng-show="current_step_index === 3" id="Step-4">			
 			<div class="panel panel-primary">
 				<div class="panel-heading">Products</div>
@@ -369,10 +369,9 @@
 				</div>
 			</div>
 		</div>
-		-->
 	
 		<!--------------------------STEP 5----------------------------->
-		<center class="row" ng-show="current_step_index === 3" id="Step-4">		
+		<center class="row" ng-show="current_step_index === 4" id="Step-5">		
 			<h5>Horay!You are one step away to complete our registration process.Please be advise that we will send you a confirmation message on the email address you provided... Oh, and don't forget to click send button to send your registration form to us.Thank you!</h5>
 			<h6>(This is a confirmation message example)</h6>
 		</center>
