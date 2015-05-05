@@ -1,16 +1,29 @@
 var app = angular.module('app', []);
  
 app.controller('PageController', ['$scope', function($scope) {
+
+	$scope.firstName = 1;
+	
 	$scope.page = supplier_steps;
+	$scope.registration_type = function(type) {
+		if(type=="Buyer") $scope.page = buyer_steps;
+
+		if(type=="Supplier") $scope.page = supplier_steps;
+	}; 
+
+	
 	$scope.current_step_index = 0;
 	$scope.previous_step_index = 0;
 	$scope.previous_step = null;
 	$scope.current_step = $scope.page.steps[$scope.current_step_index];
+		
 	
-	$scope.isCurrent =  function(step){
+	
+	$scope.isCurrent =  function(step){	
 		return $scope.current_step_index === step;
 	}
-	$scope.advanceStep = function(index) {	
+	
+	$scope.advanceStep = function(index) {
 		$scope.current_step_index ++;
 		$scope.current_step = $scope.page.steps[$scope.current_step_index];
 		$scope.previous_step_index = $scope.current_step_index-1;
