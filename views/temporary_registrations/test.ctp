@@ -1,33 +1,13 @@
-<div ng-controller="TestController">
-
-	First Name: <input type="text" ng-model="firstName"><br>
-	Last Name: <input type="text" ng-model="lastName"><br>
-	<br>
-	Full Name: {{firstName + " " + lastName}}
-
-	<br/><br/>
-	<label><b>I'm a</b></label>
-	<div class="form-group">
-		<label class="radio-inline">
-			<input type="radio" name="data[TemporaryRegistration][type]" value="Supplier"  ng-model="type">Suppplier
-		</label>
-		<label class="radio-inline">
-			<input type="radio" name="data[TemporaryRegistration][type]" value="Buyer"   ng-model="type">Buyer
-		</label>
-	</div>
-
+<div data-ng-controller="SupplierRegistrationController">
+	Name:
+	<br/>
+	<input type="text" data-ng-model="name"/>
+	<br/>
+	<ul>
+		<li data-ng-repeat="cust in customers | filter:name | orderBy:'city'">
+			{{cust.name}} - {{cust.city}}
+		</li>
+	</ul>
 </div>
 
-
-
-<script>
-var app = angular.module('app', []);
-app.controller('TestController', function($scope) {
-    $scope.firstName= "John";
-    $scope.lastName= "Doe";
-
-	$scope.type= "Supplier";
-	
-	console.log($scope.type);
-});
-</script>
+<?php echo $this->Html->script('ng-data/SupplierRegistrationController',array('inline'=>false))?>

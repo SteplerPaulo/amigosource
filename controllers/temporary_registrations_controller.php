@@ -69,7 +69,7 @@ class TemporaryRegistrationsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 	
-		function user(){
+	function user(){
 	
 	
 		//Step-2
@@ -174,7 +174,7 @@ class TemporaryRegistrationsController extends AppController {
 	}
 	
 	function test(){
-		require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
+		/* require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
 
 		$mail = new PHPMailer;
 
@@ -199,7 +199,7 @@ class TemporaryRegistrationsController extends AppController {
 			echo 'Mailer Error: ' . $mail->ErrorInfo;
 		} else {
 			echo 'Message has been sent';
-		}
+		} */
 
 	}
 }
