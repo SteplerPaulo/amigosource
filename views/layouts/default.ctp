@@ -28,6 +28,7 @@
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<?php
 		echo $this->Html->meta('icon',"/amigosource/img/amigosource.png", array('type' =>'icon'));
 		echo $this->Html->css('bootstrap');
@@ -47,6 +48,7 @@
 		echo $this->Html->script(array('ui/uiInputNumeric'));
 		//ANGULAR JS
 		echo $this->Html->script(array('angular'));	
+		echo $this->Html->script(array('angular-route'));	
 		echo $this->Html->script(array('biz/app'));
 		echo $this->Html->script(array('ng-data/user'));
 		echo $this->Html->script(array('plugins/wizard/wizard'));
@@ -54,13 +56,12 @@
 		
 	?>
 </head>
-<body ng-app="app">
+<body ng-app="amigosourceApp">
 	<div class="container-fluid">
 		<div id="a-Header" class="row">
 			<div  class="col-md-12">
 				<div class="row" style="padding-bottom: 5px;">
 					<span class="col-md-4 col-xs-12">
-						<!--How are you <a style="text-decoration: underline;">Dany Javid</a> ?-->
 						Welcome Guest!
 					</span>
 					<span  class="col-md-4 col-md-offset-4">
@@ -85,6 +86,4 @@
 			<?php echo $content_for_layout; ?>
 		</div>
 	</div>
-	<?php // echo $this->element('sql_dump'); 
-	?>
 </body>

@@ -83,6 +83,7 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		if ($page == 'home') $this->layout = 'homepage';
+		if ($page == 'about') $this->layout = 'angular';
 		
 		if ($page == 'product-details'){
 			//CATEGORIES

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row TmpRegElement" id="user-account">
 	<div class="col-lg-4 col-lg-offset-4">
 		<?php echo $this->Form->input('email',array('class'=>'form-control input-sm'));?>
 		<?php echo $this->Form->input('password',array('type'=>'password','class'=>'form-control input-sm'));?>

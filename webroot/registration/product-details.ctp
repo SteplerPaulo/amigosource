@@ -1,4 +1,4 @@
-<div class="row TmpRegElement" id="product-details">			
+<div class="row">			
 	<div class="panel panel-primary">
 		<div class="panel-heading">Products</div>
 		<div class="panel-body">
