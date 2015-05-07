@@ -19,8 +19,7 @@
 						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('field'=>'issuing_agency','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
 						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('field'=>'date_issued','type'=>'text','class'=>'form-control input-sm datepicker','data-date-format'=>'yyyy-mm-dd','div'=>false,'label'=>false))?></td>
 						<td class="text-center">
-							<a class="glyphicon glyphicon-plus-sign add-certificate" data-toggle="tooltip" title="Add Row"></a>  &nbsp;
-							<a class="glyphicon glyphicon-trash delete-certificate" data-toggle="tooltip" title="Delete Row"></a>
+							<a class="glyphicon glyphicon-plus-sign add-certificate" data-toggle="tooltip" title="Add Row"></a>
 						</td>
 					</tr>
 				</tbody>
@@ -72,13 +71,13 @@
 			</div><br/>
 			<div class="row">	
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('production_line_count',array('label'=>'No. of Production Line','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('production_line_count',array('label'=>'No. of Production Line','options'=>$noOf,'empty'=>'Select','class'=>'form-control input-sm'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('r_and_d_staff_count',array('label'=>'No Of R&D Staff','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('r_and_d_staff_count',array('label'=>'No Of R&D Staff','options'=>$noOf,'empty'=>'Select','class'=>'form-control input-sm'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('qc_staff_count',array('label'=>'No Of QC Staff','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('qc_staff_count',array('label'=>'No Of QC Staff','options'=>$noOf,'empty'=>'Select','class'=>'form-control input-sm'));?>
 				</div>
 				<div class="col-lg-2">
 					<?php echo $this->Form->input('employee_count',array('label'=>'No. of Employees','options'=>$noOfEmployees,'empty'=>'Select','class'=>'form-control input-sm'));?>

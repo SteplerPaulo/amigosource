@@ -10,7 +10,9 @@ $(document).ready(function(){
 			row.find('input,select,textarea').attr('readonly','readonly'); //ADD READ ONLY ATTRIBUTE ON ROW INPUT ELEMENTS
 			$('#CertificationsTable tr:last').find('.datepicker').datepicker(); //INIT NEW ROW DATEPICKER INPUT
 			$('#CertificationsTable tr:last').find('input,select,textarea').val(''); //EMPTY NEW ROW INPUT ELEMENTS
-			$(this).replaceWith('<a class="glyphicon glyphicon-edit edit-certificate" data-toggle="tooltip" title="Edit Row"></a>');//REPLACE ADD ICON HTML TAG
+			$(this).replaceWith('<a class="glyphicon glyphicon-edit edit-certificate" data-toggle="tooltip" title="Edit Row"></a> &nbsp; <a class="glyphicon glyphicon-trash delete-certificate" data-toggle="tooltip" title="" data-original-title="Delete Row"></a>');//REPLACE ADD ICON HTML TAG
+
+			
 			update_row_index();//UPDATE ROW INDEX
 			reinit_tooltip();	
 		}
