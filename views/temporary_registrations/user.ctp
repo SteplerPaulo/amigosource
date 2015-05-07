@@ -47,5 +47,6 @@
 
 </div>
 
+<?php echo $this->Html->script('biz/registration/user-account',array('inline'=>false))?>
 <?php echo $this->Html->script('biz/registration/products',array('inline'=>false))?>
 <?php echo $this->Html->script('biz/registration/certifications',array('inline'=>false))?>

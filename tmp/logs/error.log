@@ -152,3 +152,4 @@
 2015-04-27 11:00:43 Warning: Warning (2): date() expects parameter 2 to be long, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]
 2015-04-27 11:03:03 Warning: Warning (2): date_format() expects parameter 1 to be DateTimeInterface, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]
 2015-04-27 11:03:50 Warning: Warning (2): date_format() expects parameter 1 to be DateTimeInterface, string given in [C:\xampp\htdocs\amigosource\views\temporary_registrations\view.ctp, line 15]
+2015-05-07 05:16:38 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'User.email' in 'where clause'</span> in [C:\cake\libs\model\datasources\dbo_source.php, line 685]

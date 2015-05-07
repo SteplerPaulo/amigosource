@@ -2,7 +2,7 @@
 class TemporaryRegistrationsController extends AppController {
 
 	var $name = 'TemporaryRegistrations';
-	var $uses = array('TemporaryRegistration','Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType');
+	var $uses = array('TemporaryRegistration','Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType','User');
 
 	function index() {
 		$this->TemporaryRegistration->recursive = 0;
@@ -202,4 +202,30 @@ class TemporaryRegistrationsController extends AppController {
 		} */
 
 	}
+	
+	//Existing Email Validation
+	function existing_email_validation(){
+		if ($this->RequestHandler->isAjax()) {
+			if(!empty($this->data)){
+				$result1 = $this->TemporaryRegistration->find('count',array('conditions'=>array('TemporaryRegistration.email'=>$this->data['email'])));
+				$result2 = $this->User->find('count',array('conditions'=>array('User.email'=>$this->data['email'])));
+				
+				$response['result1']=$result1;
+				$response['result12']=$result1;
+				if($result1 || $result2){
+					$response['status']="ERROR";
+					$response['message']="Someone already use that email. Try another?";
+				}else{
+					$response['status']="OK";
+				}
+			}else{
+				$response['status']="ERROR";
+				$response['message']="Empty data.";
+			}
+		}
+		echo json_encode($response);
+		Configure::write('debug', 0);
+		exit;
+	}
+	
 }

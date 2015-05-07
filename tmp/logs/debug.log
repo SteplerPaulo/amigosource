@@ -257,3 +257,5 @@
 2015-05-05 11:47:21 Debug: Notice (8): Use of undefined constant step - assumed 'step' in [C:\xampp\htdocs\amigosource\views\temporary_registrations\user.ctp, line 28]
 2015-05-05 11:47:21 Debug: Notice (8): Use of undefined constant element - assumed 'element' in [C:\xampp\htdocs\amigosource\views\temporary_registrations\user.ctp, line 28]
 2015-05-05 11:51:57 Debug: Notice (8): Undefined variable: s in [C:\xampp\htdocs\amigosource\views\temporary_registrations\user.ctp, line 27]
+2015-05-07 04:52:38 Debug: Notice (8): Undefined property: TemporaryRegistrationsController::$RequestHandler in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 208]
+2015-05-07 05:14:59 Debug: Notice (8): Undefined property: TemporaryRegistrationsController::$RequestHandler in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 208]

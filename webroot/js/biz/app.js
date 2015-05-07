@@ -59,6 +59,21 @@ amigosourceApp.controller('TemporaryRegistrationController', ['$scope', function
 	}
 }]);
 
+//VALIDATE ROW CERTIFICATION DATA
+function validate(row){
+	var kill = 0;
+	$.each($(row).find('input:visible,select:visible,textarea:visible'),function(i,o){
+		if(!$(o).val().length){
+			kill = 1;
+			$(o).focus().parents('td:first').addClass('has-error');
+			return false;
+		}else $(o).parents('td:first').removeClass('has-error');
+	});
+		
+	if(kill != 1) return true;
+	else return false;
+}
+
 
 
 $(document).ready(function(){

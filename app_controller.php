@@ -31,6 +31,9 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {
+	public $components = array(
+		'RequestHandler',
+	);
 
 	/////////////////////////////////////////////////////////////
 	public function admin_switch($field = null, $id = null) {
