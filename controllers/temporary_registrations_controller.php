@@ -130,7 +130,19 @@ class TemporaryRegistrationsController extends AppController {
 									'50 – 75%'=>'50 – 75%',	
 									'>75%'=>'>75%',	
 								);
-			
+			$noOf = array(
+				'1-5'=>'1-5',
+				'6-10'=>'6-10',
+				'11-15'=>'11-15',
+				'16-20'=>'16-20',
+				'21-25'=>'21-25',
+				'26-30'=>'26-30',
+				'31-50'=>'31-50',
+				'51-100'=>'51-100',
+				'> 100'=>'> 100'
+			);
+
+
 			$noOfEmployees = array(
 						'1-25' =>'1 - 25',
 						'26-50' =>'26 - 50',
@@ -144,7 +156,7 @@ class TemporaryRegistrationsController extends AppController {
 						'> 10000' =>'> 10000',
 			);
 			
-		$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage'));
+		$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage','noOf'));
 		
 		//Step 4
 		$categories = $this->Category->find('threaded', array('recursive' => -1,'order' => array('Category.lft' => 'ASC')));
