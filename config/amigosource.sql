@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v9.10 
-MySQL - 5.6.16 : Database - amigosource_031115
+MySQL - 5.6.17 : Database - amigosource_031115
 *********************************************************************
 */
 
@@ -325,11 +325,11 @@ CREATE TABLE `temporary_registration_certifications` (
   `issuing_agency` varchar(50) DEFAULT NULL,
   `date_issued` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `temporary_registration_certifications` */
 
-insert  into `temporary_registration_certifications`(`id`,`temporary_registration_id`,`description`,`issuing_agency`,`date_issued`) values (1,1,'Description','IA 1','0000-00-00'),(2,1,'Description 2','IA 2','0000-00-00'),(3,2,'','','0000-00-00'),(4,3,'','','0000-00-00');
+insert  into `temporary_registration_certifications`(`id`,`temporary_registration_id`,`description`,`issuing_agency`,`date_issued`) values (1,1,'','','0000-00-00'),(2,2,'','','0000-00-00');
 
 /*Table structure for table `temporary_registration_products` */
 
@@ -395,17 +395,17 @@ CREATE TABLE `temporary_registrations` (
   `export_percentage` varchar(50) DEFAULT NULL,
   `factory_location` text,
   `contract_manufacturing` text,
-  `production_line_count` int(5) DEFAULT NULL,
-  `r_and_d_staff_count` int(7) DEFAULT NULL,
-  `qc_staff_count` int(7) DEFAULT NULL,
+  `production_line_count` varchar(50) DEFAULT NULL,
+  `r_and_d_staff_count` varchar(50) DEFAULT NULL,
+  `qc_staff_count` varchar(50) DEFAULT NULL,
   `employee_count` varchar(50) DEFAULT NULL,
   `pkey` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `temporary_registrations` */
 
-insert  into `temporary_registrations`(`id`,`email`,`password`,`registration_type`,`registration_date`,`business_name`,`business_type_id`,`business_country`,`business_province`,`business_city`,`business_street_no`,`business_zipcode`,`contact_name`,`designation`,`landline_area_code`,`landline_no`,`mobile_area_code`,`mobile_no`,`fax_area_code`,`fax_no`,`logo`,`website_address`,`main_market`,`main_costumer`,`monetary_currency_id`,`total_annual_sale`,`export_percentage`,`factory_location`,`contract_manufacturing`,`production_line_count`,`r_and_d_staff_count`,`qc_staff_count`,`employee_count`,`pkey`) values (1,'test@gmail.com','password',1,'2015-04-27 00:00:00','Business Name',2,'166','Batangas','Malvar ','#225 J. Leviste Street','4233','Contact name','Designation','+63','8888888','+63','88888','+63','8888',NULL,'website.com',NULL,NULL,NULL,NULL,NULL,'Location','Cm',9,8,7,'76-100',NULL),(2,'','',NULL,'2015-05-04 00:00:00','',NULL,'','','','','','','','','','','','','',NULL,'',NULL,NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,'',NULL),(3,'','',NULL,'2015-05-04 00:00:00','',NULL,'','','','','','','','','','','','','',NULL,'',NULL,NULL,NULL,NULL,NULL,'','',NULL,NULL,NULL,'',NULL);
+insert  into `temporary_registrations`(`id`,`email`,`password`,`registration_type`,`registration_date`,`business_name`,`business_type_id`,`business_country`,`business_province`,`business_city`,`business_street_no`,`business_zipcode`,`contact_name`,`designation`,`landline_area_code`,`landline_no`,`mobile_area_code`,`mobile_no`,`fax_area_code`,`fax_no`,`logo`,`website_address`,`main_market`,`main_costumer`,`monetary_currency_id`,`total_annual_sale`,`export_percentage`,`factory_location`,`contract_manufacturing`,`production_line_count`,`r_and_d_staff_count`,`qc_staff_count`,`employee_count`,`pkey`) values (1,'a','a',1,'2015-05-07 00:00:00','My Business',2,'166','Abra','Bucay ','Street','4233','','','+63','','+63','','+63','',NULL,'',NULL,NULL,NULL,NULL,NULL,'','','1-5','6-10','11-15','1-25',NULL),(2,'paulobiscocho@gmail.com','password',1,'2015-05-07 00:00:00','asdasd',2,'166','Biliran','Biliran ','asdasd','4574','','','+63','','+63','','+63','',NULL,'',NULL,NULL,NULL,NULL,NULL,'','','','','','',NULL);
 
 /*Table structure for table `users` */
 
@@ -416,6 +416,7 @@ CREATE TABLE `users` (
   `role` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `username` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `active` int(1) DEFAULT NULL,
   `created` datetime DEFAULT NULL,
@@ -425,7 +426,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`role`,`name`,`username`,`password`,`active`,`created`,`modified`) values (1,'admin','admin','admin','8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2011-09-26 00:34:07','2015-02-07 10:12:51'),(2,'customer','andras','andras','8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2013-10-29 16:58:16','2013-10-30 01:56:38');
+insert  into `users`(`id`,`role`,`name`,`username`,`email`,`password`,`active`,`created`,`modified`) values (1,'admin','admin','admin',NULL,'8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2011-09-26 00:34:07','2015-02-07 10:12:51'),(2,'customer','andras','andras',NULL,'8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2013-10-29 16:58:16','2013-10-30 01:56:38');
 
 /*Table structure for table `validated_users` */
 
