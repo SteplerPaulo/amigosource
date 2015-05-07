@@ -1,0 +1,1 @@
+Registration could not be sent. Try again later!

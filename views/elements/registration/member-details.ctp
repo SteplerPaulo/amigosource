@@ -4,30 +4,30 @@
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm required'));?>
 				</div>
 				<div class="col-lg-3">
-					<?php echo $this->Form->input('business_type_id',array('options'=>$businessTypes,'empty'=>'Select','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('business_type_id',array('options'=>$businessTypes,'empty'=>'Select','class'=>'form-control input-sm required'));?>
 				</div>
 			</div>
 			<h4>Business Address</h4>
 			<div class="row">
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('business_country',array('label'=>'Country','id'=>'CountryId','options'=>$countries,'empty'=>'Select','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('business_country',array('label'=>'Country','id'=>'CountryId','options'=>$countries,'empty'=>'Select','class'=>'form-control input-sm required'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm'));?>
-					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm required'));?>
+					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm required'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityText','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
-					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
+					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityText','class'=>'form-control input-sm required','label'=>'City/Municipality'));?>
+					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm required','label'=>'City/Municipality'));?>
 				</div>
 				<div class="col-lg-5">
-					<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm','label'=>'No. & Street'));?>
+					<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm required','label'=>'No. & Street'));?>
 				</div>
 				<div class="col-lg-1">
-					<?php echo $this->Form->input('business_zipcode',array('label'=>'Zipcode','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('business_zipcode',array('label'=>'Zipcode','class'=>'form-control input-sm numeric required'));?>
 				</div>
 			</div>
 			<h4>Contact</h4>

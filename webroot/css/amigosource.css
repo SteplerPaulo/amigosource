@@ -7,3 +7,21 @@ a{
 	border-bottom-style: solid;
 	padding-top: 10px;
 }
+a.glyphicon-forward ,a.glyphicon-send,a.glyphicon-backward {
+	text-decoration: none;
+}
+a.glyphicon-forward:hover, a.glyphicon-send:hover ,a.glyphicon-backward {
+	text-decoration: none;
+}
+
+.page-header {
+  padding-bottom: 5px;
+  margin: 0px 0 15px;
+ }
+
+ .disabled {
+  color: gray;
+}
+.disabled:hover {
+  color: gray;
+}

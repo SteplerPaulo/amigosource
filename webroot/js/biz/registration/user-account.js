@@ -1,8 +1,10 @@
 var BASE_URL ='/'+window.location.pathname.split('/')[1]+'/';
 $(document).ready(function(){
+	$('#Disable').click();
 
+	
 	//EMAIL EVENT HANDLER
-	$('#TemporaryRegistrationEmail').on('change',function(){
+	$('#TemporaryRegistrationEmail').on('blur',function(){
 		var email = $(this).val();
 		$.ajax({
 			url:BASE_URL+'temporary_registrations/existing_email_validation',
@@ -11,40 +13,35 @@ $(document).ready(function(){
 			type:'post',
 			beforeSend:function(){
 				$('#TemporaryRegistrationEmail').siblings('.help-inline').remove();
-				$('#TemporaryRegistrationEmail').parents('.control-group').removeClass('error');
-				$('#SubmitButton').attr('disabled','disabled');
+				if(!$('#Disable').is(":checked")) $('#Disable').click();
 			},
 			success:function(FormReturn){
-				console.log(FormReturn);
 				if(email.length){
 					if(FormReturn.status == "ERROR"){
 						$('#TemporaryRegistrationEmail').after('<span class="help-inline error">'+FormReturn.message+'</span>');
 						$('#TemporaryRegistrationEmail').select().focus();
+						return;
 					}
 				}
-				$('#SubmitButton').removeAttr('disabled');
 			}
 		}); 
 	});
 
 	
 	//PASSWORD VALIDATION EVENT HANDLER
-	$('#UserConfirmPassword,#UserPassword').on('change',function(){
-		$('#UserConfirmPassword').siblings('.help-inline').remove();
-		$('#UserConfirmPassword').parents('.control-group').removeClass('error');
-		
-		if($('#UserPassword').val().length){
-			if($('#UserPassword').val() != $('#UserConfirmPassword').val() && $('#UserConfirmPassword').val().length){
-				$('#UserConfirmPassword').after('<span class="help-inline">Password did not matched</span>');
-				$('#UserConfirmPassword').parents('.control-group').addClass('error');
-				$('#UserConfirmPassword').val('').focus();
+	$('#ConfirmPassword,#Password').on('change',function(){
+		$('#ConfirmPassword').siblings('.help-inline').remove();
+		if($('#Password').val().length){
+			if($('#Password').val() != $('#ConfirmPassword').val() && $('#ConfirmPassword').val().length){
+				$('#ConfirmPassword').after('<span class="help-inline error">Password did not matched</span>');
+				$('#ConfirmPassword').val('').focus();
 			}
 		}
 	});
 	
 	
 	//PASSWORD CAPSLOCK EVENT HANDLER
-	$('#UserPassword,#UserConfirmPassword').on('keypress',function(e){
+	$('#Password,#ConfirmPassword').on('keypress',function(e){
 		kc = e.keyCode?e.keyCode:e.which;
 		sk = e.shiftKey?e.shiftKey:((kc == 16)?true:false);
 
@@ -59,4 +56,36 @@ $(document).ready(function(){
 		$(this).popover('hide');
 	}).popover({content:'Caps Lock is on',placement:'bottom',trigger:'manual'});
 	
+		
+	//REQUIRED INPUT EVENT HANDLER
+	$(document).on('blur','input:visible,select:visible',function(){
+		var element = '#'+$('.current .element').text();
+		validate(element);
+	});
+	
+	//ADVANCE STEP EVENT HANDLER
+	$(document).on('click','.glyphicon-forward:not([disabled])',function(){
+		var element = '#'+$('.current .element').text();
+		validate(element);
+	
+	});
+
+
+
 });
+function validate(element){
+	
+	$.each($(element).find('.required:visible'),function(i,o){
+		if(!$(o).val().length){
+			$(o).parents('div:first').addClass('has-error');
+			if(!$('#Disable').is(":checked")) $('#Disable').click();
+			return false;
+
+		}else {	
+			$(o).parents('div:first').removeClass('has-error');
+			if($('#Disable').is(":checked")) $('#Disable').click();
+
+		}
+	});	
+	
+}

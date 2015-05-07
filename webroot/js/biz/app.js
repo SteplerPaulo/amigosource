@@ -1,12 +1,9 @@
 var amigosourceApp = angular.module('amigosourceApp',[]);
 
 amigosourceApp.controller('TemporaryRegistrationController', ['$scope', function($scope) {
-
-	$scope.current_element = 'user-account';
 	$scope.page = supplier_steps;
+	
 	$scope.registration_type = function(type) {
-		
-		
 		if(type=="Buyer") {
 			$('.toggle').attr('ng-show','current_step_index === 3');
 			$('.toggle').attr('ng-hide','current_step_index === 3');
@@ -35,7 +32,7 @@ amigosourceApp.controller('TemporaryRegistrationController', ['$scope', function
 		$scope.previous_step = $scope.page.steps[$scope.previous_step_index];
 			
 		//	
-		var element = '#'+$scope.page.steps[$scope.current_step_index].step.element;
+		element = '#'+$scope.page.steps[$scope.current_step_index].step.element;
 		$('.TmpRegElement').hide();
 		$(element).show();
 		
@@ -48,7 +45,7 @@ amigosourceApp.controller('TemporaryRegistrationController', ['$scope', function
 		$scope.current_step_index --;
 		$scope.current_step = $scope.page.steps[$scope.current_step_index];
 		
-		var element = '#'+$scope.page.steps[$scope.current_step_index].step.element;
+		element = '#'+$scope.page.steps[$scope.current_step_index].step.element;
 		$('.TmpRegElement').hide();
 		$(element).show();
 		
@@ -58,23 +55,6 @@ amigosourceApp.controller('TemporaryRegistrationController', ['$scope', function
 		}
 	}
 }]);
-
-//VALIDATE ROW CERTIFICATION DATA
-function validate(row){
-	var kill = 0;
-	$.each($(row).find('input:visible,select:visible,textarea:visible'),function(i,o){
-		if(!$(o).val().length){
-			kill = 1;
-			$(o).focus().parents('td:first').addClass('has-error');
-			return false;
-		}else $(o).parents('td:first').removeClass('has-error');
-	});
-		
-	if(kill != 1) return true;
-	else return false;
-}
-
-
 
 $(document).ready(function(){
 	$('.TmpRegElement').hide();

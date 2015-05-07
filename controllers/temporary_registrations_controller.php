@@ -24,8 +24,42 @@ class TemporaryRegistrationsController extends AppController {
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
-				$this->Session->setFlash(__('The temporary registration has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				
+					//Send Mail
+					require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
+
+					$mail = new PHPMailer;
+
+					$mail->isSMTP();                                      // Set mailer to use SMTP
+					$mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+					$mail->SMTPAuth = true;                               // Enable SMTP authentication
+					$mail->Username = 'amigosource@gmail.com';                 // SMTP username
+					$mail->Password = '@mig0s0ource';                           // SMTP password
+					$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+					$mail->Port = 465;                                    // TCP port to connect to
+
+					//$mail->From = 'joeytdy@gmail.com';
+					$mail->FromName = 'Amigosource';
+					$mail->addAddress($this->data['TemporaryRegistration']['email'], 'To our valued costumer');     // Add a recipient
+
+					$mail->Subject = 'Here is the subject';
+					$mail->Body    ="Here is the body";
+					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+					if(!$mail->send()) {
+						//echo 'Message could not be sent.';
+						//echo 'Mailer Error: ' . $mail->ErrorInfo;
+						$this->redirect(array('action' => 'error'));
+					} else {
+						//echo 'Message has been sent';
+						$this->redirect(array('action' => 'success'));
+					}
+							
+				
+				
+				
+				//$this->Session->setFlash(__('The temporary registration has been saved', true));
+				//$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
@@ -186,33 +220,7 @@ class TemporaryRegistrationsController extends AppController {
 	}
 	
 	function test(){
-		/* require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
-
-		$mail = new PHPMailer;
-
-		$mail->isSMTP();                                      // Set mailer to use SMTP
-		$mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-		$mail->SMTPAuth = true;                               // Enable SMTP authentication
-		$mail->Username = 'amigosource@gmail.com';                 // SMTP username
-		$mail->Password = '@mig0s0ource';                           // SMTP password
-		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-		$mail->Port = 465;                                    // TCP port to connect to
-
-		//$mail->From = 'joeytdy@gmail.com';
-		$mail->FromName = 'Amigosource';
-		$mail->addAddress('paulobiscocho@gmail.com', 'To our valued costumer');     // Add a recipient
-
-		$mail->Subject = 'Here is the subject';
-		$mail->Body    ='to verify your account you need to visit this url: www.tssi-erb.com/amigosource/users/username/'.substr(md5(microtime()),rand(0,26),5);
-		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-		if(!$mail->send()) {
-			echo 'Message could not be sent.';
-			echo 'Mailer Error: ' . $mail->ErrorInfo;
-		} else {
-			echo 'Message has been sent';
-		} */
-
+		
 	}
 	
 	//Existing Email Validation
@@ -238,6 +246,46 @@ class TemporaryRegistrationsController extends AppController {
 		echo json_encode($response);
 		Configure::write('debug', 0);
 		exit;
+	}
+	
+	function send_mail(){
+		require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
+
+		$mail = new PHPMailer;
+
+		$mail->isSMTP();                                      // Set mailer to use SMTP
+		$mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+		$mail->SMTPAuth = true;                               // Enable SMTP authentication
+		$mail->Username = 'amigosource@gmail.com';                 // SMTP username
+		$mail->Password = '@mig0s0ource';                           // SMTP password
+		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+		$mail->Port = 465;                                    // TCP port to connect to
+
+		//$mail->From = 'joeytdy@gmail.com';
+		$mail->FromName = 'Amigosource';
+		$mail->addAddress('paulobiscocho@gmail.com', 'To our valued costumer');     // Add a recipient
+
+		$mail->Subject = 'Here is the subject';
+		$mail->Body    ='to verify your account you need to visit this url: www.tssi-erb.com/amigosource/users/username/'.substr(md5(microtime()),rand(0,26),5);
+		$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+		if(!$mail->send()) {
+			echo 'Message could not be sent.';
+			echo 'Mailer Error: ' . $mail->ErrorInfo;
+		} else {
+			echo 'Message has been sent';
+		}
+
+		
+	}
+	
+	function success() {
+		
+		
+	}
+	function error() {
+		
+		
 	}
 	
 }
