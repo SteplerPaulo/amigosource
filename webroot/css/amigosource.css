@@ -25,3 +25,18 @@ a.glyphicon-forward:hover, a.glyphicon-send:hover ,a.glyphicon-backward {
 .disabled:hover {
   color: gray;
 }
+
+.required::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #a94442 !important;
+}
+.required:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #a94442 !important;
+   opacity:  1;
+}
+.required::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #a94442 !important;
+   opacity:  1;
+}
+.required:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #a94442 !important;
+}

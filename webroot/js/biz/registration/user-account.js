@@ -64,11 +64,13 @@ $(document).ready(function(){
 	});
 	
 	//ADVANCE STEP EVENT HANDLER
-	$(document).on('click','.glyphicon-forward:not([disabled])',function(){
+	//$(document).on('click','.glyphicon-forward:not([disabled])',function(){
+	$(document).on('click','.glyphicon-forward',function(){
 		var element = '#'+$('.current .element').text();
 		validate(element);
 	
 	});
+
 
 
 
@@ -77,11 +79,13 @@ function validate(element){
 	
 	$.each($(element).find('.required:visible'),function(i,o){
 		if(!$(o).val().length){
+			$(o).attr('placeholder','*Required');
 			$(o).parents('div:first').addClass('has-error');
 			if(!$('#Disable').is(":checked")) $('#Disable').click();
 			return false;
 
 		}else {	
+			$(o).removeAttr('placeholder');
 			$(o).parents('div:first').removeClass('has-error');
 			if($('#Disable').is(":checked")) $('#Disable').click();
 
