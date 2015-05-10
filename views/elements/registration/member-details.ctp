@@ -27,7 +27,7 @@
 					<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm required','label'=>'No. & Street'));?>
 				</div>
 				<div class="col-lg-1">
-					<?php echo $this->Form->input('business_zipcode',array('label'=>'Zipcode','class'=>'form-control input-sm numeric required'));?>
+					<?php echo $this->Form->input('business_zipcode',array('label'=>'Zipcode','class'=>'form-control input-sm numeric'));?>
 				</div>
 			</div>
 			<h4>Contact</h4>
