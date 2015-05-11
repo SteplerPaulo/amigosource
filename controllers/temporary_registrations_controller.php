@@ -229,9 +229,7 @@ class TemporaryRegistrationsController extends AppController {
 			if(!empty($this->data)){
 				$result1 = $this->TemporaryRegistration->find('count',array('conditions'=>array('TemporaryRegistration.email'=>$this->data['email'])));
 				$result2 = $this->User->find('count',array('conditions'=>array('User.email'=>$this->data['email'])));
-				
-				$response['result1']=$result1;
-				$response['result12']=$result1;
+
 				if($result1 || $result2){
 					$response['status']="ERROR";
 					$response['message']="Someone already use that email. Try another?";
