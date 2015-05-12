@@ -219,10 +219,6 @@ class TemporaryRegistrationsController extends AppController {
 	
 	}
 	
-	function test(){
-		
-	}
-	
 	//Existing Email Validation
 	function existing_email_validation(){
 		if ($this->RequestHandler->isAjax()) {
@@ -281,8 +277,13 @@ class TemporaryRegistrationsController extends AppController {
 		
 		
 	}
+	
 	function error() {
 		
+		
+	}
+	
+	function test(){
 		
 	}
 	

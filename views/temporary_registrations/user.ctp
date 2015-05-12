@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add'));?>
+<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add','id'=>'TemporaryRegistrationAddForm'));?>
 
 <div class="container" ng-controller="TemporaryRegistrationController">
 	<!--------------------BREADCRUMBS---------------------------->

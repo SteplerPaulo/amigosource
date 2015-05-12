@@ -52,6 +52,7 @@
 		echo $this->Html->script(array('biz/app'));
 		echo $this->Html->script(array('ng-data/user'));
 		echo $this->Html->script(array('plugins/wizard/wizard'));
+		echo $this->Html->script(array('securimage'));
 		echo $scripts_for_layout;
 		
 	?>

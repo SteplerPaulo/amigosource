@@ -40,3 +40,8 @@ a.glyphicon-forward:hover, a.glyphicon-send:hover ,a.glyphicon-backward {
 .required:-ms-input-placeholder { /* Internet Explorer 10+ */
    color:    #a94442 !important;
 }
+
+.captcha{
+	border: 1px solid #000;
+	margin-right: 15px
+}
