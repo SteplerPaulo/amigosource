@@ -19,8 +19,7 @@ class TemporaryRegistrationsController extends AppController {
 
 	function add() {
 		unset($this->data['Pr']);
-	
-		
+
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
@@ -47,19 +46,11 @@ class TemporaryRegistrationsController extends AppController {
 					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
 					if(!$mail->send()) {
-						//echo 'Message could not be sent.';
-						//echo 'Mailer Error: ' . $mail->ErrorInfo;
 						$this->redirect(array('action' => 'error'));
 					} else {
-						//echo 'Message has been sent';
 						$this->redirect(array('action' => 'success'));
 					}
 							
-				
-				
-				
-				//$this->Session->setFlash(__('The temporary registration has been saved', true));
-				//$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The temporary registration could not be saved. Please, try again.', true));
 			}
@@ -286,5 +277,26 @@ class TemporaryRegistrationsController extends AppController {
 	function test(){
 		
 	}
-	
+
+
+	function check_captcha(){
+		
+		
+		$captcha = $this->data['captcha'];
+		$securimage = new Securimage();
+		pr($securimage);
+		
+		if ($securimage->check($captcha) == false) {
+			$errors['error'] = 1;
+			$errors['message'] = 'Incorrect security code entered';
+			echo json_encode($errors);
+			exit;
+		}else{
+			$errors['error'] = 0;
+			$errors['message'] = 'Correct security code entered';
+			echo json_encode($errors);
+			exit;
+			
+		}
+	}
 }

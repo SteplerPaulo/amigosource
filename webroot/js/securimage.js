@@ -1,30 +1,31 @@
- $.noConflict();
+function reloadCaptcha(){
+	$('#siimage').prop('src', './securimage?sid=' + Math.random());
+}
 
-function reloadCaptcha()
-{
-	jQuery('#siimage').prop('src', './securimage?sid=' + Math.random());
+$(document).ready(function(){
 	
-}
-
-function processForm()
-{
-	console.log('amigosource/temporary_registrations/test');
-	jQuery.ajax({
-		url: '/amigosource/temporary_registrations/test',
-		type: 'POST',
-		data: jQuery('#contact_form').serialize(),
-		dataType: 'json',
-	}).done(function(data) {
-		console.log(data);
-		if (data.error === 0) {
-			jQuery('#success_message').show();
-			jQuery('#contact_form')[0].reset();
-			reloadCaptcha();
-			setTimeout("jQuery('#success_message').fadeOut()", 12000);
-		} else {
-			alert("There was an error with your submission.\n\n" + data.message);
-		}
+	$('#CaptchaButton').on('click',function(){
+		
+		var captcha = $(this).val();
+		
+		$.ajax({
+			url: '/amigosource/temporary_registrations/check_captcha',
+			type: 'POST',
+			data: $('#TemporaryRegistrationAddForm').serialize(),
+			data:{'data':{'captcha':captcha}},
+			dataType: 'json',
+			success:function(data){
+				console.log(data);
+				if (data.error === 0) {
+					$('#success_message').show();
+					reloadCaptcha();
+					setTimeout("$('#success_message').fadeOut()", 12000);
+				} else {
+					alert("There was an error with your submission.\n\n" + data.message);
+					$('#TemporaryRegistrationCaptcha').select().focus();
+				}
+			}
+		});	
 	});
-
-	return false;
-}
+	
+});

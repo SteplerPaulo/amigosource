@@ -1,10 +1,6 @@
 var BASE_URL ='/'+window.location.pathname.split('/')[1]+'/';
 $(document).ready(function(){
-	$('#Disable').click();
-
-	
-	
-	
+	$('#Disable').click();	
 	
 	//EMAIL EVENT HANDLER
 	$('#TemporaryRegistrationEmail').on('blur',function(){
@@ -82,8 +78,6 @@ $(document).ready(function(){
 		validate(element);
 	
 	});
-
-
 
 });
 function validate(element){

@@ -147,6 +147,7 @@ function Process()
 		
             $securimage = new Securimage();
 
+			pr($securimage->check($captcha) == false);exit;
             if ($securimage->check($captcha) == false) {
                 $errors['captcha_error'] = 'Incorrect security code entered';
             }
