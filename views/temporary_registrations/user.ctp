@@ -34,17 +34,14 @@
 
 <?php echo $this->Form->end();?>
 
+<?php echo $this->element("registration/modals");?>
 <div class="row hide">
 	<?php echo $this->Form->input('city_municipality_lists',array('id'=>'CityAndMunicipalityList','options'=>$cityAndMunicipalities,'empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
-	
 	<?php echo $this->Form->input('classification',array('options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm classification-category hide','div'=>false,'label'=>false))?>
-
 </div>
 
 	
 <?php 	
-	echo $this->Html->script(array('biz/registration/main'));
-	echo $this->Html->script(array('plugins/wizard/wizard'));
 	echo $this->Html->script('biz/registration/user-account',array('inline'=>false));
 	echo $this->Html->script('biz/registration/products',array('inline'=>false));
 	echo $this->Html->script('biz/registration/certifications',array('inline'=>false));

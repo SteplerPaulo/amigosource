@@ -129,10 +129,12 @@ $(document).ready(function(){
 			data:{'data':{'captcha':captcha}},
 			dataType: 'json',
 			success:function(data){
-				if (data.error === 0) {					
+				if (data.error === 0) {
+					$('#SendingLoader').modal();				
 					$('#TemporaryRegistrationAddForm').submit();
 				} else {
-					alert("There was an error with your submission.\n\n" + data.message);
+					//alert("There was an error with your submission.\n\n" + data.message);
+					$('#CaptchaError').modal();
 					$('#TemporaryRegistrationCaptcha').select().focus();
 				}
 			}

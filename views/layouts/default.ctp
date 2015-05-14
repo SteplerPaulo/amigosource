@@ -49,6 +49,9 @@
 		//ANGULAR JS
 		echo $this->Html->script(array('angular'));	
 		echo $this->Html->script(array('angular-route'));
+		
+		echo $this->Html->script(array('biz/registration/main'));
+		echo $this->Html->script(array('plugins/wizard/wizard'));
 		echo $scripts_for_layout;
 		
 	?>
