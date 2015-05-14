@@ -1,4 +1,4 @@
-	<div class="row TmpRegElement" id="certification-and-profile">
+<div class="row TmpRegElement" id="certification-and-profile">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
 			Certifications

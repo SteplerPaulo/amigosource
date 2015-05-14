@@ -292,3 +292,8 @@
 2015-05-13 15:08:54 Debug: Notice (8): Undefined index: TemporaryRegistration in [C:\wamp\www\amigosource\controllers\temporary_registrations_controller.php, line 285]
 2015-05-13 15:08:55 Debug: Notice (8): Undefined index: TemporaryRegistration in [C:\wamp\www\amigosource\controllers\temporary_registrations_controller.php, line 285]
 2015-05-13 15:40:26 Debug: Notice (8): Undefined variable: securimage in [C:\wamp\www\amigosource\controllers\temporary_registrations_controller.php, line 287]
+2015-05-13 17:37:44 Debug: Notice (8): Undefined variable: code in [C:\xampp\htdocs\amigosource\vendors\securimage\securimage.php, line 2015]
+2015-05-14 02:56:40 Debug: Notice (8): Undefined variable: errors in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 298]
+2015-05-14 02:56:40 Debug: Notice (8): Undefined variable: errors in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 299]
+2015-05-14 02:57:39 Debug: Notice (8): Undefined variable: errors in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 298]
+2015-05-14 02:57:39 Debug: Notice (8): Undefined variable: errors in [C:\xampp\htdocs\amigosource\controllers\temporary_registrations_controller.php, line 299]

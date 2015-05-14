@@ -141,6 +141,4 @@ $(document).ready(function(){
 	}
 
 	setTimeout(function(){$('#flashMessage').remove()}, 6000);
-	
-
 });

@@ -280,23 +280,23 @@ class TemporaryRegistrationsController extends AppController {
 
 
 	function check_captcha(){
-		
-		
-		$captcha = $this->data['captcha'];
-		$securimage = new Securimage();
-		pr($securimage);
-		
-		if ($securimage->check($captcha) == false) {
-			$errors['error'] = 1;
-			$errors['message'] = 'Incorrect security code entered';
-			echo json_encode($errors);
-			exit;
-		}else{
-			$errors['error'] = 0;
-			$errors['message'] = 'Correct security code entered';
-			echo json_encode($errors);
-			exit;
+	
+		if($this->RequestHandler->isAjax()){
+			$errors = array();
+								
+			$securimage = new Securimage();
+			if ($securimage->check($this->data['captcha']) == false) {
+				$errors['captcha_error'] = 'Incorrect security code entered';
+			}
 			
+			
+			if (sizeof($errors) == 0) {
+				$return = array('error' => 0, 'message' => 'OK');
+				die(json_encode($return));
+			} else {
+				$return = array('error' => 1, 'message' => $errors['captcha_error']);
+				die(json_encode($return));
+			}
 		}
 	}
 }

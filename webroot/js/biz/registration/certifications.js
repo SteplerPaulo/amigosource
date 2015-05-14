@@ -1,6 +1,4 @@
 $(document).ready(function(){
-
-
 	//ADD NEW ROW
 	$(document).on('click','a.add-certificate',function(){
 		var row = $(this).parents('tr:first');

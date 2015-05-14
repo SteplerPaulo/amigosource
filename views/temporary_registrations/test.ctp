@@ -46,7 +46,9 @@ Process();
     </object>
     &nbsp;
     
-	<a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = './securimage?sid=' + Math.random(); this.blur(); return false"><img src="../webroot/images/refresh.png" alt="Reload Image" height="32" width="32" onclick="this.blur()" align="bottom" border="0" /></a><br />
+	<a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = './securimage?sid=' + Math.random(); this.blur(); return false">
+		<img src="../webroot/images/refresh.png" alt="Reload Image" height="32" width="32" onclick="this.blur()" align="bottom" border="0" />
+	</a><br />
     
 	<strong>Enter Code*:</strong><br />
     <input type="text" name="ct_captcha" size="12" maxlength="8" />
@@ -146,9 +148,7 @@ function Process()
         if (sizeof($errors) == 0) {
 		
             $securimage = new Securimage();
-
-			pr($securimage->check($captcha) == false);exit;
-            if ($securimage->check($captcha) == false) {
+			if ($securimage->check($captcha) == false) {
                 $errors['captcha_error'] = 'Incorrect security code entered';
             }
         }

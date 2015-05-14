@@ -48,11 +48,7 @@
 		echo $this->Html->script(array('ui/uiInputNumeric'));
 		//ANGULAR JS
 		echo $this->Html->script(array('angular'));	
-		echo $this->Html->script(array('angular-route'));	
-		echo $this->Html->script(array('biz/app'));
-		echo $this->Html->script(array('ng-data/user'));
-		echo $this->Html->script(array('plugins/wizard/wizard'));
-		echo $this->Html->script(array('securimage'));
+		echo $this->Html->script(array('angular-route'));
 		echo $scripts_for_layout;
 		
 	?>

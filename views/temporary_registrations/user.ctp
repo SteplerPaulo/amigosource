@@ -26,7 +26,7 @@
 		<div class="col-lg-2 col-lg-offset-5">
 			<span class="pull-left"  ng-hide="current_step_index === 0"><h3><a ng-click="backStep()" class="glyphicon glyphicon-backward"></a></h3>Prev</span>
 			<span class="pull-right advanceStep"><h3><a ng-disabled='disabled' ng-class='{ disabled:disabled}' ng-click="disabled || advanceStep($index)" class="glyphicon glyphicon-forward"></a></h3>Next</span>
-			<span class="pull-right sendRegistration" ><h3><a id="ConfirmRegistration" class="glyphicon glyphicon-send"></a></h3>Send Registration</span>
+			<span class="pull-right sendRegistration" style="display:none;"><h3><a id="ConfirmRegistration" class="glyphicon glyphicon-send"></a></h3>Send Registration</span>
 		</div>
 	</center>
 	<hr/>
@@ -41,6 +41,11 @@
 
 </div>
 
-<?php echo $this->Html->script('biz/registration/user-account',array('inline'=>false))?>
-<?php echo $this->Html->script('biz/registration/products',array('inline'=>false))?>
-<?php echo $this->Html->script('biz/registration/certifications',array('inline'=>false))?>
+	
+<?php 	
+	echo $this->Html->script(array('biz/registration/main'));
+	echo $this->Html->script(array('plugins/wizard/wizard'));
+	echo $this->Html->script('biz/registration/user-account',array('inline'=>false));
+	echo $this->Html->script('biz/registration/products',array('inline'=>false));
+	echo $this->Html->script('biz/registration/certifications',array('inline'=>false));
+?>

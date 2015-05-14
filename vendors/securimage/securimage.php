@@ -468,7 +468,7 @@ class Securimage
      *
      * @var string
      */
-    public $database_driver = self::SI_DRIVER_SQLITE3;
+    public $database_driver = self::SI_DRIVER_MYSQL;
 
     /**
      * Database host to connect to when using mysql or postgres
@@ -2012,15 +2012,16 @@ class Securimage
      */
     protected function validate()
     {
-        if (!is_string($this->code) || strlen($this->code) == 0) {
-            $code = $this->getCode(true);
+		
+        if (!is_string($this->code) || strlen($this->code) == 0) {   
+			$code = $this->getCode(true);
             // returns stored code, or an empty string if no stored code was found
             // checks the session and database if enabled
         } else {
             $code = $this->code;
         }
 
-        if (is_array($code)) {
+		if (is_array($code)) {
             if (!empty($code)) {
                 $ctime = $code['time'];
                 $code  = $code['code'];
@@ -2036,7 +2037,7 @@ class Securimage
             // the code saved in the session has capitals so set case sensitive to true
             $this->case_sensitive = true;
         }
-
+		
         $code_entered = trim( (($this->case_sensitive) ? $this->code_entered
                                                        : strtolower($this->code_entered))
                         );
@@ -2117,7 +2118,7 @@ class Securimage
                 $err   = $stmt->errorInfo();
                 $error = "Failed to insert code into database. {$err[1]}: {$err[2]}.";
 
-                if ($this->database_driver == self::SI_DRIVER_SQLITE3) {
+                if ($this->database_driver == self::SI_DRIVER_MYSQL) {
                     $err14 = ($err[1] == 14);
                     if ($err14) $error .= sprintf(" Ensure database directory and file are writeable by user '%s' (%d).",
                                                    get_current_user(), getmyuid());
@@ -2151,7 +2152,7 @@ class Securimage
             }
         }
 
-        if ($this->database_driver == self::SI_DRIVER_SQLITE3) {
+        if ($this->database_driver == self::SI_DRIVER_MYSQL) {
             if (!file_exists($this->database_file)) {
                 $fp = fopen($this->database_file, 'w+');
                 if (!$fp) {
@@ -2210,7 +2211,7 @@ class Securimage
         $dsn = sprintf('%s:', $this->database_driver);
 
         switch($this->database_driver) {
-            case self::SI_DRIVER_SQLITE3:
+            case self::SI_DRIVER_MYSQL:
                 $dsn .= $this->database_file;
                 break;
 
@@ -2243,7 +2244,7 @@ class Securimage
         $table = $this->pdo_conn->quote($this->database_table);
 
         switch($this->database_driver) {
-            case self::SI_DRIVER_SQLITE3:
+            case self::SI_DRIVER_MYSQL:
                 // query row count for sqlite, PRAGMA queries seem to return no
                 // rowCount using PDO even if there are rows returned
                 $query = "SELECT COUNT(id) FROM $table";
@@ -2263,14 +2264,14 @@ class Securimage
         if (!$result) {
             $err = $this->pdo_conn->errorInfo();
 
-            if ($this->database_driver == self::SI_DRIVER_SQLITE3 &&
+            if ($this->database_driver == self::SI_DRIVER_MYSQL &&
                 $err[1] === 1 && strpos($err[2], 'no such table') !== false)
             {
                 return false;
             }
 
             throw new Exception("Failed to check tables: {$err[0]} - {$err[1]}: {$err[2]}");
-        } else if ($this->database_driver == self::SI_DRIVER_SQLITE3) {
+        } else if ($this->database_driver == self::SI_DRIVER_MYSQL) {
             // successful here regardless of row count for sqlite
             return true;
         } else if ($result->rowCount() == 0) {
@@ -2293,7 +2294,7 @@ class Securimage
         $queries = array();
 
         switch($this->database_driver) {
-            case self::SI_DRIVER_SQLITE3:
+            case self::SI_DRIVER_MYSQL:
                 $queries[] = "CREATE TABLE \"{$this->database_table}\" (
                                 id VARCHAR(40),
                                 namespace VARCHAR(32) NOT NULL,
