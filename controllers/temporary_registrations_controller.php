@@ -299,4 +299,8 @@ class TemporaryRegistrationsController extends AppController {
 			}
 		}
 	}
+	
+	function submit_loader(){
+	
+	}
 }
