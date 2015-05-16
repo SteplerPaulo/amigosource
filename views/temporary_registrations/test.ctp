@@ -1,187 +1,154 @@
+<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'test_file','id'=>'TemporaryRegistrationAddForm','enctype'=>'multipart/form-data'));?>
+<div class="row" id="product-details">			
+	<div class="panel panel-primary">
+		<div class="panel-heading">Products</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-lg-6" id="AddProductForm">
+					<center><h4><b>Add Product</b></h4></center>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.general_category_id',array('field'=>'general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm general-category','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.classification_id',array('field'=>'classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.name',array('field'=>'name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.details',array('field'=>'details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.standard_package',array('field'=>'standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.specification',array('field'=>'specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.technical_description',array('field'=>'technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.monetary_currency_id',array('label'=>'Cost Currency','field'=>'monetary_currency_id','options'=>$monetrayCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.cost',array('field'=>'cost','class'=>'form-control input-sm numeric monetary','div'=>false))?>			
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.unit_of_measure',array('field'=>'unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.stock_on_hand',array('field'=>'stock_on_hand','class'=>'form-control input-sm numeric','div'=>false))?>			
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.minimun_order',array('field'=>'minimun_order','label'=>'Min. Order Qty','class'=>'form-control input-sm numeric','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.payment_terms',array('field'=>'payment_terms','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.shipping_terms',array('field'=>'shipping_terms','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_name',array('field'=>'product_contact_name','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_no',array('field'=>'contact_no','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_email',array('field'=>'contact_email','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<label>Product Image</label>
+							<div class="input-group">
+								<input type="text" class="form-control input-sm" id="ProductLogoPath" name="data[Pr][image]" field="image">
+								<span class="input-group-btn">
+									<button class="btn btn-default btn-sm" type="button" id="BrowseProductLogoButton">Browse</button>
+								</span>
+							</div>
+							<input type="file" name="data[Pr][logo]" id="ProductLogoOpenFile" class="hide">
+						</div>
+					</div>
+					<hr/>
+					<div class="row text-right">
+						<div class="col-lg-5 col-lg-offset-7">
+							<button type="button" class="btn" id="ResetProductButton">Reset</button>
+							<button type="button" class="btn btn-primary" id="AddProductButton">Add</button>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<center><h4><b>Products Added</b></h4></center>
+					<table class="table table-bordered table-hovered table-condensed" id="ProductTable">
+						<thead>
+							<tr>
+								<th class="text-center">Add Image</th>
+								<th class="text-center">Name</th>
+								<th class="text-center">General Category</th>
+								<th class="text-center">Classification</th>
+								<th class="text-center">Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr style="display:">
+								<td class="text-center"><a class="glyphicon glyphicon-plus-sign" data-toggle="tooltip" title="Add Image"></a></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationProduct.name',array('type'=>'text','field'=>'name','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationProduct.general_category_id',array('field'=>'general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+								<td><?php echo $this->Form->input('TemporaryRegistrationProduct.classification_id',array('field'=>'classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
+								
+								<td class="hide">
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.details',array('field'=>'details','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.standard_package',array('field'=>'standard_package','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.specification',array('field'=>'specification','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.technical_description',array('field'=>'technical_description','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.monetary_currency_id',array('field'=>'monetary_currency_id','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.cost',array('field'=>'cost','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.unit_of_measure',array('field'=>'unit_of_measure','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.stock_on_hand',array('field'=>'stock_on_hand','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.minimun_order',array('field'=>'minimun_order','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.payment_terms',array('field'=>'payment_terms','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.shipping_terms',array('field'=>'shipping_terms','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.contact_name',array('field'=>'contact_name','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.contact_no',array('field'=>'contact_no','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.contact_email',array('field'=>'contact_email','label'=>false,'class'=>'form-control'));?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.image',array('field'=>'image','label'=>false,'class'=>'form-control'));?>
+								</td>
+								
+								<td class="text-center">
+									<a class="glyphicon glyphicon-edit view-product" data-toggle="tooltip" title="View||Edit Row"></a> &nbsp;
+									<a class="glyphicon glyphicon-trash delete-product" data-toggle="tooltip" title="Delete Row"></a>
+								</td>
+							</tr>
+						</tbody>
+						<tfoot>
+							<tr>
+								<td colspan="4">NO DATA AVAILABLE</td>
+							</tr>
+						</tfoot>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<?php
-
-$GLOBALS['ct_recipient']   = 'YOU@EXAMPLE.COM'; // Change to your email address!
-$GLOBALS['ct_msg_subject'] = 'Securimage Test Contact Form';
-
-$GLOBALS['DEBUG_MODE'] = 1;
-// CHANGE TO 0 TO TURN OFF DEBUG MODE
-// IN DEBUG MODE, ONLY THE CAPTCHA CODE IS VALIDATED, AND NO EMAIL IS SENT
-
-
-// Process the form, if it was submitted
-Process();
-
-?>
-
-<fieldset>
-<legend>Example Form</legend>
-
-
-
-<div id="success_message" style="display: none">Your message has been sent!<br />We will contact you as soon as possible.</div>
-
-<form method="post" action="" id="TemporaryRegistrationAddForm" onsubmit="return processForm()">
-  <input type="hidden" name="do" value="contact" />
-
-  <p>
-    <strong>Name*:</strong><br />
-    <input type="text" name="ct_name" size="35" value="" />
-  </p>
-
-  <p>
-    <strong>Email*:</strong><br />
-    <input type="text" name="ct_email" size="35" value="" />
-  </p>
-  <p>
-    <img id="siimage" src="./securimage?sid=<?php echo md5(uniqid()) ?>" alt="CAPTCHA Image" align="left" class="captcha"/>
-    
-	<object type="application/x-shockwave-flash" data="<?php echo $this->Html->url( '/webroot/securimage_play.swf?bgcol=#ffffff&amp;icon_file=/webroot/images/audio_icon.png&amp;audio_file=./securimage' ); ?>"  height="32" width="32">
-		
-		<param name="movie" value="<?php echo $this->Html->url( '/webroot/securimage_play.swf?bgcol=#ffffff&amp;icon_file=/webroot/images/audio_icon.png&amp;audio_file=./securimage' ); ?>" />
-    </object>
-	
-	  <object type="application/x-shockwave-flash" data="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" height="32" width="32">
-    <param name="movie" value="./securimage_play.swf?bgcol=#ffffff&amp;icon_file=./images/audio_icon.png&amp;audio_file=./securimage_play.php" />
-    </object>
-    &nbsp;
-    
-	<a tabindex="-1" style="border-style: none;" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = './securimage?sid=' + Math.random(); this.blur(); return false">
-		<img src="../webroot/images/refresh.png" alt="Reload Image" height="32" width="32" onclick="this.blur()" align="bottom" border="0" />
-	</a><br />
-    
-	<strong>Enter Code*:</strong><br />
-    <input type="text" name="ct_captcha" size="12" maxlength="8" />
-  </p>
-
-  <p>
-    <br />
-    <input type="submit" value="Submit Message" />
-  </p>
-	
-</form>
-</fieldset>
-
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
-    $.noConflict();
-
-    function reloadCaptcha()
-    {
-        jQuery('#siimage').prop('src', './securimage?sid=' + Math.random());
-		
-    }
-
-    function processForm()
-    {
-		console.log('amigosource/temporary_registrations/test');
-		jQuery.ajax({
-			url: '/amigosource/temporary_registrations/test',
-			type: 'POST',
-			data: jQuery('#TemporaryRegistrationAddForm').serialize(),
-			dataType: 'json',
-		}).done(function(data) {
-			console.log(data);
-			if (data.error === 0) {
-				jQuery('#success_message').show();
-				jQuery('#TemporaryRegistrationAddForm')[0].reset();
-				reloadCaptcha();
-				setTimeout("jQuery('#success_message').fadeOut()", 12000);
-			} else {
-				alert("There was an error with your submission.\n\n" + data.message);
-			}
-		});
-
-        return false;
-    }
-</script>
-
-<?php
-
-// The form processor PHP code
-function Process()
-{
-    if ($_SERVER['REQUEST_METHOD'] == 'POST' && @$_POST['do'] == 'contact') {
-        // if the form has been submitted
-
-        foreach($_POST as $key => $value) {
-            if (!is_array($key)) {
-                // sanitize the input data
-                if ($key != 'ct_message') $value = strip_tags($value);
-                $_POST[$key] = htmlspecialchars(stripslashes(trim($value)));
-            }
-        }
-
-        $name    = @$_POST['ct_name'];    // name from the form
-        $email   = @$_POST['ct_email'];   // email from the form
-        $URL     = @$_POST['ct_URL'];     // url from the form
-        $message = @$_POST['ct_message']; // the message from the form
-        $captcha = @$_POST['ct_captcha']; // the user's entry for the captcha code
-        $name    = substr($name, 0, 64);  // limit name to 64 characters
-
-        $errors = array();  // initialize empty error array
-
-        if (isset($GLOBALS['DEBUG_MODE']) && $GLOBALS['DEBUG_MODE'] == false) {
-            // only check for errors if the form is not in debug mode
-
-            if (strlen($name) < 3) {
-                // name too short, add error
-                $errors['name_error'] = 'Your name is required';
-            }
-
-            if (strlen($email) == 0) {
-                // no email address given
-                $errors['email_error'] = 'Email address is required';
-            } else if ( !preg_match('/^(?:[\w\d-]+\.?)+@(?:(?:[\w\d]\-?)+\.)+\w{2,4}$/i', $email)) {
-                // invalid email format
-                $errors['email_error'] = 'Email address entered is invalid';
-            }
-
-            if (strlen($message) < 20) {
-                // message length too short
-                $errors['message_error'] = 'Please enter a message';
-            }
-        }
-
-        // Only try to validate the captcha if the form has no errors
-        // This is especially important for ajax calls
-        if (sizeof($errors) == 0) {
-		
-            $securimage = new Securimage();
-			if ($securimage->check($captcha) == false) {
-                $errors['captcha_error'] = 'Incorrect security code entered';
-            }
-        }
-
-        if (sizeof($errors) == 0) {
-            // no errors, send the form
-            $time       = date('r');
-            $message = "A message was submitted from the contact form.  The following information was provided.<br /><br />"
-                     . "Name: $name<br />"
-                     . "Email: $email<br />"
-                     . "URL: $URL<br />"
-                     . "Message:<br />"
-                     . "<pre>$message</pre>"
-                     . "<br /><br />IP Address: {$_SERVER['REMOTE_ADDR']}<br />"
-                     . "Time: $time<br />"
-                     . "Browser: {$_SERVER['HTTP_USER_AGENT']}<br />";
-
-            if (isset($GLOBALS['DEBUG_MODE']) && $GLOBALS['DEBUG_MODE'] == false) {
-                // send the message with mail()
-                mail($GLOBALS['ct_recipient'], $GLOBALS['ct_msg_subject'], $message, "From: {$GLOBALS['ct_recipient']}\r\nReply-To: {$email}\r\nContent-type: text/html; charset=ISO-8859-1\r\nMIME-Version: 1.0");
-            }
-
-            $return = array('error' => 0, 'message' => 'OK');
-            die(json_encode($return));
-        } else {
-            $errmsg = '';
-            foreach($errors as $key => $error) {
-                // set up error messages to display with each field
-                $errmsg .= " - {$error}\n";
-            }
-
-            $return = array('error' => 1, 'message' => $errmsg);
-            die(json_encode($return));
-        }
-    } // POST
-} // function process_si_contact_form()
+<?php echo $this->Form->submit();?>
+<?php echo $this->Form->end();?>
+<div class="row hide">
+	<?php echo $this->Form->input('classification',array('options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm classification-category hide','div'=>false,'label'=>false))?>
+</div>
+<?php echo $this->Html->script('biz/registration/products',array('inline'=>false));?>
