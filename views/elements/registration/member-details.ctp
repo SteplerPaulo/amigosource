@@ -79,8 +79,8 @@
 						</span>
 					</div>
 				</div>
-				<div class="col=lg-2 hide">
-					<input type="file" name="data[TemporaryRegistration][logo]" id="BusinessLogo" class="btn btn-primary">
+				<div class="col-lg-2 hide">
+					<?php echo $form->input('logo', array('type' => 'file','id'=>'BusinessLogo'));?>
 				</div>
 				<div class="col-lg-4">
 					<?php echo $this->Form->input('website_address',array('label'=>'Website','class'=>'form-control input-sm'));?>

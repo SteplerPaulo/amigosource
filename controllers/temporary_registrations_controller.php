@@ -131,55 +131,55 @@ class TemporaryRegistrationsController extends AppController {
 		
 		//Step 3
 		$monetrayCurrencies = array();
-			foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
-				$monetrayCurrencies[$key]= array(
-										'value'=>$cur['MonetaryCurrency']['id'],
-										'name'=>$cur['MonetaryCurrency']['description'], 
-										'symbol'=>$cur['MonetaryCurrency']['symbol']
-									);
-			}
-			
-			$totalAnnualSalesVolume = array(
-				 '1-1,000,000'=>'1 - 1,000,000',		
-				 '1,000,001–5,000,000'=>'1,000,001 – 5,000,000',		
-				 '5,000,001–10,000,000'=>'5,000,001 – 10,000,000',		
-				 '10,000,001–50,000,000'=>'10,000,001 – 50,000,000',		
-				 '50,000,001–100,000,000'=>'50,000,001 – 100,000,000',		
-				 '100,000,001–500,000,000'=>'100,000,001 – 500,000,000',		
-				 '>500,000,001'=>'>500,000,001'		
-			);
-
-			$exportPercentage = array(
-									'10 – 25%'=>'10 – 25%',	
-									'25 – 50%'=>'25 – 50%',	
-									'50 – 75%'=>'50 – 75%',	
-									'>75%'=>'>75%',	
+		foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
+			$monetrayCurrencies[$key]= array(
+									'value'=>$cur['MonetaryCurrency']['id'],
+									'name'=>$cur['MonetaryCurrency']['description'], 
+									'symbol'=>$cur['MonetaryCurrency']['symbol']
 								);
-			$noOf = array(
-				'1-5'=>'1-5',
-				'6-10'=>'6-10',
-				'11-15'=>'11-15',
-				'16-20'=>'16-20',
-				'21-25'=>'21-25',
-				'26-30'=>'26-30',
-				'31-50'=>'31-50',
-				'51-100'=>'51-100',
-				'> 100'=>'> 100'
-			);
+		}
+			
+		$totalAnnualSalesVolume = array(
+			 '1-1,000,000'=>'1 - 1,000,000',		
+			 '1,000,001–5,000,000'=>'1,000,001 – 5,000,000',		
+			 '5,000,001–10,000,000'=>'5,000,001 – 10,000,000',		
+			 '10,000,001–50,000,000'=>'10,000,001 – 50,000,000',		
+			 '50,000,001–100,000,000'=>'50,000,001 – 100,000,000',		
+			 '100,000,001–500,000,000'=>'100,000,001 – 500,000,000',		
+			 '>500,000,001'=>'>500,000,001'		
+		);
+
+		$exportPercentage = array(
+								'10 – 25%'=>'10 – 25%',	
+								'25 – 50%'=>'25 – 50%',	
+								'50 – 75%'=>'50 – 75%',	
+								'>75%'=>'>75%',	
+							);
+		$noOf = array(
+			'1-5'=>'1-5',
+			'6-10'=>'6-10',
+			'11-15'=>'11-15',
+			'16-20'=>'16-20',
+			'21-25'=>'21-25',
+			'26-30'=>'26-30',
+			'31-50'=>'31-50',
+			'51-100'=>'51-100',
+			'> 100'=>'> 100'
+		);
 
 
-			$noOfEmployees = array(
-						'1-25' =>'1 - 25',
-						'26-50' =>'26 - 50',
-						'51-75' =>'51 - 75',
-						'76-100' =>'76 - 100',
-						'101–500'	=>'101 – 500',
-						'501–1000' =>'501 – 1000',
-						'1001–2000' =>'1001 – 2000',
-						'2001–5000' =>'2001 – 5000',
-						'5001–10000' =>'5001 – 10000',
-						'> 10000' =>'> 10000',
-			);
+		$noOfEmployees = array(
+					'1-25' =>'1 - 25',
+					'26-50' =>'26 - 50',
+					'51-75' =>'51 - 75',
+					'76-100' =>'76 - 100',
+					'101–500'	=>'101 – 500',
+					'501–1000' =>'501 – 1000',
+					'1001–2000' =>'1001 – 2000',
+					'2001–5000' =>'2001 – 5000',
+					'5001–10000' =>'5001 – 10000',
+					'> 10000' =>'> 10000',
+		);
 			
 		$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage','noOf'));
 		
@@ -273,11 +273,6 @@ class TemporaryRegistrationsController extends AppController {
 		
 		
 	}
-	
-	function test(){
-		
-	}
-
 
 	function check_captcha(){
 	
@@ -302,5 +297,49 @@ class TemporaryRegistrationsController extends AppController {
 	
 	function submit_loader(){
 	
+	}
+
+	function test(){
+		//Step 4
+		$categories = $this->Category->find('threaded', array('recursive' => -1,'order' => array('Category.lft' => 'ASC')));
+		
+		$child_index = 0;
+		$generalCategoristLists = array();
+		$classificationLists = array();
+		
+		foreach($categories  as $mainCategories){
+			//Add main category on the general category list
+			$generalCategoristLists[$mainCategories['Category']['id']]=$mainCategories['Category']['name'];
+		
+			foreach($mainCategories['children'] as $child){
+				//Add main category children on classification list
+				$classificationLists[$child_index]= array(
+									'value'=>$child['Category']['id'],
+									'name'=>$child['Category']['name'], 
+									'parent-id'=>$child['Category']['parent_id'],
+									//'style'=>'display:none;',
+								);
+				$child_index++;
+			}	
+		}
+		
+		$this->set(compact('generalCategoristLists','classificationLists'));
+		
+		
+		$monetrayCurrencies = array();
+		foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
+			$monetrayCurrencies[$key]= array(
+									'value'=>$cur['MonetaryCurrency']['id'],
+									'name'=>$cur['MonetaryCurrency']['description'], 
+									'symbol'=>$cur['MonetaryCurrency']['symbol']
+								);
+		}
+		$this->set(compact('generalCategoristLists','classificationLists','monetrayCurrencies'));
+		
+	}
+	
+	function test_file(){
+		pr($this->data);exit;
+		
 	}
 }
