@@ -25,7 +25,7 @@ class TemporaryRegistrationsController extends AppController {
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				
 					//Send Mail
-					require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
+					/* require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
 
 					$mail = new PHPMailer;
 
@@ -44,8 +44,28 @@ class TemporaryRegistrationsController extends AppController {
 					$mail->Subject = 'Here is the subject';
 					$mail->Body    ="Here is the body";
 					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+					*/
+					
+					$emailto = $this->data['TemporaryRegistration']['email'];
+					$toname = 'User';
+					$emailfrom = 'mail@tssi-erb.com';
+					$fromname = 'Amigosource';
+					$subject = 'Confirmation';
+					$messagebody = 'Here is the body'; 
 
-					if(!$mail->send()) {
+					$headers = 
+						'Return-Path: ' . $emailfrom . "\r\n" . 
+						'From: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" . 
+						'X-Priority: 3' . "\r\n" . 
+						'X-Mailer: PHP ' . phpversion() .  "\r\n" . 
+						'Reply-To: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" .
+						'MIME-Version: 1.0' . "\r\n" . 
+						'Content-Transfer-Encoding: 8bit' . "\r\n" . 
+						'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+					$params = '-f ' . $emailfrom;
+					$mail = mail($emailto, $subject, $messagebody, $headers, $params); //True or false
+					
+					if(!$mail) {
 						$this->redirect(array('action' => 'error'));
 					} else {
 						$this->redirect(array('action' => 'success'));
