@@ -368,4 +368,8 @@ Amigosource.com ';
 		pr($this->data);exit;
 		
 	}
+	
+	function file_upload(){
+		
+	}
 }

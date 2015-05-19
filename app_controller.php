@@ -30,12 +30,34 @@
  * @package       cake
  * @subpackage    cake.app
  */
-class AppController extends Controller {
+class AppController extends Controller {	
 	public $components = array(
 		'RequestHandler',
-		'Session',
-		'securimage'
-	);
+        'Session',
+		'securimage',
+		'Acl',
+		'Access',
+		'Auth' => array(
+            'loginRedirect' => array(
+                'controller' => 'users',
+                'action' => 'view'
+            ),
+            'logoutRedirect' => array(
+                'controller' => 'pages',
+                'action' => 'home'
+            ),
+			'authorize '=>'controller'
+        ), 
+    );
+	
+	
+	function beforeFilter() {
+		if ($this->params['controller'] == 'pages') {
+			$this->Auth->allow('*'); 
+			return;
+		}
+	}
+	
 
 	/////////////////////////////////////////////////////////////
 	public function admin_switch($field = null, $id = null) {
