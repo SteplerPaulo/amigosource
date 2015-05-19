@@ -8,7 +8,7 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => '',
 		'encoding'=>'utf8',
-		'database' => 'gosource_031115',
+		'database' => 'amigosource',
 	);
 }
 ?>
