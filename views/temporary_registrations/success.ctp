@@ -3,5 +3,5 @@
 and policies as stated in the Terms of Use, all applications are reviewed by the site administrator. You 
 will be advised on the status of your application within 7 days.</p>
 
-<center><i href="www.tssi-erb.com/amigosource">back</i></center>
+<center><a href="www.tssi-erb.com/amigosource">back</a></center>
 </html>
