@@ -52,6 +52,7 @@ class TemporaryRegistrationsController extends AppController {
 					$fromname = 'Amigosource';
 					$subject = 'Confirmation';
 					$messagebody = 'Dear '.$this->data['TemporaryRegistration']['contact_name'].',
+					
 Thank you for registering with Amigosource.com. To ensure that all applications conform with the rules and policies as stated in the Terms of Use, all applications are reviewed by the site administrator. You will be advised on the status of your application within 7 days.
 				
 Very truly yours,
