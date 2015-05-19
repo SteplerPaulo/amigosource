@@ -22,6 +22,7 @@ class TemporaryRegistrationsController extends AppController {
 
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
+			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				
 					//Send Mail
