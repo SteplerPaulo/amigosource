@@ -61,9 +61,8 @@
 		<div id="a-Header" class="row">
 			<div  class="col-md-12">
 				<div class="row" style="padding-bottom: 5px;">
-					<!--<span class="col-md-4 col-xs-12">
-						Welcome Guest!
-					</span>-->
+					<span class="col-md-4 col-xs-12">
+					</span>
 					<span  class="col-md-4 col-md-offset-4">
 						<a>Buyer</a> | <a>Seller</a> | <a>Help</a> | <a>About Us</a> | <a>Contact Us</a>
 					</span>
