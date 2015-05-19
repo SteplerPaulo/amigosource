@@ -88,15 +88,18 @@
 		</div>
 		
 		<hr/>
+	<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'approve','id'=>'TemporaryRegistrationApporveForm','type' => 'file'));?>
 		<!--COMMENT BOX-->
 		<div class="row">
 			<div class="col-lg-4">
 				<?php echo $this->Form->input('comment',array('label'=>'Comment:','rows'=>'4','type'=>'textbox','class'=>'form-control input-sm'));?>	
 			</div>
 		</div>
+	<?php echo $this->Form->end();?>
 	</div>
+	
 	<div class="panel-footer">
-		<button class="btn btn-primary">Approved</button>
+		<button class="btn btn-primary approve">Approved</button>
 		<div class=" pull-right">
 			<button class="btn btn-default">Cancel</button>
 			<button class="btn btn-default">Return</button>
@@ -104,3 +107,7 @@
 		</div>
 	</div>
 </div>
+<?php 	
+	echo $this->Html->script('biz/user-approval',array('inline'=>false));
+?>
+
