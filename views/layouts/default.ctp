@@ -62,6 +62,7 @@
 			<div  class="col-md-12">
 				<div class="row" style="padding-bottom: 5px;">
 					<span class="col-md-4 col-xs-12">
+						Welcome!
 					</span>
 					<span  class="col-md-4 col-md-offset-4">
 						<a>Buyer</a> | <a>Seller</a> | <a>Help</a> | <a>About Us</a> | <a>Contact Us</a>
