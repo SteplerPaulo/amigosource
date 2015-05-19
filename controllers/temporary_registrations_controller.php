@@ -51,13 +51,11 @@ class TemporaryRegistrationsController extends AppController {
 					$emailfrom = 'mail@tssi-erb.com';
 					$fromname = 'Amigosource';
 					$subject = 'Confirmation';
-					$messagebody = '<p>Dear Javid, Danilo Castillo, \n\n
-										Thank you for registering with Amigosource.com. To ensure that all applications conform with the rules 
-										and policies as stated in the Terms of Use, all applications are reviewed by the site administrator. You 
-										will be advised on the status of your application within 7 days. 
-										\n\n
-										Very truly yours,
-										Amigosource.com </p>'; 
+					$messagebody = 'Dear '.$this->data['TemporaryRegistration']['contact_name'].',
+Thank you for registering with Amigosource.com. To ensure that all applications conform with the rules and policies as stated in the Terms of Use, all applications are reviewed by the site administrator. You will be advised on the status of your application within 7 days.
+				
+Very truly yours,
+Amigosource.com '; 
 
 					$headers = 
 						'Return-Path: ' . $emailfrom . "\r\n" . 
