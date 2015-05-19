@@ -177,3 +177,51 @@
 2015-05-16 15:54:45 Warning: Warning (2): session_start() [<a href='http://php.net/function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\cake\libs\debugger.php:686) in [C:\wamp\www\amigosource\vendors\securimage\securimage.php, line 972]
 2015-05-16 15:54:46 Warning: Warning (512): MeioUploadBehavior Error: The field "image" doesn't exists in the model "TemporaryRegistration". in [C:\wamp\www\amigosource\models\behaviors\meio_upload.php, line 223]
 2015-05-16 15:54:46 Warning: Warning (2): session_start() [<a href='http://php.net/function.session-start'>function.session-start</a>]: Cannot send session cache limiter - headers already sent (output started at C:\cake\libs\debugger.php:686) in [C:\wamp\www\amigosource\vendors\securimage\securimage.php, line 972]
+2015-05-19 09:33:49 Warning: Warning (2): Creating default object from empty value in [C:\wamp\www\amigosource\controllers\users_controller.php, line 9]
+2015-05-19 09:34:02 Warning: Warning (2): Creating default object from empty value in [C:\wamp\www\amigosource\controllers\users_controller.php, line 9]
+2015-05-19 09:34:38 Warning: Warning (2): Creating default object from empty value in [C:\wamp\www\amigosource\controllers\users_controller.php, line 9]
+2015-05-19 09:37:03 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:41:44 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:42:50 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:42:55 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:43:04 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:43:34 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:43:37 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:43:39 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:43:46 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:44:39 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:44:48 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:53:45 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:54:24 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:54:38 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]
+2015-05-19 09:54:57 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: User::1
+Aco: User in [C:\cake\libs\controller\components\acl.php, line 273]

@@ -342,4 +342,8 @@ class TemporaryRegistrationsController extends AppController {
 		pr($this->data);exit;
 		
 	}
+	
+	function file_upload(){
+		
+	}
 }
