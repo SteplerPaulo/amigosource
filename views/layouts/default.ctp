@@ -49,11 +49,45 @@
 		//ANGULAR JS
 		echo $this->Html->script(array('angular'));	
 		echo $this->Html->script(array('angular-route'));
-		
+		//
 		echo $this->Html->script(array('biz/registration/main'));
 		echo $this->Html->script(array('plugins/wizard/wizard'));
-		echo $scripts_for_layout;
+	?>
+	<?php
+		//FILE UPLOAD CSS
+		echo $this->Html->css('blueimp-file-upload/style');
+		echo $this->Html->css('blueimp-gallery/blueimp-gallery.min');
+		echo $this->Html->css('blueimp-file-upload/jquery.fileupload');
+		echo $this->Html->css('blueimp-file-upload/jquery.fileupload-ui');
+		//FILE UPLOAD SCRIPT
+		echo $this->Html->script('blueimp-gallery/jquery.blueimp-gallery.min');
+		echo $this->Html->script('blueimp-file-upload/vendor/jquery.ui.widget');
+	?>
+	<!-- The Templates plugin is included to render the upload/download listings -->
+	<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+	<!-- The Load Image plugin is included for the preview images and image resizing functionality -->
+	<script src="//blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+	<!-- The Canvas to Blob plugin is included for image resizing functionality -->
+	<script src="//blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+	<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<!-- blueimp Gallery script -->
+	<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 		
+	<?php
+		echo $this->Html->script('blueimp-file-upload/jquery.iframe-transport');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-process');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-image');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-audio');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-video');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-validate');
+		echo $this->Html->script('blueimp-file-upload/jquery.fileupload-ui');
+		echo $this->Html->script('blueimp-file-upload/main');
+	?>
+	
+	<?php	
+		echo $scripts_for_layout;	
 	?>
 </head>
 <body ng-app="amigosourceApp">

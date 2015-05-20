@@ -372,4 +372,9 @@ Amigosource.com ';
 	function file_upload(){
 		
 	}
+	
+	function server() {
+
+	}
+
 }
