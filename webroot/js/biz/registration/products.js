@@ -19,7 +19,7 @@ $(document).ready(function(){
 					var row =$('#ProductTable tbody tr:last').index();
 				}
 			}	
-			
+			upload_file();
 			populate_product_form_data(data,row);//POPULATE PRODUCT FORM DATA
 			update_row_index();//UPDATE ROW INDEX
 			reset_product_form();//RESET STUDENT PRODUCT FORM 
@@ -138,7 +138,27 @@ $(document).ready(function(){
 	//RESET PRODUCT FORM
 	function reset_product_form(){
 		$('#AddProductForm').attr('table-row','').find('input,select,textarea').val('');
+		$("#ProductLogoPath").fileinput('reset');
 	}
 
+	//INITIALIZE FILEINPUT UPLOADER
+	$("#ProductLogoPath").fileinput({
+		uploadAsync :false,
+		showPreview: false,
+		showUpload: false,
+		uploadUrl: BASEURL+"pictures/add",
+		allowedFileExtensions: ["jpg", "png", "gif"],
+	}).on('filebatchuploadsuccess',function(event, data, previewId, index){
+		 var form = data.form, files = data.files, extra = data.extra, 
+			response = data.response, reader = data.reader;
+			//Image urls are available on response.imageUrls
+			console.log(files,response);
+	});
+	
+	//UPLOAD FILE
+	function upload_file(){
+		$("#ProductLogoPath").fileinput('upload');
+	}
+	
 	setTimeout(function(){$('#flashMessage').remove()}, 6000);
 });
