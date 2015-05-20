@@ -39,6 +39,7 @@
 		echo $this->Html->css('ss/ssMetrics');
 		echo $this->Html->css('datepicker');
 		echo $this->Html->css('plugins/wizard'); //Custom CSS
+		echo $this->Html->css('plugins/fileinput.min'); //Custom CSS
 		
 		echo $this->Html->script('jquery-1.11.0');
 		echo $this->Html->script('bootstrap');
@@ -51,7 +52,7 @@
 		echo $this->Html->script(array('angular-route'));
 		//
 		echo $this->Html->script(array('biz/registration/main'));
-		echo $this->Html->script(array('plugins/wizard/wizard'));
+		echo $this->Html->script(array('plugins/wizard/wizard','plugins/fileinput/fileinput.min'));
 	?>
 	<?php
 		//FILE UPLOAD CSS

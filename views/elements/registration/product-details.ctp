@@ -73,12 +73,16 @@
 						</div>
 						<div class="col-lg-6">
 							<label>Product Image</label>
+							<!-- use the name pictures[] to make multiple file upload easier to map on the controller-->
+							<input id="ProductLogoPath" type="file" name="pictures[]" multiple=true class="file-loading">
+							<!--
 							<div class="input-group">
 								<input type="text" class="form-control input-sm" id="ProductLogoPath" name="data[Pr][image]" field="image">
 								<span class="input-group-btn">
 									<button class="btn btn-default btn-sm" type="button" id="BrowseProductLogoButton">Browse</button>
 								</span>
 							</div>
+							-->
 							<input type="file" name="data[Pr][logo]" id="ProductLogoOpenFile" class="hide">
 						</div>
 					</div>
