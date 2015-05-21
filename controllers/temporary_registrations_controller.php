@@ -1,4 +1,7 @@
 <?php
+
+App::import('Vendor', 'UploadHandler', array('file' => 'file.upload/UploadHandler.php'));
+
 class TemporaryRegistrationsController extends AppController {
 
 	var $name = 'TemporaryRegistrations';
@@ -29,7 +32,7 @@ class TemporaryRegistrationsController extends AppController {
 
 		if (!empty($this->data)) {
 			
-			print_r($this->data);exit;
+			//print_r($this->data);exit;
 			
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
@@ -384,14 +387,23 @@ Amigosource.com ';
 	}
 	
 	function server() {
-		$this->TemporaryRegistration->create();
-		if ($this->TemporaryRegistration->saveAll($this->data)) {
-			echo json_encode($this->data);
-			exit;
-		}else{
-			
-			pr('wew');exit;
-		}
+		//$this->TemporaryRegistration->create();
+		//if ($this->TemporaryRegistration->saveAll($this->data)) {
+		//	echo json_encode($this->data);
+		//	exit;
+		//}else{
+		//	
+		//	pr('wew');exit;
+		//}
+		$this->layout = "ajax";
+		$options = array(
+            'upload_dir' => 'files/',        
+            'accept_file_types' => '/\.(gif|jpe?g|png)$/i',       
+            'upload_url' => 'http://localhost/amigosource/webroot/files/',
+		
+           );
+
+		$upload_handler = new UploadHandler($options);
 	}
 
 }

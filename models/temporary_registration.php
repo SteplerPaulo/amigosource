@@ -86,20 +86,6 @@ class TemporaryRegistration extends AppModel {
 				),
 				'default' => 'default.jpg'
 			)
-		),
-		'MeioUpload' => array(
-			'files' => array(
-				'dir' => 'img{DS}uploads{DS}images',
-				'create_directory' => false,
-				'allowed_mime' => array('image/jpeg', 'image/pjpeg', 'image/png'),
-				'allowed_ext' => array('.jpg', '.jpeg', '.png'),
-				'zoomCrop' => true,
-				'thumbsizes' => array(
-					'normal' => array('width' => 400, 'height' => 300),
-					'small' => array('width' => 80, 'height' => 80,'maxDimension' => '', 'thumbnailQuality' => 100, 'zoomCrop' => true),
-				),
-				'default' => 'default.jpg'
-			)
 		)
 	);
 
