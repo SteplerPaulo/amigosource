@@ -88,11 +88,15 @@
 		</div>
 		
 		<hr/>
-	<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'approve','id'=>'TemporaryRegistrationApporveForm','type' => 'file'));?>
+	<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'approve','id'=>'TemporaryRegistrationApproveForm'));?>
 		<!--COMMENT BOX-->
+		<?php 
+		$this-> data['User'] = $tempReg;
+		?>
 		<div class="row">
 			<div class="col-lg-4">
 				<?php echo $this->Form->input('comment',array('label'=>'Comment:','rows'=>'4','type'=>'textbox','class'=>'form-control input-sm'));?>	
+				<?php echo $this->Form->input('data',array('type'=>'hidden','label'=>'Comment:','rows'=>'4','value'=>json_encode($tempReg),'class'=>'form-control input-sm'));?>	
 			</div>
 		</div>
 	<?php echo $this->Form->end();?>

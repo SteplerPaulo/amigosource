@@ -375,16 +375,15 @@ Amigosource.com ';
 	}
 	
 	function test_file(){
-		pr($this->data);exit;
-		
 	}
 	
 	function file_upload(){
 		
 	}
 	
-	function server() {
-
+	function approve() {
+		pr(json_decode($this->data['TemporaryRegistration']['data']));
+		
 	}
 
 }
