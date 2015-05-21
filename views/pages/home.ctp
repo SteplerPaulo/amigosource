@@ -28,7 +28,7 @@
 				<center class="row">
 					<div class="col-lg-12">
 						<span class="btn btn-default"><a href="/amigosource/temporary_registrations/user">Register</a></span>
-						<span class="btn btn-default"><a href="/amigosource/pages/singin">Sign in</a></span>
+						<span class="btn btn-default"><a href="/amigosource/users/login">Sign in</a></span>
 					</div>
 				</center>
 			</div>
