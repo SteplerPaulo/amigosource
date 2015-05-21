@@ -29,7 +29,7 @@ class TemporaryRegistrationsController extends AppController {
 
 		if (!empty($this->data)) {
 			
-			//print_r($this->data);exit;
+			print_r($this->data);exit;
 			
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
@@ -383,7 +383,17 @@ Amigosource.com ';
 	
 	function approve() {
 		pr(json_decode($this->data['TemporaryRegistration']['data']));
-		
+	}
+	
+	function server() {
+		$this->TemporaryRegistration->create();
+		if ($this->TemporaryRegistration->saveAll($this->data)) {
+			echo json_encode($this->data);
+			exit;
+		}else{
+			
+			pr('wew');exit;
+		}
 	}
 
 }
