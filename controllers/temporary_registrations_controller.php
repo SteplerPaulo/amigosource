@@ -7,7 +7,7 @@ class TemporaryRegistrationsController extends AppController {
 	var $helpers = array('Access');
 	
 	function beforeFilter(){ 
-		$this->Auth->userModel = 'TemporaryRegistration'; 
+		$this->Auth->userModel = 'User'; 
 		$this->Auth->allow(array('user'));	
     } 
 
