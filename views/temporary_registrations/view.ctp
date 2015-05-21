@@ -91,7 +91,7 @@
 	<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'approve','id'=>'TemporaryRegistrationApproveForm'));?>
 		<!--COMMENT BOX-->
 		<?php 
-		$this-> data['User'] = $tempReg;
+		$this->data['User'] = json_encode($tempReg);
 		?>
 		<div class="row">
 			<div class="col-lg-4">
@@ -114,4 +114,3 @@
 <?php 	
 	echo $this->Html->script('biz/user-approval',array('inline'=>false));
 ?>
-

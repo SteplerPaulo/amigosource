@@ -26,13 +26,11 @@ class TemporaryRegistrationsController extends AppController {
 
 	function add() {
 		unset($this->data['Pr']);
-
+		$this->data['TemporaryRegistration']['logo']=json_encode($this->data['TemporaryRegistration']['logo']);
 		if (!empty($this->data)) {
 			
-			print_r($this->data);exit;
-			
 			$this->TemporaryRegistration->create();
-			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
+			$this->data['TemporaryRegistration']['password']=AuthComponent::password($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				
 					//Send Mail
@@ -382,7 +380,15 @@ Amigosource.com ';
 	}
 	
 	function approve() {
-		pr(json_decode($this->data['TemporaryRegistration']['data']));
+		$data = json_decode($this->data['TemporaryRegistration']['data'],true);
+		//pr($data);
+		$data['User']['id']='';
+		$data['User']['role']='';
+		$data['User']['name']=$data['TemporaryRegistration']['contact_name'];
+		$data['User']['username']=$data['TemporaryRegistration']['email'];
+		$data['User']['email']=$data['TemporaryRegistration']['email'];
+		$data['User']['password'] = $data['TemporaryRegistration']['password'];
+		$this->TemporaryRegistration->saveAll($ata['User']);
 	}
 	
 	function server() {
@@ -391,7 +397,6 @@ Amigosource.com ';
 			echo json_encode($this->data);
 			exit;
 		}else{
-			
 			pr('wew');exit;
 		}
 	}
