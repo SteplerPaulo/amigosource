@@ -6,6 +6,7 @@ $(document).ready(function(){
            url: BASE_URL+'temporary_registrations/approve',
            data: $("#TemporaryRegistrationApproveForm").serialize(), // serializes the form's elements.
            success: function(data){
+				alert('User has been approved!');
            }
          });
     });

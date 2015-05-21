@@ -389,8 +389,41 @@ Amigosource.com ';
 		$data['User']['email']=$data['TemporaryRegistration']['email'];
 		$data['User']['password'] = $data['TemporaryRegistration']['password'];
 		if($this->User->saveAll($data['User'])){
-			echo json_encode($this->data);
-			exit;
+			
+				
+			$emailto = $this->data['TemporaryRegistration']['email'];
+					$toname = 'User';
+					$emailfrom = 'mail@tssi-erb.com';
+					$fromname = 'Amigosource';
+					$subject = 'Confirmation';
+					$messagebody = 'Dear '.$this->data['TemporaryRegistration']['contact_name'].',
+					
+	Thank you for registering with amigosource.com. Your application has been approved. You may start using amigosource.com with your user name dannyjavid@yahoo.com.  In order to help you reach more suppliers and / or buyers, please send an email to marketing@amigosource.com, our customer representatives will be on hand to assist.
+
+Very truly yours,
+
+Amigosource.com'; 
+
+					$headers = 
+						'Return-Path: ' . $emailfrom . "\r\n" . 
+						'From: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" . 
+						'X-Priority: 3' . "\r\n" . 
+						'X-Mailer: PHP ' . phpversion() .  "\r\n" . 
+						'Reply-To: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" .
+						'MIME-Version: 1.0' . "\r\n" . 
+						'Content-Transfer-Encoding: 8bit' . "\r\n" . 
+						'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+					$params = '-f ' . $emailfrom;
+					$mail = mail($emailto, $subject, $messagebody, $headers, $params); //True or false
+					
+					/*if(!$mail) {
+						$this->redirect(array('action' => 'error'));
+					} else {
+						$this->redirect(array('action' => 'success'));
+					}*/
+					
+					echo json_encode($this->data);
+					exit();
 		}else{
 			pr('error');
 		}
