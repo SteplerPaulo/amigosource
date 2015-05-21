@@ -16,6 +16,63 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`amigosource_031115` /*!40100 DEFAULT CH
 
 USE `amigosource_031115`;
 
+/*Table structure for table `acos` */
+
+DROP TABLE IF EXISTS `acos`;
+
+CREATE TABLE `acos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `acos` */
+
+insert  into `acos`(`id`,`parent_id`,`model`,`foreign_key`,`alias`,`lft`,`rght`) values (1,NULL,'User',NULL,'User',1,2);
+
+/*Table structure for table `aros` */
+
+DROP TABLE IF EXISTS `aros`;
+
+CREATE TABLE `aros` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(10) DEFAULT NULL,
+  `model` varchar(255) DEFAULT '',
+  `foreign_key` int(10) unsigned DEFAULT NULL,
+  `alias` varchar(255) DEFAULT '',
+  `lft` int(10) DEFAULT NULL,
+  `rght` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `aros` */
+
+insert  into `aros`(`id`,`parent_id`,`model`,`foreign_key`,`alias`,`lft`,`rght`) values (1,NULL,'User',NULL,'Super',1,4),(2,NULL,'User',NULL,'Admin',5,6),(3,NULL,'User',NULL,'User',7,8),(4,1,'User',1,'User::1',2,3);
+
+/*Table structure for table `aros_acos` */
+
+DROP TABLE IF EXISTS `aros_acos`;
+
+CREATE TABLE `aros_acos` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `aro_id` int(10) unsigned NOT NULL,
+  `aco_id` int(10) unsigned NOT NULL,
+  `_create` char(2) NOT NULL DEFAULT '0',
+  `_read` char(2) NOT NULL DEFAULT '0',
+  `_update` char(2) NOT NULL DEFAULT '0',
+  `_delete` char(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `aros_acos` */
+
+insert  into `aros_acos`(`id`,`aro_id`,`aco_id`,`_create`,`_read`,`_update`,`_delete`) values (1,1,1,'1','1','1','1');
+
 /*Table structure for table `brands` */
 
 DROP TABLE IF EXISTS `brands`;
@@ -126,6 +183,24 @@ CREATE TABLE `countries` (
 /*Data for the table `countries` */
 
 insert  into `countries`(`id`,`name`,`iso`,`country_code`,`is_active`,`seq_order`) values (1,'Afghanistan','AFG',93,0,2),(2,'Albania','ALB',355,0,3),(3,'Algeria','DZA',213,0,4),(4,'American Samoa','ASM',1,0,5),(5,'Andorra','AND',376,0,6),(6,'Angola','AGO',244,0,7),(7,'Anguilla','AIA',1,0,8),(8,'Antarctica','ATA',672,0,9),(9,'Antigua and Barbuda','ATG',1,0,10),(10,'Argentina','ARG',54,0,11),(11,'Armenia','ARM',374,0,12),(12,'Aruba','ABW',297,0,13),(13,'Australia','AUS',61,0,14),(14,'Austria','AUT',43,0,15),(15,'Azerbaijan','AZE',994,0,16),(16,'Bahamas','BHS',1,0,17),(17,'Bahrain','BHR',973,0,18),(18,'Bangladesh','BGD',880,0,19),(19,'Barbados','BRB',1,0,20),(20,'Belarus','BLR',375,0,21),(21,'Belgium','BEL',32,0,22),(22,'Belize','BLZ',501,0,23),(23,'Benin','BEN',229,0,24),(24,'Bermuda','BMU',1,0,25),(25,'Bhutan','BTN',975,0,26),(26,'Bolivia','BOL',591,0,27),(27,'Bosnia and Herzegovina','BIH',387,0,28),(28,'Botswana','BWA',267,0,29),(29,'Brazil','BRA',55,0,30),(30,'British Indian Ocean Territory','IOT',NULL,0,31),(31,'British Virgin Islands','VGB',1,0,32),(32,'Brunei','BRN',673,0,33),(33,'Bulgaria','BGR',359,0,34),(34,'Burkina Faso','BFA',226,0,35),(35,'Burma (Myanmar)','MMR',95,0,36),(36,'Burundi','BDI',257,0,37),(37,'Cambodia','KHM',855,0,38),(38,'Cameroon','CMR',237,0,39),(39,'Canada','CAN',1,0,40),(40,'Cape Verde','CPV',238,0,41),(41,'Cayman Islands','CYM',1,0,42),(42,'Central African Republic','CAF',236,0,43),(43,'Chad','TCD',235,0,44),(44,'Chile','CHL',56,0,45),(45,'China','CHN',86,0,46),(46,'Christmas Island','CXR',61,0,47),(47,'Cocos (Keeling) Islands','CCK',61,0,48),(48,'Colombia','COL',57,0,49),(49,'Comoros','COM',269,0,50),(50,'Cook Islands','COK',682,0,51),(51,'Costa Rica','CRC',506,0,52),(52,'Croatia','HRV',385,0,53),(53,'Cuba','CUB',53,0,54),(54,'Cyprus','CYP',357,0,55),(55,'Czech Republic','CZE',420,0,56),(56,'Democratic Republic of the Congo','COD',243,0,57),(57,'Denmark','DNK',45,0,58),(58,'Djibouti','DJI',253,0,59),(59,'Dominica','DMA',1,0,60),(60,'Dominican Republic','DOM',1,0,61),(61,'Ecuador','ECU',593,0,62),(62,'Egypt','EGY',20,0,63),(63,'El Salvador','SLV',503,0,64),(64,'Equatorial Guinea','GNQ',240,0,65),(65,'Eritrea','ERI',291,0,66),(66,'Estonia','EST',372,0,67),(67,'Ethiopia','ETH',251,0,68),(68,'Falkland Islands','FLK',500,0,69),(69,'Faroe Islands','FRO',298,0,70),(70,'Fiji','FJI',679,0,71),(71,'Finland','FIN',358,0,72),(72,'France','FRA',33,0,73),(73,'French Polynesia','PYF',689,0,74),(74,'Gabon','GAB',241,0,75),(75,'Gambia','GMB',220,0,76),(76,'Gaza Strip','GS+',970,0,77),(77,'Georgia','GEO',995,0,78),(78,'Germany','DEU',49,0,79),(79,'Ghana','GHA',233,0,80),(80,'Gibraltar','GIB',350,0,81),(81,'Greece','GRC',30,0,82),(82,'Greenland','GRL',299,0,83),(83,'Grenada','GRD',1,0,84),(84,'Guam','GUM',1,0,85),(85,'Guatemala','GTM',502,0,86),(86,'Guinea','GIN',224,0,87),(87,'Guinea-Bissau','GNB',245,0,88),(88,'Guyana','GUY',592,0,89),(89,'Haiti','HTI',509,0,90),(90,'Holy See (Vatican City)','VAT',39,0,91),(91,'Honduras','HND',504,0,92),(92,'Hong Kong','HKG',852,0,93),(93,'Hungary','HUN',36,0,94),(94,'Iceland','IS¬†',354,0,95),(95,'India','IND',91,0,96),(96,'Indonesia','IDN',62,0,97),(97,'Iran','IRN',98,0,98),(98,'Iraq','IRQ',964,0,99),(99,'Ireland','IRL',353,0,100),(100,'Isle of Man','IMN',44,0,101),(101,'Israel','ISR',972,0,102),(102,'Italy','ITA',39,0,103),(103,'Ivory Coast','CIV',225,0,104),(104,'Jamaica','JAM',1,0,105),(105,'Japan','JPN',81,0,106),(106,'Jersey','JEY',NULL,0,107),(107,'Jordan','JOR',962,0,108),(108,'Kazakhstan','KAZ',7,0,109),(109,'Kenya','KEN',254,0,110),(110,'Kiribati','KIR',686,0,111),(111,'Kosovo','KO+',381,0,112),(112,'Kuwait','KWT',965,0,113),(113,'Kyrgyzstan','KGZ',996,0,114),(114,'Laos','LAO',856,0,115),(115,'Latvia','LVA',371,0,116),(116,'Lebanon','LBN',961,0,117),(117,'Lesotho','LSO',266,0,118),(118,'Liberia','LBR',231,0,119),(119,'Libya','LBY',218,0,120),(120,'Liechtenstein','LIE',423,0,121),(121,'Lithuania','LTU',370,0,122),(122,'Luxembourg','LUX',352,0,123),(123,'Macau','MAC',853,0,124),(124,'Macedonia','MKD',389,0,125),(125,'Madagascar','MDG',261,0,126),(126,'Malawi','MWI',265,0,127),(127,'Malaysia','MYS',60,0,128),(128,'Maldives','MDV',960,0,129),(129,'Mali','MLI',223,0,130),(130,'Malta','MLT',356,0,131),(131,'Marshall Islands','MHL',692,0,132),(132,'Mauritania','MRT',222,0,133),(133,'Mauritius','MUS',230,0,134),(134,'Mayotte','MYT',262,0,135),(135,'Mexico','MEX',52,0,136),(136,'Micronesia','FSM',691,0,137),(137,'Moldova','MDA',373,0,138),(138,'Monaco','MCO',377,0,139),(139,'Mongolia','MNG',976,0,140),(140,'Montenegro','MNE',382,0,141),(141,'Montserrat','MSR',1,0,142),(142,'Morocco','MAR',212,0,143),(143,'Mozambique','MOZ',258,0,144),(144,'Namibia','NAM',264,0,145),(145,'Nauru','NRU',674,0,146),(146,'Nepal','NPL',977,0,147),(147,'Netherlands','NLD',31,0,148),(148,'Netherlands Antilles','ANT',599,0,149),(149,'New Caledonia','NCL',687,0,150),(150,'New Zealand','NZL',64,0,151),(151,'Nicaragua','NIC',505,0,152),(152,'Niger','NER',227,0,153),(153,'Nigeria','NGA',234,0,154),(154,'Niue','NIU',683,0,155),(155,'Norfolk Island','NFK',672,0,156),(156,'North Korea','PRK',850,0,157),(157,'Northern Mariana Islands','MNP',1,0,158),(158,'Norway','NOR',47,0,159),(159,'Oman','OMN',968,0,160),(160,'Pakistan','PAK',92,0,161),(161,'Palau','PLW',680,0,162),(162,'Panama','PAN',507,0,163),(163,'Papua New Guinea','PNG',675,0,164),(164,'Paraguay','PRY',595,0,165),(165,'Peru','PER',51,0,166),(166,'Philippines','PHL',63,1,1),(167,'Pitcairn Islands','PCN',870,0,168),(168,'Poland','POL',48,0,169),(169,'Portugal','PRT',351,0,170),(170,'Puerto Rico','PRI',1,0,171),(171,'Qatar','QAT',974,0,172),(172,'Republic of the Congo','COG',242,0,173),(173,'Romania','ROU',40,0,174),(174,'Russia','RUS',7,0,175),(175,'Rwanda','RWA',250,0,176),(176,'Saint Barthelemy','BLM',590,0,177),(177,'Saint Helena','SHN',290,0,178),(178,'Saint Kitts and Nevis','KNA',1,0,179),(179,'Saint Lucia','LCA',1,0,180),(180,'Saint Martin','MAF',1,0,181),(181,'Saint Pierre and Miquelon','SPM',508,0,182),(182,'Saint Vincent and the Grenadines','VCT',1,0,183),(183,'Samoa','WSM',685,0,184),(184,'San Marino','SMR',378,0,185),(185,'Sao Tome and Principe','STP',239,0,186),(186,'Saudi Arabia','SAU',966,0,187),(187,'Senegal','SEN',221,0,188),(188,'Serbia','SRB',381,0,189),(189,'Seychelles','SYC',248,0,190),(190,'Sierra Leone','SLE',232,0,191),(191,'Singapore','SGP',65,0,192),(192,'Slovakia','SVK',421,0,193),(193,'Slovenia','SVN',386,0,194),(194,'Solomon Islands','SLB',677,0,195),(195,'Somalia','SOM',252,0,196),(196,'South Africa','ZAF',27,0,197),(197,'South Korea','KOR',82,0,198),(198,'Spain','ESP',34,0,199),(199,'Sri Lanka','LKA',94,0,200),(200,'Sudan','SDN',249,0,201),(201,'Suriname','SUR',597,0,202),(202,'Svalbard','SJM',NULL,0,203),(203,'Swaziland','SWZ',268,0,204),(204,'Sweden','SWE',46,0,205),(205,'Switzerland','CHE',41,0,206),(206,'Syria','SYR',963,0,207),(207,'Taiwan','TWN',886,0,208),(208,'Tajikistan','TJK',992,0,209),(209,'Tanzania','TZA',255,0,210),(210,'Thailand','THA',66,0,211),(211,'Timor-Leste','TLS',670,0,212),(212,'Togo','TGO',228,0,213),(213,'Tokelau','TKL',690,0,214),(214,'Tonga','TON',676,0,215),(215,'Trinidad and Tobago','TTO',1,0,216),(216,'Tunisia','TUN',216,0,217),(217,'Turkey','TUR',90,0,218),(218,'Turkmenistan','TKM',993,0,219),(219,'Turks and Caicos Islands','TCA',1,0,220),(220,'Tuvalu','TUV',688,0,221),(221,'Uganda','UGA',256,0,222),(222,'Ukraine','UKR',380,0,223),(223,'United Arab Emirates','ARE',971,0,224),(224,'United Kingdom','GBR',44,0,225),(225,'United States','USA',1,0,226),(226,'Uruguay','URY',598,0,227),(227,'US Virgin Islands','VIR',1,0,228),(228,'Uzbekistan','UZB',998,0,229),(229,'Vanuatu','VUT',678,0,230),(230,'Venezuela','VEN',58,0,231),(231,'Vietnam','VNM',84,0,232),(232,'Wallis and Futuna','WLF',681,0,233),(233,'West Bank','WB+',970,0,234),(234,'Western Sahara','ESH',NULL,0,235),(235,'Yemen','YEM',967,0,236),(236,'Zambia','ZMB',260,0,237),(237,'Zimbabwe','ZWE',263,0,238);
+
+/*Table structure for table `documents` */
+
+DROP TABLE IF EXISTS `documents`;
+
+CREATE TABLE `documents` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  `dir` tinyblob NOT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `documents` */
+
+insert  into `documents`(`id`,`user_id`,`name`,`dir`,`created`,`modified`) values (1,9,'f68ee01ecbdce3150773bbf92203e065.jpg',';\ní¿&ó#ã\\êùp.‚›k;\n1Ô¨D™\nórq¬‹˛Ï≤3°‰ÉÎ\\€ÿÍ7√∏‘)∆=#N£›!ù›Œ€.\"+kjˆÀ«m$r+&','2015-04-30 23:17:18','2015-04-30 23:17:18'),(2,10,'b7f8abf85e3e06c0e245bbfbef01ccc4.jpg',';\ní¿&ó#ã\\êùp.‚›k;\n1Ô¨D™\nórq¬‹˛Ï≤3°‰ÉÎWÅÿÓ5¬≥’.À5pI°\n◊põèVŒà!\"uj?ÛöŒjtr+&','2015-04-30 23:17:32','2015-04-30 23:17:32');
 
 /*Table structure for table `galleries` */
 
@@ -253,6 +328,18 @@ CREATE TABLE `photos` (
 /*Data for the table `photos` */
 
 insert  into `photos`(`id`,`gallery_id`,`name`,`img_file`) values (21,4,'New picture','DSC01242.JPG'),(15,4,'The camper','DSC00061.JPG'),(17,5,'The river','DSC01240.JPG'),(18,4,'The great river 2','DSC01224.JPG'),(19,3,'CSS on a trash can','DSC01208.jpg'),(20,6,'River one two','DSC01248.JPG');
+
+/*Table structure for table `pictures` */
+
+DROP TABLE IF EXISTS `pictures`;
+
+CREATE TABLE `pictures` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/*Data for the table `pictures` */
 
 /*Table structure for table `productmods` */
 
@@ -469,11 +556,11 @@ CREATE TABLE `users` (
   `created` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`role`,`name`,`username`,`email`,`password`,`active`,`created`,`modified`) values (1,'admin','admin','admin',NULL,'8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2011-09-26 00:34:07','2015-02-07 10:12:51'),(2,'customer','andras','andras',NULL,'8ed5503e0eb2706a0f78b2f1c19d6d53a654801d',1,'2013-10-29 16:58:16','2013-10-30 01:56:38');
+insert  into `users`(`id`,`role`,`name`,`username`,`email`,`password`,`active`,`created`,`modified`) values (1,NULL,NULL,'superuser',NULL,'f667aad1bb45fa6ed572cf9f7649700813a59e43',NULL,'2015-05-19 10:33:52','2015-05-19 10:33:52');
 
 /*Table structure for table `validated_users` */
 
