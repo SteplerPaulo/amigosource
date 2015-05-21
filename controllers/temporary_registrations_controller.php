@@ -391,12 +391,12 @@ Amigosource.com ';
 		if($this->User->saveAll($data['User'])){
 			
 				
-			$emailto = $this->data['TemporaryRegistration']['email'];
+					$emailto = $data['TemporaryRegistration']['email'];
 					$toname = 'User';
 					$emailfrom = 'mail@tssi-erb.com';
 					$fromname = 'Amigosource';
 					$subject = 'Confirmation';
-					$messagebody = 'Dear '.$this->data['TemporaryRegistration']['contact_name'].',
+					$messagebody = 'Dear '.$data['TemporaryRegistration']['contact_name'].',
 					
 	Thank you for registering with amigosource.com. Your application has been approved. You may start using amigosource.com with your user name dannyjavid@yahoo.com.  In order to help you reach more suppliers and / or buyers, please send an email to marketing@amigosource.com, our customer representatives will be on hand to assist.
 
