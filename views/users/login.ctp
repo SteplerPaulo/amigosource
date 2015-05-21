@@ -4,7 +4,7 @@
 		<h2 class="form-signin-heading">Please sign in</h2>
 		<?php
 			echo $this->Session->flash('auth').'<br>';
-			echo $this->Form->input('username',array('required'=>'required','class'=>'form-control input-sm',));
+			echo $this->Form->input('username',array('label'=>'E-mail','required'=>'required','class'=>'form-control input-sm',));
 			echo $this->Form->input('password',array('id'=>'UserPassword','required'=>'required','onkeypress'=>'PasswordCapsLock(event)','class'=>'form-control input-sm required'));
 		?>
 		<!--
