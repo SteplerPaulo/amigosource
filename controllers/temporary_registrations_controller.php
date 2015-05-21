@@ -444,7 +444,7 @@ Thank you for registering with amigosource.com. We have clarifications on the in
 
 Very truly yours,
 
-Amigosource.com; 
+Amigosource.com'; 
 
 					$headers = 
 						'Return-Path: ' . $emailfrom . "\r\n" . 
