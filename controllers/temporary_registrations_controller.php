@@ -3,6 +3,13 @@ class TemporaryRegistrationsController extends AppController {
 
 	var $name = 'TemporaryRegistrations';
 	var $uses = array('TemporaryRegistration','Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType','User');
+	
+	var $helpers = array('Access');
+	
+	function beforeFilter(){ 
+		$this->Auth->userModel = 'TemporaryRegistration'; 
+		$this->Auth->allow(array('user'));	
+    } 
 
 	function index() {
 		$this->TemporaryRegistration->recursive = 0;
@@ -21,6 +28,9 @@ class TemporaryRegistrationsController extends AppController {
 		unset($this->data['Pr']);
 
 		if (!empty($this->data)) {
+			
+			//print_r($this->data);exit;
+			
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
