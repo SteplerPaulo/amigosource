@@ -381,7 +381,6 @@ Amigosource.com ';
 	
 	function approve() {
 		$data = json_decode($this->data['TemporaryRegistration']['data'],true);
-		//pr($data);
 		$data['User']['id']='';
 		$data['User']['role']='';
 		$data['User']['name']=$data['TemporaryRegistration']['contact_name'];
@@ -398,7 +397,7 @@ Amigosource.com ';
 					$subject = 'Confirmation';
 					$messagebody = 'Dear '.$data['TemporaryRegistration']['contact_name'].',
 					
-	Thank you for registering with amigosource.com. Your application has been approved. You may start using amigosource.com with your user name '.$data['TemporaryRegistration']['email'].'.  In order to help you reach more suppliers and / or buyers, please send an email to marketing@amigosource.com, our customer representatives will be on hand to assist.
+	Thank you for registering with amigosource.com. Your application has been approved. You may start using amigosource.com with your user name '.$data['TemporaryRegistration']['email'].'.  In order to help you reach more suppliers and / or buyers, please send an email to marketing@amigosource.com, our customer representatives will be on hand to assist. in addition the management comment  "'.$this->data['TemporaryRegistration']['comment'].'"
 
 Very truly yours,
 
