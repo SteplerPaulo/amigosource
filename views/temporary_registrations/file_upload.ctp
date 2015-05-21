@@ -1,7 +1,7 @@
 <br/>
 <div class="container">
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" accept-charset="utf-8">
         <!-- Redirect browsers with JavaScript disabled to the origin page -->
         <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -11,7 +11,7 @@
                 <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Add files...</span>
-                    <input type="file" name="files[]" multiple>
+                    <input type="file" name="data[TemporaryRegistration][files]" multiple>
                 </span>
                 <button type="submit" class="btn btn-primary start">
                     <i class="glyphicon glyphicon-upload"></i>
@@ -87,6 +87,7 @@
 </script>
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
+{{file}}
 {% for (var i=0, file; file=o.files[i]; i++) { %}
     <tr class="template-download fade">
         <td>
