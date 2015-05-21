@@ -388,7 +388,12 @@ Amigosource.com ';
 		$data['User']['username']=$data['TemporaryRegistration']['email'];
 		$data['User']['email']=$data['TemporaryRegistration']['email'];
 		$data['User']['password'] = $data['TemporaryRegistration']['password'];
-		$this->TemporaryRegistration->saveAll($ata['User']);
+		if($this->User->saveAll($data['User'])){
+			echo json_encode($this->data);
+			exit;
+		}else{
+			pr('error');
+		}
 	}
 	
 	function server() {
