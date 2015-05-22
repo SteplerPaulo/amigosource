@@ -1,7 +1,5 @@
 <?php
 
-App::import('Vendor', 'UploadHandler', array('file' => 'file.upload/UploadHandler.php'));
-
 class TemporaryRegistrationsController extends AppController {
 
 	var $name = 'TemporaryRegistrations';
@@ -471,6 +469,9 @@ Amigosource.com';
 	}
 	
 	function server() {
+		
+
+		App::import('Vendor', 'UploadHandler', array('file' => 'file.upload/UploadHandler.php'));
 		//$this->TemporaryRegistration->create();
 		//if ($this->TemporaryRegistration->saveAll($this->data)) {
 		//	echo json_encode($this->data);
