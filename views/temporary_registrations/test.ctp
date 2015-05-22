@@ -8,7 +8,9 @@
 				<h4 class="modal-title">Add Image</h4>
 			</div>
 			<div class="modal-body">
+				<form class="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
 				<?php echo $this->element("file_upload");?>
+				</form>
 			</div>
 		</div>
 	</div>
