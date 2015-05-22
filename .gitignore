@@ -43,3 +43,4 @@ Temporary Items
 .apdisk
 tmp/
 config/database.php
+webroot/index.php
