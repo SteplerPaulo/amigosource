@@ -376,7 +376,6 @@ Amigosource.com ';
 	}
 	
 	function file_upload(){
-		
 	}
 	
 	function approve() {
@@ -484,7 +483,7 @@ Amigosource.com';
 		$options = array(
             'upload_dir' => 'files/',        
             'accept_file_types' => '/\.(gif|jpe?g|png)$/i',       
-            'upload_url' => 'http://localhost/amigosource/webroot/files/',
+            'upload_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
 		
            );
 
