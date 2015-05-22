@@ -29,13 +29,11 @@ class TemporaryRegistrationsController extends AppController {
 
 	function add() {
 		unset($this->data['Pr']);
-
+		$this->data['TemporaryRegistration']['logo']=json_encode($this->data['TemporaryRegistration']['logo']);
 		if (!empty($this->data)) {
 			
-			//print_r($this->data);exit;
-			
 			$this->TemporaryRegistration->create();
-			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
+			$this->data['TemporaryRegistration']['password']=AuthComponent::password($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
 				
 					//Send Mail
@@ -378,12 +376,99 @@ Amigosource.com ';
 	}
 	
 	function test_file(){
-		pr($this->data);exit;
-		
 	}
 	
 	function file_upload(){
 		
+	}
+	
+	function approve() {
+		$data = json_decode($this->data['TemporaryRegistration']['data'],true);
+		$data['User']['id']='';
+		$data['User']['role']='';
+		$data['User']['name']=$data['TemporaryRegistration']['contact_name'];
+		$data['User']['username']=$data['TemporaryRegistration']['email'];
+		$data['User']['email']=$data['TemporaryRegistration']['email'];
+		$data['User']['password'] = $data['TemporaryRegistration']['password'];
+		if($this->User->saveAll($data['User'])){
+			
+				
+					$emailto = $data['TemporaryRegistration']['email'];
+					$toname = 'User';
+					$emailfrom = 'mail@tssi-erb.com';
+					$fromname = 'Amigosource';
+					$subject = 'Confirmation';
+					$messagebody = 'Dear '.$data['TemporaryRegistration']['contact_name'].',
+					
+	Thank you for registering with amigosource.com. Your application has been approved. You may start using amigosource.com with your user name '.$data['TemporaryRegistration']['email'].'.  In order to help you reach more suppliers and / or buyers, please send an email to marketing@amigosource.com, our customer representatives will be on hand to assist. In addition the management comment  "'.$this->data['TemporaryRegistration']['comment'].'"
+
+Very truly yours,
+
+Amigosource.com'; 
+
+					$headers = 
+						'Return-Path: ' . $emailfrom . "\r\n" . 
+						'From: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" . 
+						'X-Priority: 3' . "\r\n" . 
+						'X-Mailer: PHP ' . phpversion() .  "\r\n" . 
+						'Reply-To: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" .
+						'MIME-Version: 1.0' . "\r\n" . 
+						'Content-Transfer-Encoding: 8bit' . "\r\n" . 
+						'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+					$params = '-f ' . $emailfrom;
+					$mail = mail($emailto, $subject, $messagebody, $headers, $params); //True or false
+					
+					/*if(!$mail) {
+						$this->redirect(array('action' => 'error'));
+					} else {
+						$this->redirect(array('action' => 'success'));
+					}*/
+					
+					echo json_encode($this->data);
+					exit();
+		}else{
+			pr('error');
+		}
+	}
+	
+	function returnreg() {
+		$data = json_decode($this->data['TemporaryRegistration']['data'],true);
+			
+				
+					$emailto = $data['TemporaryRegistration']['email'];
+					$toname = 'User';
+					$emailfrom = 'mail@tssi-erb.com';
+					$fromname = 'Amigosource';
+					$subject = 'Confirmation';
+					$messagebody = 'Dear '.$data['TemporaryRegistration']['contact_name'].',
+
+Thank you for registering with amigosource.com. We have clarifications on the information you submitted:
+1. Your address seems to be invalid. Please revise your data and re-submit the application within 5 days from receipt of this notification. If we don’t hear from you within this period, your application will be cancelled. In addition the management comment  "'.$this->data['TemporaryRegistration']['comment'].'"
+
+Very truly yours,
+
+Amigosource.com'; 
+
+					$headers = 
+						'Return-Path: ' . $emailfrom . "\r\n" . 
+						'From: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" . 
+						'X-Priority: 3' . "\r\n" . 
+						'X-Mailer: PHP ' . phpversion() .  "\r\n" . 
+						'Reply-To: ' . $fromname . ' <' . $emailfrom . '>' . "\r\n" .
+						'MIME-Version: 1.0' . "\r\n" . 
+						'Content-Transfer-Encoding: 8bit' . "\r\n" . 
+						'Content-Type: text/plain; charset=UTF-8' . "\r\n";
+					$params = '-f ' . $emailfrom;
+					$mail = mail($emailto, $subject, $messagebody, $headers, $params); //True or false
+					
+					/*if(!$mail) {
+						$this->redirect(array('action' => 'error'));
+					} else {
+						$this->redirect(array('action' => 'success'));
+					}*/
+					
+					echo json_encode($this->data);
+					exit();
 	}
 	
 	function server() {
@@ -402,8 +487,6 @@ Amigosource.com ';
             'upload_url' => 'http://localhost/amigosource/webroot/files/',
 		
            );
-
-		$upload_handler = new UploadHandler($options);
 	}
 
 }
