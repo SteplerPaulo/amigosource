@@ -19,7 +19,7 @@ $(document).ready(function(){
 					var row =$('#ProductTable tbody tr:last').index();
 				}
 			}	
-			upload_file();
+			//upload_file();
 			populate_product_form_data(data,row);//POPULATE PRODUCT FORM DATA
 			update_row_index();//UPDATE ROW INDEX
 			reset_product_form();//RESET STUDENT PRODUCT FORM 
@@ -73,14 +73,13 @@ $(document).ready(function(){
 			}
 			data.push(array);
 		});
-		console.log(data);
 		return data;
 	}
 
 	//VALIDATE PRODUCT DATA
 	function validate_product_form(data){
 		for(var key in data){
-			console.log(data[key]);
+			//console.log(data[key]);
 			if(data[key].field == 'id'){
 				break;
 			}
@@ -118,6 +117,7 @@ $(document).ready(function(){
 	function populate_product_form_data(data,row){
 		$('#ProductTable tbody tr:eq('+row+')').fadeOut();
 		$.each(data,function(i,o){
+			//console.log(o.field +'-'+ o.value);
 			$('#ProductTable tbody tr:eq('+row+')').find('[field="'+o.field+'"]').val(o.value);
 		}); 
 		$('#ProductTable tbody tr:eq('+row+')').fadeIn().removeClass('onEdit').addClass('onSuccess');
@@ -128,8 +128,9 @@ $(document).ready(function(){
 	function populate_table_row_data(row){
 		$('#AddProductForm').fadeOut();
 		$('#AddProductForm').attr('table-row',$(row).index());
-		$.each($(row).find('input,select'),function(i,o){
-			$('#AddProductForm').find('[field="'+$(o).attr('field')+'"]:visible').val($(o).val());	
+		$.each($(row).find('input,select,textarea'),function(i,o){
+			//console.log($(o).val());
+			$('#AddProductForm').find('[field="'+$(o).attr('field')+'"]').val($(o).val());	
 		});
 		$('#AddProductForm').fadeIn();
 	}
@@ -138,9 +139,9 @@ $(document).ready(function(){
 	//RESET PRODUCT FORM
 	function reset_product_form(){
 		$('#AddProductForm').attr('table-row','').find('input,select,textarea').val('');
-		$("#ProductLogoPath").fileinput('reset');
+		//$("#ProductLogoPath").fileinput('reset');
 	}
-
+	/*
 	//INITIALIZE FILEINPUT UPLOADER
 	$("#ProductLogoPath").fileinput({
 		uploadAsync :false,
@@ -153,19 +154,19 @@ $(document).ready(function(){
 			response = data.response, reader = data.reader;
 			//Image urls are available on response.imageUrls
 			console.log(files,response);
-	});
+	});*/
 	
 	//UPLOAD FILE
-	function upload_file(){
-		$("#ProductLogoPath").fileinput('upload');
-	}
+	//function upload_file(){
+		//$("#ProductLogoPath").fileinput('upload');
+	//}
 	
 	setTimeout(function(){$('#flashMessage').remove()}, 6000);
 	
 	
 	$('.add-product-image').on('click',function(){
 		var row = $(this).parents('tr:first');
-		console.log($(row).find('[field="name"]').val());
+		//console.log($(row).find('[field="name"]').val());
 	
 		$('#AddProductImageModal').modal();
 		$('#AddProductImageModal').find('.modal-title').text($(row).find('[field="name"]').val());
