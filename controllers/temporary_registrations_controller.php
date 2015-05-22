@@ -31,7 +31,6 @@ class TemporaryRegistrationsController extends AppController {
 		unset($this->data['Pr']);
 		$this->data['TemporaryRegistration']['logo']=json_encode($this->data['TemporaryRegistration']['logo']);
 		if (!empty($this->data)) {
-			
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=AuthComponent::password($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
@@ -487,6 +486,8 @@ Amigosource.com';
             'upload_url' => 'http://localhost/amigosource/webroot/files/',
 		
            );
+
+		$upload_handler = new UploadHandler($options);
 	}
 
 }
