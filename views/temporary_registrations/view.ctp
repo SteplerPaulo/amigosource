@@ -102,8 +102,8 @@
 		<button class="btn btn-primary approve">Approved</button>
 		<div class=" pull-right">
 			<button class="btn btn-default">Cancel</button>
-			<button class="btn btn-default">Return</button>
-			<a href="/amigosource/temporary_registrations" class="btn btn-default">Back</a>
+			<button class="btn btn-default return">Return</button>
+			<a href="/amigosource/temporary_registrations" class="btn btn-default back">Back</a>
 		</div>
 	</div>
 </div>
