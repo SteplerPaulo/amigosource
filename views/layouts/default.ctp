@@ -52,7 +52,7 @@
 		echo $this->Html->script(array('angular-route'));
 		//
 		echo $this->Html->script(array('biz/registration/main'));
-		echo $this->Html->script(array('plugins/wizard/wizard','plugins/fileinput/fileinput.min'));
+		echo $this->Html->script(array('plugins/wizard/wizard'));//'plugins/fileinput/fileinput.min'));
 	?>
 	<?php
 		//FILE UPLOAD CSS
