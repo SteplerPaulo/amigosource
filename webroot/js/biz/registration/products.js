@@ -161,4 +161,15 @@ $(document).ready(function(){
 	}
 	
 	setTimeout(function(){$('#flashMessage').remove()}, 6000);
+	
+	
+	$('.add-product-image').on('click',function(){
+		var row = $(this).parents('tr:first');
+		console.log($(row).find('[field="name"]').val());
+	
+		$('#AddProductImageModal').modal();
+		$('#AddProductImageModal').find('.modal-title').text($(row).find('[field="name"]').val());
+		
+	});
+		
 });

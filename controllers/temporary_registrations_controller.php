@@ -468,25 +468,15 @@ Amigosource.com';
 	}
 	
 	function server() {
-		
-
 		App::import('Vendor', 'UploadHandler', array('file' => 'file.upload/UploadHandler.php'));
-		//$this->TemporaryRegistration->create();
-		//if ($this->TemporaryRegistration->saveAll($this->data)) {
-		//	echo json_encode($this->data);
-		//	exit;
-		//}else{
-		//	
-		//	pr('wew');exit;
-		//}
 		$this->layout = "ajax";
 		$options = array(
             'upload_dir' => 'files/',        
             'accept_file_types' => '/\.(gif|jpe?g|png)$/i',       
             'upload_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
-		
+            'script_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
+	
            );
-
 		$upload_handler = new UploadHandler($options);
 	}
 
