@@ -164,9 +164,9 @@ Amigosource.com ';
 		$this->set(compact('countries','provinces','cityAndMunicipalities','businessTypes'));
 		
 		//Step 3
-		$monetrayCurrencies = array();
+		$monetaryCurrencies = array();
 		foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
-			$monetrayCurrencies[$key]= array(
+			$monetaryCurrencies[$key]= array(
 									'value'=>$cur['MonetaryCurrency']['id'],
 									'name'=>$cur['MonetaryCurrency']['description'], 
 									'symbol'=>$cur['MonetaryCurrency']['symbol']
@@ -215,7 +215,7 @@ Amigosource.com ';
 					'> 10000' =>'> 10000',
 		);
 			
-		$this->set(compact('monetrayCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage','noOf'));
+		$this->set(compact('monetaryCurrencies','totalAnnualSalesVolume','noOfEmployees','exportPercentage','noOf'));
 		
 		//Step 4
 		$categories = $this->Category->find('threaded', array('recursive' => -1,'order' => array('Category.lft' => 'ASC')));
@@ -334,42 +334,7 @@ Amigosource.com ';
 	}
 
 	function test(){
-		//Step 4
-		$categories = $this->Category->find('threaded', array('recursive' => -1,'order' => array('Category.lft' => 'ASC')));
-		
-		$child_index = 0;
-		$generalCategoristLists = array();
-		$classificationLists = array();
-		
-		foreach($categories  as $mainCategories){
-			//Add main category on the general category list
-			$generalCategoristLists[$mainCategories['Category']['id']]=$mainCategories['Category']['name'];
-		
-			foreach($mainCategories['children'] as $child){
-				//Add main category children on classification list
-				$classificationLists[$child_index]= array(
-									'value'=>$child['Category']['id'],
-									'name'=>$child['Category']['name'], 
-									'parent-id'=>$child['Category']['parent_id'],
-									//'style'=>'display:none;',
-								);
-				$child_index++;
-			}	
-		}
-		
-		$this->set(compact('generalCategoristLists','classificationLists'));
-		
-		
-		$monetrayCurrencies = array();
-		foreach($this->MonetaryCurrency->find('all') as $key=>$cur){
-			$monetrayCurrencies[$key]= array(
-									'value'=>$cur['MonetaryCurrency']['id'],
-									'name'=>$cur['MonetaryCurrency']['description'], 
-									'symbol'=>$cur['MonetaryCurrency']['symbol']
-								);
-		}
-		$this->set(compact('generalCategoristLists','classificationLists','monetrayCurrencies'));
-		
+	
 	}
 	
 	function test_file(){
@@ -475,7 +440,6 @@ Amigosource.com';
             'accept_file_types' => '/\.(gif|jpe?g|png)$/i',       
             'upload_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
             'script_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
-	
            );
 		$upload_handler = new UploadHandler($options);
 	}

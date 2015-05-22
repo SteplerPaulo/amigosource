@@ -1,4 +1,4 @@
-<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add','id'=>'TemporaryRegistrationAddForm','type' => 'file'));?>
+<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add','id'=>'TemporaryRegistrationAddForm','type' => 'file','class'=>'fileupload'));?>
 
 <div class="container" ng-controller="TemporaryRegistrationController">
 	<!--------------------BREADCRUMBS---------------------------->
@@ -39,6 +39,7 @@
 	<?php echo $this->Form->input('city_municipality_lists',array('id'=>'CityAndMunicipalityList','options'=>$cityAndMunicipalities,'empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 	<?php echo $this->Form->input('classification',array('options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm classification-category hide','div'=>false,'label'=>false))?>
 </div>
+
 
 	
 <?php 	
