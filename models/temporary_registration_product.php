@@ -35,7 +35,21 @@ class TemporaryRegistrationProduct extends AppModel {
 		)
 	);
 	*/
-	
+	var $hasMany = array(
+		'Picture' => array(
+			'className' => 'Picture',
+			'foreignKey' => 'tmp_product_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 	var $actsAs = array(
 		'MeioUpload' => array(
 			'image' => array(
