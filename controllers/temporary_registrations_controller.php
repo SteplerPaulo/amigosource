@@ -443,5 +443,4 @@ Amigosource.com';
            );
 		$upload_handler = new UploadHandler($options);
 	}
-
 }

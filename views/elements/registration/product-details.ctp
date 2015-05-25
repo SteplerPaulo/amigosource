@@ -87,7 +87,7 @@
 						</thead>
 						<tbody>
 							<tr style="display:none">
-								<td class="text-center" style="padding-top: 12px;"><a  data-toggle="modal" class="glyphicon glyphicon-plus-sign add-product-image" data-toggle="tooltip" title="Add Product Image"></a></td>
+								<td class="text-center" style="padding-top: 12px;"><a data-toggle="modal" class="glyphicon glyphicon-plus-sign add-product-image" data-toggle="tooltip" title="Add Product Image"></a></td>
 								<td><?php echo $this->Form->input('TemporaryRegistrationProduct.name',array('type'=>'text','field'=>'name','class'=>'form-control input-sm','div'=>false,'label'=>false))?></td>
 							
 								<td class="hide">
@@ -127,18 +127,22 @@
 			</div>
 		</div>
 	</div>
-</div>						
-<div class="modal fade" id="AddProductImageModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title">Add Image</h4>
-			</div>
-			<div class="modal-body">
-				<?php echo $this->element("file_upload");?>
-			
+				
+	<div class="modal fade" id="AddProductImageModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Add Image</h4>
+				</div>
+				<div class="modal-body">
+					<?php 
+						echo $this->element("file_upload");
+					?>
+				
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+
+</div>			

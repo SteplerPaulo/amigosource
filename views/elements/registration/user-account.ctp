@@ -8,10 +8,10 @@
 		<label><b>I'm a</b></label>
 		<div class="form-group">
 			<label class="radio-inline">
-				<input type="radio" name="data[TemporaryRegistration][registration_type]" value="1" ng-click="registration_type('Supplier')" checked>Suppplier
+				<input class="registration-type" type="radio" name="data[TemporaryRegistration][registration_type]" value="1" checked>Suppplier
 			</label>
 			<label class="radio-inline">
-				<input type="radio" name="data[TemporaryRegistration][registration_type]" value="2" ng-click="registration_type('Buyer')">Buyer
+				<input class="registration-type" type="radio" name="data[TemporaryRegistration][registration_type]" value="2">Buyer
 			</label>
 		</div>
 	</div>

@@ -1,10 +1,10 @@
-<div class="row TmpRegElement" id="member-details">
+<div class="row TmpRegElement" id="member-details" style="display:none">
 	<div class="panel panel-primary">
 		<div class="panel-heading">General</div>
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm '));?>
+					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm'));?>
 				</div>
 				<div class="col-lg-3">
 					<?php echo $this->Form->input('business_type_id',array('options'=>$businessTypes,'empty'=>'Select','class'=>'form-control input-sm '));?>

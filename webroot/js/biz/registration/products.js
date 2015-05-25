@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	//ADD PRODUCT BUTTON HANDLER
 	$('#AddProductButton').click(function(){	
+		console.log('wew');
 		var data = get_product_form_data();
 		if(validate_product_form(data)){
 			if($('#AddProductForm').attr('table-row')){

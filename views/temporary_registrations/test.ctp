@@ -1,3 +1,5 @@
+<?php echo $this->element("breadcrumb");?>
+
 <a  data-toggle="modal" data-target="#AddProductImage" class="glyphicon glyphicon-plus-sign add-product-image" data-toggle="tooltip" title="Add Product Image"></a>
 							
 <div class="modal fade" id="AddProductImageModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -9,7 +11,7 @@
 			</div>
 			<div class="modal-body">
 				<form class="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data">
-				<?php echo $this->element("file_upload");?>
+					<?php echo $this->element("file_upload");?>
 				</form>
 			</div>
 		</div>
