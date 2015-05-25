@@ -32,7 +32,7 @@ class PicturesController extends AppController {
 			$response['initialPreview'] = array();
 			$response['imageUrls'] = array();
 			foreach($fileOK['urls'] as $url){
-				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/'.$url;
+				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$url;
 				$markup  = "<img src='$img_url' class='file-preview-image'>";
 				array_push($response['initialPreview'],$markup);
 				array_push($response['imageUrls'],$img_url);
