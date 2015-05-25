@@ -124,8 +124,8 @@
 									<?php echo $this->Form->input('TemporaryRegistrationProduct.contact_no',array('field'=>'contact_no','label'=>false,'class'=>'form-control'));?>
 									<?php echo $this->Form->input('TemporaryRegistrationProduct.contact_email',array('field'=>'contact_email','type'=>'hidden','label'=>false,'class'=>'form-control'));?>
 									<?php echo $this->Form->input('TemporaryRegistrationProduct.image',array('field'=>'image','type'=>'hidden','label'=>false,'class'=>'form-control'));?>
-									<?php echo $this->Form->input('TemporaryRegistrationProduct.general_category_id',array('field'=>'general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?>
-									<?php echo $this->Form->input('TemporaryRegistrationProduct.classification_id',array('field'=>'classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm','div'=>false,'label'=>false))?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.general_category_id',array('field'=>'general_category_id','type'=>'hidden','class'=>'form-control input-sm','div'=>false,'label'=>false))?>
+									<?php echo $this->Form->input('TemporaryRegistrationProduct.classification_id',array('field'=>'classification_id','type'=>'hidden','class'=>'form-control input-sm','div'=>false,'label'=>false))?>
 									<?php echo $this->Form->input('TemporaryRegistrationProduct.pictures',array('field'=>'pictures','label'=>false,'type'=>'hidden','class'=>'form-control'));?>
 									
 								</td>
