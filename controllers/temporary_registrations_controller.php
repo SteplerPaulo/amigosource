@@ -23,8 +23,18 @@ class TemporaryRegistrationsController extends AppController {
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=md5($this->data['TemporaryRegistration']['password']);
-			if ($this->TemporaryRegistration->saveAll($this->data)) {
-				
+			
+			
+			if ($this->TemporaryRegistration->saveAll($this->data,array('validate'=>'first'))) {
+					$tmpProducts = $this->TemporaryRegistration->findById($this->TemporaryRegistration->id)['TemporaryRegistrationProduct'];
+					foreach($this->data['TemporaryRegistrationProduct'] as $index=>$product){
+						$images = array_values(explode(',',$product['pictures']));
+						$imgs = array();
+						foreach($images as $img){
+							if($img) array_push($imgs , array('url'=>$img,'tmp_product_id'=>$tmpProducts[$index]['id']));
+						}
+						$this->TemporaryRegistration->TemporaryRegistrationProduct->Picture->saveAll($imgs);
+					}					
 					//Send Mail
 					/* require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
 
