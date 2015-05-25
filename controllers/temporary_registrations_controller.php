@@ -3,7 +3,10 @@ class TemporaryRegistrationsController extends AppController {
 
 	var $name = 'TemporaryRegistrations';
 	var $uses = array('TemporaryRegistration','Category','MonetaryCurrency','Country','Province','CityAndMunicipalities','BusinessType','User');
-
+	function beforeFilter(){
+		parent::beforeFilter();
+		$this->Auth->allow('*');	
+	}
 	function index() {
 		$this->TemporaryRegistration->recursive = 0;
 		$this->set('temporaryRegistrations', $this->paginate());
