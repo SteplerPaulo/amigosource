@@ -27,8 +27,8 @@
 				</center>
 				<center class="row">
 					<div class="col-lg-12">
-						<span class="btn btn-default"><a href="/amigosource/temporary_registrations/user">Register</a></span>
-						<span class="btn btn-default"><a href="/amigosource/pages/singin">Sign in</a></span>
+						<span class="btn btn-default"><?php echo $this->Html->link('Register',array('controller'=>'temporary_registrations','action'=>'user'));?></span>
+						<span class="btn btn-default"><?php echo $this->Html->link('Sign in',array('controller' => 'pages', 'action' => 'display', 'signin'));?></span>
 					</div>
 				</center>
 			</div>
