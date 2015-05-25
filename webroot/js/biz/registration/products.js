@@ -66,7 +66,7 @@ $(document).ready(function(){
 	//GET PRODUCT FORM DATA
 	function get_product_form_data(){
 		var data = [];
-		$.each($('#AddProductForm').find('input:visible,select:visible,textarea:visible'),function(i,o){
+		$.each($('#AddProductForm').find('input[type!="file"]:visible,select:visible,textarea:visible'),function(i,o){
 			array = { 
 				'id':$(o).attr('id'),
 				'field':$(o).attr('field'),
