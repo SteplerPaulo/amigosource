@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	var BASEURL = '/'+window.location.pathname.split('/')[1]+'/';
-	
+	var ROW;
 	set_product_table();
 
 	//ADD PRODUCT BUTTON HANDLER
@@ -18,7 +18,8 @@ $(document).ready(function(){
 					$('#ProductTable').append($('#ProductTable tbody tr:last').clone()).find('tbody tr:last').find('input,select,textarea').val('').fadeIn('slow');
 					var row =$('#ProductTable tbody tr:last').index();
 				}
-			}	
+			}
+			ROW =  row;
 			upload_file();
 			populate_product_form_data(data,row);//POPULATE PRODUCT FORM DATA
 			update_row_index();//UPDATE ROW INDEX
@@ -130,6 +131,7 @@ $(document).ready(function(){
 		$('#AddProductForm').attr('table-row',$(row).index());
 		$.each($(row).find('input,select'),function(i,o){
 			$('#AddProductForm').find('[field="'+$(o).attr('field')+'"]:visible').val($(o).val());	
+			$('#AddProductForm').find('textarea[field="'+$(o).attr('field')+'"]:visible').text($(o).val());	
 		});
 		$('#AddProductForm').fadeIn();
 	}
@@ -152,13 +154,40 @@ $(document).ready(function(){
 		 var form = data.form, files = data.files, extra = data.extra, 
 			response = data.response, reader = data.reader;
 			//Image urls are available on response.imageUrls
-			console.log(files,response);
+			var target = $('input[name="data[TemporaryRegistrationProduct]['+ROW+'][pictures]"]');
+			var pictures = target.val();
+			pictures = pictures.split(',');
+			target.val(pictures.concat(response.imageUrls).join(',')); //Combine pictures
+			var markup = '';
+			$.each(response.initialPreview,function(i,img){
+				var url = response.imageUrls[i];
+				markup+='<div class="thumbnail"><a aria-hidden="true" class="delete-picture pull-right" data-url="'+url+'" data-row="'+ROW+'">&times;</a>';
+				markup+=img;
+				markup+='</div>	';
+			});
+			$('#ProductTable tbody tr:nth-child('+(ROW+1)+') td.pictures').append(markup);
 	});
 	
 	//UPLOAD FILE
 	function upload_file(){
 		$("#ProductLogoPath").fileinput('upload');
 	}
-	
+	//DELETE PICTURE
+	$(document).on('click','a.delete-picture',function(){
+		var $this = $(this);
+		var url = $this.data('url');
+		var row = $this.data('row');
+		if(confirm('Are you sure you want to delete this picture?')){
+			var target = $('input[name="data[TemporaryRegistrationProduct]['+row+'][pictures]"]');
+			var pictures = [];
+			$.each(target.val().split(','),function(i,o){
+				if(o&&o!=url){
+					pictures.push(o);
+				}
+			});
+			target.val(pictures.join(','));
+			$this.parent().remove();			
+		}
+	});
 	setTimeout(function(){$('#flashMessage').remove()}, 6000);
 });
