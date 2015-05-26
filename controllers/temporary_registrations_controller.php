@@ -9,7 +9,7 @@ class TemporaryRegistrationsController extends AppController {
 	
 	function beforeFilter(){ 
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('user'));	
+		$this->Auth->allow(array('user','server'));	
     } 
 
 	function index() {
