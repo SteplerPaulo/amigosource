@@ -1,4 +1,3 @@
-<?php echo $this->element("breadcrumb");?>
 
 <a  data-toggle="modal" data-target="#AddProductImage" class="glyphicon glyphicon-plus-sign add-product-image" data-toggle="tooltip" title="Add Product Image"></a>
 							
