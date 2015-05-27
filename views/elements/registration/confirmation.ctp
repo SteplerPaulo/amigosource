@@ -10,7 +10,7 @@
 	</div><br/>
 	<div class="row">
 		<div class="col-lg-3 col-lg-offset-4">
-			<?php echo $this->Form->input('captcha',array('class'=>'form-control input-sm required','label'=>'Enter Code'));?>
+			<?php echo $this->Form->input('captcha',array('class'=>'form-control input-sm required','label'=>'Enter Code','placeholder'=>"*Required"));?>
 		</div>
 	</div>
 </div>

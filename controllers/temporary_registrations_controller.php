@@ -22,39 +22,33 @@ class TemporaryRegistrationsController extends AppController {
 			$this->Session->setFlash(__('Invalid temporary registration', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		
+		$this->TemporaryRegistration->recursive = 3;
+		//pr($this->TemporaryRegistration->read(null, $id));exit;
 		$this->set('tempReg', $this->TemporaryRegistration->read(null, $id));
 	}
 
 	function add() {
 		unset($this->data['Pr']);
-		$this->data['TemporaryRegistration']['logo']=json_encode($this->data['TemporaryRegistration']['logo']);
+		
 		if (!empty($this->data)) {
 			$this->TemporaryRegistration->create();
 			$this->data['TemporaryRegistration']['password']=AuthComponent::password($this->data['TemporaryRegistration']['password']);
 			if ($this->TemporaryRegistration->saveAll($this->data)) {
-				
-					//Send Mail
-					/* require 'plugins/phpmailer/PHPMailerAutoload.php'; //eto mas bagong version
-
-					$mail = new PHPMailer;
-
-					$mail->isSMTP();                                      // Set mailer to use SMTP
-					$mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
-					$mail->SMTPAuth = true;                               // Enable SMTP authentication
-					$mail->Username = 'amigosource@gmail.com';                 // SMTP username
-					$mail->Password = '@mig0s0ource';                           // SMTP password
-					$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-					$mail->Port = 465;                                    // TCP port to connect to
-
-					//$mail->From = 'joeytdy@gmail.com';
-					$mail->FromName = 'Amigosource';
-					$mail->addAddress($this->data['TemporaryRegistration']['email'], 'To our valued costumer');     // Add a recipient
-
-					$mail->Subject = 'Here is the subject';
-					$mail->Body    ="Here is the body";
-					$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-					*/
+					//GET PRODUCT
+					$tmpProducts = $this->TemporaryRegistration->findById($this->TemporaryRegistration->id)['TemporaryRegistrationProduct'];
 					
+					foreach($this->data['TemporaryRegistrationProduct'] as $index=>$product){
+						$images = array_values(explode(',',$product['pictures']));
+						$imgs = array();
+						//MAP PICTURES TO PRODUCT
+						foreach($images as $img){
+							if($img) array_push($imgs , array('url'=>$img,'tmp_product_id'=>$tmpProducts[$index]['id']));
+						}
+						$this->TemporaryRegistration->TemporaryRegistrationProduct->Picture->saveAll($imgs);
+					}	
+				
+					//Send Mail	
 					$emailto = $this->data['TemporaryRegistration']['email'];
 					$toname = 'User';
 					$emailfrom = 'mail@tssi-erb.com';
@@ -245,7 +239,7 @@ Amigosource.com ';
 	}
 	
 	//Existing Email Validation
-	function existing_email_validation(){
+	function existing_email_validation($return=false){
 		if ($this->RequestHandler->isAjax()) {
 			if(!empty($this->data)){
 				$result1 = $this->TemporaryRegistration->find('count',array('conditions'=>array('TemporaryRegistration.email'=>$this->data['email'])));
@@ -262,9 +256,12 @@ Amigosource.com ';
 				$response['message']="Empty data.";
 			}
 		}
-		echo json_encode($response);
-		Configure::write('debug', 0);
-		exit;
+		if($return) {return $response;}
+		else{
+			echo json_encode($response);
+			Configure::write('debug', 0);
+			exit;
+		}
 	}
 	
 	function send_mail(){
@@ -280,7 +277,6 @@ Amigosource.com ';
 		$mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 465;                                    // TCP port to connect to
 
-		//$mail->From = 'joeytdy@gmail.com';
 		$mail->FromName = 'Amigosource';
 		$mail->addAddress('paulobiscocho@gmail.com', 'To our valued costumer');     // Add a recipient
 
@@ -319,13 +315,26 @@ Amigosource.com ';
 			}
 			
 			
+			
+			
 			if (sizeof($errors) == 0) {
 				$return = array('error' => 0, 'message' => 'OK');
-				die(json_encode($return));
+				
 			} else {
 				$return = array('error' => 1, 'message' => $errors['captcha_error']);
-				die(json_encode($return));
+				
 			}
+			$return['email']= $this->existing_email_validation(true);
+			
+			if ($return['email']['status'] == 'ERROR') {
+				if($return['error']==0)$return['message'] ="";
+				$return['error'] = 1;
+				$return['message'].= " Invalid email address";
+			} 
+			
+			echo(json_encode($return));
+			exit;
+			
 		}
 	}
 	

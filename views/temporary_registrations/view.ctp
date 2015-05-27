@@ -1,6 +1,7 @@
 <br/>
-		
-<div class="panel panel-primary">
+		<?php echo $this->Html->script('controllers/temporary_registration_controller',array('inline'=>false));?>
+		<script>window.PRODUCTS  = <?php echo json_encode($tempReg['TemporaryRegistrationProduct']);?>;</script>
+<div class="panel panel-primary" ng-controller="TemporaryRegistrationController">
 	<div class="panel-heading">Page For Viewing</div>
 	<div class="panel-body">
 		<div class="row">	
@@ -87,6 +88,100 @@
 			</div>
 		</div>
 		
+		<hr/>
+		<div class="row">
+			<div class="col-lg-6" id="AddProductForm">
+					<center><h4><b>Add Product</b></h4></center>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.general_category_id',array('ng-model'=>'ActiveProduct.general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm general-category','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.classification_id',array('ng-model'=>'ActiveProduct.classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.name',array('ng-model'=>'ActiveProduct.name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.details',array('ng-model'=>'ActiveProduct.details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.standard_package',array('ng-model'=>'ActiveProduct.standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.specification',array('ng-model'=>'ActiveProduct.specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.technical_description',array('ng-model'=>'ActiveProduct.technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.monetary_currency_id',array('label'=>'Cost Currency','ng-model'=>'ActiveProduct.monetary_currency_id','options'=>$monetaryCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.cost',array('ng-model'=>'ActiveProduct.cost','class'=>'form-control input-sm numeric monetary','div'=>false))?>			
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.unit_of_measure',array('ng-model'=>'ActiveProduct.unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.stock_on_hand',array('ng-model'=>'ActiveProduct.stock_on_hand','class'=>'form-control input-sm numeric','div'=>false))?>			
+						</div>
+						<div class="col-lg-3">
+							<?php echo $this->Form->input('Pr.minimun_order',array('ng-model'=>'ActiveProduct.minimun_order','label'=>'Min. Order Qty','class'=>'form-control input-sm numeric','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.payment_terms',array('ng-model'=>'ActiveProduct.payment_terms','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.shipping_terms',array('ng-model'=>'ActiveProduct.shipping_terms','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_name',array('ng-model'=>'ActiveProduct.product_contact_name','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_no',array('ng-model'=>'ActiveProduct.contact_no','class'=>'form-control input-sm','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.contact_email',array('ng-model'=>'ActiveProduct.contact_email','class'=>'form-control input-sm','div'=>false))?>			
+						</div>
+					</div>
+					
+					<hr/>
+					
+				</div>
+				<div class="col-lg-6">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th><?php __('Name'); ?></th>
+								<th><?php __('Description'); ?></th>
+								<th><?php __('Action'); ?></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="product in Products" ng-class="{active: product==ActiveProduct}" >
+								<td>{{product.name}}</td>
+								<td>{{product.details}}</td>
+								<td><button class="btn btn-primary" ng-click="loadProduct(product)">View</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		</div>
 		<hr/>
 	<?php echo $this->Form->create('TemporaryRegistration',array('action'=>'approve','id'=>'TemporaryRegistrationApporveForm','type' => 'file'));?>
 		<!--COMMENT BOX-->

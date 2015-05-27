@@ -3,7 +3,7 @@ class TemporaryRegistrationProduct extends AppModel {
 	var $name = 'TemporaryRegistrationProduct';
 	var $displayField = 'name';
 	//The Associations below have been created with all possible keys, those that are not needed can be removed
-	/*
+
 	var $belongsTo = array(
 		'TemporaryRegistration' => array(
 			'className' => 'TemporaryRegistration',
@@ -13,14 +13,14 @@ class TemporaryRegistrationProduct extends AppModel {
 			'order' => ''
 		),
 		'GeneralCategory' => array(
-			'className' => 'GeneralCategory',
+			'className' => 'Category',
 			'foreignKey' => 'general_category_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
 		),
 		'Classification' => array(
-			'className' => 'Classification',
+			'className' => 'Category',
 			'foreignKey' => 'classification_id',
 			'conditions' => '',
 			'fields' => '',
@@ -34,7 +34,16 @@ class TemporaryRegistrationProduct extends AppModel {
 			'order' => ''
 		)
 	);
-	*/
+	
+	var $hasMany = array(
+		'Picture' => array(
+			'className' => 'Picture',
+			'foreignKey' => 'tmp_product_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
+	);
 	
 	var $actsAs = array(
 		'MeioUpload' => array(

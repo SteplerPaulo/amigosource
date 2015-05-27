@@ -55,11 +55,9 @@
 		echo $this->Html->script(array('plugins/fileinput/fileinput.min'));
 	?>
 	
-	<?php	
-		echo $scripts_for_layout;	
-	?>
+	
 </head>
-<body ng-app="amigosourceApp">
+<body ng-app="AmigoApp">
 	<div class="container-fluid">
 		<div id="a-Header" class="row">
 			<div  class="col-md-12">
@@ -89,4 +87,9 @@
 			<?php echo $content_for_layout; ?>
 		</div>
 	</div>
+
+	<script>
+				(function(){window.AmigoApp = angular.module('AmigoApp',[]);}());
+			</script>
+				<?php	 echo $scripts_for_layout;	?>
 </body>

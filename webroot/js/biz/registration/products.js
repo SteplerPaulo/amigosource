@@ -15,7 +15,9 @@ $(document).ready(function(){
 					$('#ProductTable tfoot tr').hide();
 					var row = $('#ProductTable tbody tr:first').index();;
 				}else{
-					$('#ProductTable').append($('#ProductTable tbody tr:last').clone()).find('tbody tr:last').find('input,select,textarea').val('').fadeIn('slow');
+					var tr_last = $('#ProductTable').append($('#ProductTable tbody tr:last').clone()).find('tbody tr:last');
+					tr_last.find('.pictures').html('');
+					tr_last.find('input,select,textarea').val('').fadeIn('slow');
 					var row =$('#ProductTable tbody tr:last').index();
 				}
 			}
@@ -74,14 +76,14 @@ $(document).ready(function(){
 			}
 			data.push(array);
 		});
-		console.log(data);
+		//console.log(data);
 		return data;
 	}
 
 	//VALIDATE PRODUCT DATA
 	function validate_product_form(data){
 		for(var key in data){
-			console.log(data[key]);
+			//console.log(data[key]);
 			if(data[key].field == 'id'){
 				break;
 			}
@@ -150,8 +152,8 @@ $(document).ready(function(){
 		uploadUrl: BASEURL+"pictures/add",
 		allowedFileExtensions: ["jpg", "png", "gif"],
 	}).on('filebatchuploadsuccess',function(event, data, previewId, index){
-		 var form = data.form, files = data.files, extra = data.extra, 
-			response = data.response, reader = data.reader;
+		 var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
+		 
 			//Image urls are available on response.imageUrls
 			var target = $('input[name="data[TemporaryRegistrationProduct]['+ROW+'][pictures]"]');
 			var pictures = target.val();
@@ -164,6 +166,7 @@ $(document).ready(function(){
 				markup+=img;
 				markup+='</div>	';
 			});
+			console.log(markup);
 			$('#ProductTable tbody tr:nth-child('+(ROW+1)+') td.pictures').append(markup);
 	});
 	

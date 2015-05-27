@@ -69,7 +69,7 @@ class TemporaryRegistration extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
 	);
 	
 	var $actsAs = array(

@@ -71,7 +71,9 @@
 						<div class="col-lg-6">
 							<?php echo $this->Form->input('Pr.contact_email',array('field'=>'contact_email','class'=>'form-control input-sm','div'=>false))?>			
 						</div>
-						<div class="col-lg-6">
+					</div>
+					<div class="row">
+						<div class="col-lg-12">
 							<label>Product Image</label>
 							<!-- use the name pictures[] to make multiple file upload easier to map on the controller-->
 							<input id="ProductLogoPath" type="file" name="pictures[]" multiple=true class="file-loading">

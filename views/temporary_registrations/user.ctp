@@ -1,6 +1,6 @@
 <?php echo $this->Form->create('TemporaryRegistration',array('action'=>'add','id'=>'TemporaryRegistrationAddForm','type' => 'file','class'=>'fileupload'));?>
 
-<div class="container" ng-controller="TemporaryRegistrationController">
+<div class="container">
 	<!--------------------BREADCRUMBS---------------------------->
 	<center class="page-header">
 		<h2 class="action-name">Registration</h2>

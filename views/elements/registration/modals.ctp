@@ -7,7 +7,7 @@
 			</div>
 			<div class="modal-body">
 				<p>There was an error with your submission.</p>
-				<p><i class="glyphicon glyphicon-chevron-right error"></i> Incorrect security code entered.</p>
+				<i class="glyphicon glyphicon-chevron-right error"></i><span id="ValidationMessage"></span>
 			</div>
 		</div>
 	</div>
