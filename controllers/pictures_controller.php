@@ -2,6 +2,10 @@
 class PicturesController extends AppController {
 
 	var $name = 'Pictures';
+	
+	function beforeFilter(){ 
+		$this->Auth->allow('*');	
+    } 
 
 	function index() {
 		$this->Picture->recursive = 0;
