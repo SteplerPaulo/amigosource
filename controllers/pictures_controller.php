@@ -32,7 +32,7 @@ class PicturesController extends AppController {
 			$response['initialPreview'] = array();
 			$response['imageUrls'] = array();
 			foreach($fileOK['urls'] as $url){
-				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/'.$url;
+				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$url;
 				$markup  = "<img src='$img_url' class='file-preview-image'>";
 				array_push($response['initialPreview'],$markup);
 				array_push($response['imageUrls'],$img_url);
@@ -112,6 +112,7 @@ class PicturesController extends AppController {
 		foreach($formdata as $file) {
 			// replace spaces with underscores
 			$filename = str_replace(' ', '_', $file['name']);
+			$filename = $this->sanitize($filename);
 			// assume filetype is false
 			$typeOK = false;
 			// check filetype is ok
@@ -169,4 +170,17 @@ class PicturesController extends AppController {
 		}
 	return $result;
 	}
+	protected function sanitize($string, $force_lowercase = true, $anal = false) {
+    $strip = array("~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "=", "+", "[", "{", "]",
+                   "}", "\\", "|", ";", ":", "\"", "'", "&#8216;", "&#8217;", "&#8220;", "&#8221;", "&#8211;", "&#8212;",
+                   "â€”", "â€“", ",", "<", ">", "/", "?");
+    $clean = trim(str_replace($strip, "", strip_tags($string)));
+    $clean = preg_replace('/\s+/', "-", $clean);
+    $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9]/", "", $clean) : $clean ;
+    return ($force_lowercase) ?
+        (function_exists('mb_strtolower')) ?
+            mb_strtolower($clean, 'UTF-8') :
+            strtolower($clean) :
+        $clean;
+}
 }
