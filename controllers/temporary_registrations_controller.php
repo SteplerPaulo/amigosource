@@ -431,16 +431,4 @@ Amigosource.com';
 					echo json_encode($this->data);
 					exit();
 	}
-	
-	function server() {
-		App::import('Vendor', 'UploadHandler', array('file' => 'file.upload/UploadHandler.php'));
-		$this->layout = "ajax";
-		$options = array(
-            'upload_dir' => 'files/',        
-            'accept_file_types' => '/\.(gif|jpe?g|png)$/i',       
-            'upload_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
-            'script_url' => 'http://'.$_SERVER['HTTP_HOST'].'/amigosource/webroot/files/',
-           );
-		$upload_handler = new UploadHandler($options);
-	}
 }
