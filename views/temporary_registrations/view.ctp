@@ -165,14 +165,16 @@
 						<thead>
 							<tr>
 								<th><?php __('Name'); ?></th>
-								<th><?php __('Description'); ?></th>
+								<th><?php __('Pictures'); ?></th>
 								<th><?php __('Action'); ?></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-repeat="product in Products" ng-class="{active: product==ActiveProduct}" >
 								<td>{{product.name}}</td>
-								<td>{{product.details}}</td>
+								<td>
+									<img ng-repeat="pic in product.Picture" ng-src="pic.url"/>
+								</td>
 								<td><button class="btn btn-primary" ng-click="loadProduct(product)">View</button></td>
 							</tr>
 						</tbody>
