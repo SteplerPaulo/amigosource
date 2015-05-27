@@ -94,74 +94,71 @@
 					<center><h4><b>Add Product</b></h4></center>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.general_category_id',array('ng-model'=>'ActiveProduct.general_category_id','options'=>$generalCategoristLists,'empty'=>'Select','class'=>'form-control input-sm general-category','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.general_category_id',array('type'=>'text','ng-model'=>'ActiveProduct.GeneralCategory.name','class'=>'form-control input-sm general-category','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.classification_id',array('ng-model'=>'ActiveProduct.classification_id','options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm general-category-classification','div'=>false))?>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.name',array('ng-model'=>'ActiveProduct.name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
-						</div>
-						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.details',array('ng-model'=>'ActiveProduct.details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.classification_id',array('type'=>'text','ng-model'=>'ActiveProduct.Classification.name','class'=>'form-control input-sm general-category-classification','readonly'=>'readonly','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.standard_package',array('ng-model'=>'ActiveProduct.standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.name',array('ng-model'=>'ActiveProduct.name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.specification',array('ng-model'=>'ActiveProduct.specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.details',array('ng-model'=>'ActiveProduct.details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.technical_description',array('ng-model'=>'ActiveProduct.technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.standard_package',array('ng-model'=>'ActiveProduct.standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.specification',array('ng-model'=>'ActiveProduct.specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.technical_description',array('ng-model'=>'ActiveProduct.technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-3">
-							<?php echo $this->Form->input('Pr.monetary_currency_id',array('label'=>'Cost Currency','ng-model'=>'ActiveProduct.monetary_currency_id','options'=>$monetaryCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.monetary_currency_id',array('type'=>'text','label'=>'Cost Currency','ng-model'=>'ActiveProduct.MonetaryCurrency.symbol','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
 						</div>
 						<div class="col-lg-3">
-							<?php echo $this->Form->input('Pr.cost',array('ng-model'=>'ActiveProduct.cost','class'=>'form-control input-sm numeric monetary','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.cost',array('ng-model'=>'ActiveProduct.cost','class'=>'form-control input-sm numeric monetary','readonly'=>'readonly','div'=>false))?>			
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.unit_of_measure',array('ng-model'=>'ActiveProduct.unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.unit_of_measure',array('ng-model'=>'ActiveProduct.unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
 						</div>
 						<div class="col-lg-3">
-							<?php echo $this->Form->input('Pr.stock_on_hand',array('ng-model'=>'ActiveProduct.stock_on_hand','class'=>'form-control input-sm numeric','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.stock_on_hand',array('ng-model'=>'ActiveProduct.stock_on_hand','class'=>'form-control input-sm numeric','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-3">
-							<?php echo $this->Form->input('Pr.minimun_order',array('ng-model'=>'ActiveProduct.minimun_order','label'=>'Min. Order Qty','class'=>'form-control input-sm numeric','div'=>false))?>
+							<?php echo $this->Form->input('Pr.minimun_order',array('ng-model'=>'ActiveProduct.minimun_order','label'=>'Min. Order Qty','class'=>'form-control input-sm numeric','readonly'=>'readonly','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.payment_terms',array('ng-model'=>'ActiveProduct.payment_terms','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.payment_terms',array('ng-model'=>'ActiveProduct.payment_terms','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.shipping_terms',array('ng-model'=>'ActiveProduct.shipping_terms','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.shipping_terms',array('ng-model'=>'ActiveProduct.shipping_terms','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.contact_name',array('ng-model'=>'ActiveProduct.product_contact_name','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.contact_name',array('ng-model'=>'ActiveProduct.contact_name','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.contact_no',array('ng-model'=>'ActiveProduct.contact_no','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.contact_no',array('ng-model'=>'ActiveProduct.contact_no','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.contact_email',array('ng-model'=>'ActiveProduct.contact_email','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.contact_email',array('ng-model'=>'ActiveProduct.contact_email','class'=>'form-control input-sm','readonly'=>'readonly','div'=>false))?>			
 						</div>
 					</div>
-					
-					<hr/>
-					
 				</div>
 				<div class="col-lg-6">
 					<table class="table table-bordered">
