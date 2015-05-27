@@ -14,8 +14,7 @@ class PicturesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('picture', $this->Picture->read(null, $id));
-	}
-
+	}	
 	function add() {
 		$response = array();
 		$pictures = array();
@@ -31,11 +30,14 @@ class PicturesController extends AppController {
 		if(array_key_exists('urls', $fileOK)) {
 			$response['initialPreview'] = array();
 			$response['imageUrls'] = array();
-			foreach($fileOK['urls'] as $url){
+			$response['thumbnailUrls'] = array();
+			foreach($fileOK['urls'] as $index=>$url){
 				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$url;
-				$markup  = "<img src='$img_url' class='file-preview-image'>";
+				$tmb_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$fileOK['thumbnail_urls'][$index];
+				$markup  = "<img src='$tmb_url' class='file-preview-image'>";
 				array_push($response['initialPreview'],$markup);
 				array_push($response['imageUrls'],$img_url);
+				array_push($response['thumbnailUrls'],$tmb_url);
 			}
 			
 		}else if(array_key_exists('errors', $fileOK)) {
@@ -84,6 +86,9 @@ class PicturesController extends AppController {
 	 *		will return an array with the success of each file upload
 	 */
 	protected function uploadFiles($folder, $formdata, $itemId = null) {
+		// Import phpThumb class
+		App::import('Vendor','phpthumb', array('file' => 'phpThumb'.DS.'phpthumb.class.php'));
+		$phpThumb = new phpthumb;
 		// setup dir names absolute and relative
 		$folder_url = WWW_ROOT.$folder;
 		$rel_url = $folder;
@@ -139,14 +144,34 @@ class PicturesController extends AppController {
 							// create unique filename and upload file
 							ini_set('date.timezone', 'Europe/London');
 							$now = date('Y-m-d-His');
-							$full_url = $folder_url.'/'.$now.$filename;
-							$url = $rel_url.'/'.$now.$filename;
+							$filename= $now.$filename;
+							$full_url = $folder_url.'/'.$filename;
+							$url = $rel_url.'/'.$filename;
 							$success = move_uploaded_file($file['tmp_name'], $url);
 						}
 						// if upload was successful
 						if($success) {
 							// save the url of the file
 							$result['urls'][] = $url;
+							
+							$thumbnail = $folder_url.'/thumb-'.$filename;
+							$thumbnail_url = $rel_url.'/thumb/thumb-'.$filename;
+							
+							// Configuring thumbnail settings
+							
+							
+							$phpThumb->setSourceFilename($url);
+							$phpThumb->w = 150;
+							$phpThumb->h = 150;
+							if ($phpThumb->GenerateThumbnail()) {
+								if (!$phpThumb->RenderToFile($thumbnail_url)) {
+									$result['errors'][] = 'Could not render image to: '.$thumbnail_url;
+								}else{
+									$result['thumbnail_urls'][] = $thumbnail_url;
+								}
+							}else{
+								$result['errors'][] = 'Could not generate image to: '.$thumbnail_url;
+							}							
 						} else {
 							$result['errors'][] = "Error uploaded $filename. Please try again.";
 						}
