@@ -64,7 +64,7 @@
 							<?php echo $this->Form->input('Pr.contact_name',array('field'=>'product_contact_name','class'=>'form-control input-sm','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.contact_no',array('field'=>'contact_no','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.contact_no',array('field'=>'contact_no','class'=>'form-control input-sm numeric','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
