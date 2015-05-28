@@ -151,6 +151,7 @@ $(document).ready(function(){
 		showUpload: false,
 		uploadUrl: BASEURL+"pictures/add",
 		allowedFileExtensions: ["jpg", "png", "gif"],
+		maxFileSize:100,
 	}).on('filebatchuploadsuccess',function(event, data, previewId, index){
 		 var form = data.form, files = data.files, extra = data.extra, response = data.response, reader = data.reader;
 		 
