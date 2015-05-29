@@ -9,7 +9,7 @@ class TemporaryRegistrationsController extends AppController {
 	
 	function beforeFilter(){ 
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('user','server','existing_email_validation','check_captcha'));	
+		$this->Auth->allow(array('user','server','existing_email_validation','check_captcha','success','error'));	
     } 
 
 	function index() {
