@@ -331,6 +331,9 @@ Amigosource.com ';
 				$return['error'] = 1;
 				$return['message'].= " Invalid email address";
 			}
+			
+			header('Access-Control-Allow-Origin: *');
+			header('Access-Control-Allow-Methods: GET, POST');  
 			header("Expires: 0");
 			header("Cache-Control: no-cache, must-revalidate, post-check=0, pre-check=0");
 			header("Pragma: no-cache");
