@@ -9,7 +9,7 @@ class TemporaryRegistrationsController extends AppController {
 	
 	function beforeFilter(){ 
 		$this->Auth->userModel = 'User'; 
-		$this->Auth->allow(array('user','server','existing_email_validation','check_captcha','success','error','add'));	
+		$this->Auth->allow(array('user','server','existing_email_validation','check_captcha','success','error','add','test'));	
     } 
 
 	function index() {
@@ -349,7 +349,10 @@ Amigosource.com ';
 	}
 
 	function test(){
-	
+		if($this->RequestHandler->isAjax()){
+			echo json_encode($this->data);
+			exit;
+		}
 	}
 	
 	function test_file(){
