@@ -39,7 +39,8 @@
 		echo $this->Html->css('ss/ssMetrics');
 		echo $this->Html->css('datepicker');
 		echo $this->Html->css('plugins/wizard'); //Custom CSS
-		echo $this->Html->css('plugins/fileinput.min'); //Custom CSS
+		echo $this->Html->css('plugins/fileinput.min'); //
+		echo $this->Html->css('plugins/lightbox');
 		
 		echo $this->Html->script('jquery-1.11.0');
 		echo $this->Html->script('bootstrap');
@@ -53,6 +54,7 @@
 		//
 		echo $this->Html->script(array('biz/registration/main'));
 		echo $this->Html->script(array('plugins/fileinput/fileinput.min'));
+		echo $this->Html->script(array('plugins/lightbox.min'));
 	?>
 	
 	
