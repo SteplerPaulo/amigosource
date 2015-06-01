@@ -173,7 +173,7 @@
 							<tr ng-repeat="product in Products" ng-class="{active: product==ActiveProduct}" >
 								<td>{{product.name}}</td>
 								<td>
-									<a ng-repeat="pic in product.Picture" href="{{pic.url}}" data-lightbox="{{pic.tmp_product_id}}"><img  ng-src="{{pic.url}}" width="100"/></a>
+									<a ng-repeat="pic in product.Picture" href="{{pic.url}}" data-lightbox="{{pic.tmp_product_id}}" data-title="Name:{{product.name}}"><img  ng-src="{{pic.url}}" width="100"/></a>
 								</td>
 								<td><button class="btn btn-primary" ng-click="loadProduct(product)">View</button></td>
 							</tr>
