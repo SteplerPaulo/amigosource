@@ -11,7 +11,7 @@
 					<div class="col-lg-3">	
 						<div class="thumbnail">
 							<?php  echo $html->image('uploads' . DS . 'images' . DS . $tempReg['TemporaryRegistration']['logo'], array('alt' => 'Business Logo')); ?>
-							 <div class="caption">
+							<div class="caption">
 								<?php echo $this->Html->link( $tempReg['TemporaryRegistration']['website_address'], 'http://'. $tempReg['TemporaryRegistration']['website_address']);?>
 							</div>
 						</div>
@@ -173,7 +173,7 @@
 							<tr ng-repeat="product in Products" ng-class="{active: product==ActiveProduct}" >
 								<td>{{product.name}}</td>
 								<td>
-									<a ng-repeat="pic in product.Picture" href="{{pic.url}}" data-lightbox="{{pic.url}}"><img  ng-src="{{pic.url}}" width="100"/></a>
+									<a ng-repeat="pic in product.Picture" href="{{pic.url}}" data-lightbox="{{pic.tmp_product_id}}"><img  ng-src="{{pic.url}}" width="100"/></a>
 								</td>
 								<td><button class="btn btn-primary" ng-click="loadProduct(product)">View</button></td>
 							</tr>

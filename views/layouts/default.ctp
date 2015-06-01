@@ -40,7 +40,8 @@
 		echo $this->Html->css('datepicker');
 		echo $this->Html->css('plugins/wizard'); //Custom CSS
 		echo $this->Html->css('plugins/fileinput.min'); //
-		echo $this->Html->css('plugins/lightbox');
+		echo $this->Html->css('plugins/lightbox/lightbox');
+		echo $this->Html->css('plugins/lightbox/screen');
 		
 		echo $this->Html->script('jquery-1.11.0');
 		echo $this->Html->script('bootstrap');
