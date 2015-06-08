@@ -4,7 +4,7 @@
 		<div class="panel-body">
 			<div class="row">
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm required','placeholder'=>'*Required'));?>
+					<?php echo $this->Form->input('business_name',array('class'=>'form-control input-sm required toUpperCase','placeholder'=>'*Required'));?>
 				</div>
 				<div class="col-lg-3">
 					<?php echo $this->Form->input('business_type_id',array('options'=>$businessTypes,'empty'=>'Select','class'=>'form-control input-sm required','placeholder'=>'*Required'));?>
@@ -17,14 +17,14 @@
 				</div>
 				<div class="col-lg-2">
 					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceDropDown','options'=>$provinces,'empty'=>'Select','class'=>'form-control input-sm required','placeholder'=>'*Required'));?>
-					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm required','placeholder'=>'*Required'));?>
+					<?php echo $this->Form->input('business_province',array('label'=>'Province','id'=>'ProvinceText','type'=>'text','class'=>'form-control input-sm required toUpperCase','placeholder'=>'*Required'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityText','class'=>'form-control input-sm required','label'=>'City/Municipality','placeholder'=>'*Required'));?>
+					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityText','class'=>'form-control input-sm required toUpperCase','label'=>'City/Municipality','placeholder'=>'*Required'));?>
 					<?php echo $this->Form->input('business_city',array('label'=>'City/Municipality','id'=>'CityAndMunicipalityDropdown','options'=>'','empty'=>'Select','class'=>'form-control input-sm required','label'=>'City/Municipality','placeholder'=>'*Required'));?>
 				</div>
 				<div class="col-lg-5">
-					<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm required','label'=>'No. & Street','placeholder'=>'*Required'));?>
+					<?php echo $this->Form->input('business_street_no',array('class'=>'form-control input-sm required toUpperCase','label'=>'No. & Street','placeholder'=>'*Required'));?>
 				</div>
 				<div class="col-lg-1">
 					<?php echo $this->Form->input('business_zipcode',array('label'=>'Zipcode','class'=>'form-control input-sm numeric'));?>
@@ -33,10 +33,10 @@
 			<h4>Contact</h4>
 			<div class="row">
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('contact_name',array('label'=>'Contact Name','class'=>'form-control input-sm required','placeholder'=>'*Required'));?>
+					<?php echo $this->Form->input('contact_name',array('label'=>'Contact Name','class'=>'form-control input-sm required toUpperCase','placeholder'=>'*Required'));?>
 				</div>
 				<div class="col-lg-2">
-					<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('designation',array('class'=>'form-control input-sm toUpperCase'));?>
 				</div>
 				<div class="col-lg-2">
 					<label for="landline">Landline<span class="error"> *</span></label>

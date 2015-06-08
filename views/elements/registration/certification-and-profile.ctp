@@ -15,8 +15,8 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.description',array('field'=>'description','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
-						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('field'=>'issuing_agency','class'=>'form-control input-sm','div'=>false,'label'=>false,'id'=>false))?></td>
+						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.description',array('field'=>'description','class'=>'form-control input-sm toUpperCase','div'=>false,'label'=>false,'id'=>false))?></td>
+						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.issuing_agency',array('field'=>'issuing_agency','class'=>'form-control input-sm toUpperCase','div'=>false,'label'=>false,'id'=>false))?></td>
 						<td><?php echo $this->Form->input('TemporaryRegistrationCertification.0.date_issued',array('field'=>'date_issued','type'=>'text','class'=>'form-control input-sm datepicker','data-date-format'=>'yyyy-mm-dd','div'=>false,'label'=>false))?></td>
 						<td class="text-center">
 							<a class="glyphicon glyphicon-plus-sign add-certificate" data-toggle="tooltip" title="Add Row"></a>
@@ -63,10 +63,10 @@
 			<h4>Factory Information</h4>
 			<div class="row">
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('factory_location',array('label'=>'Location','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm'));?>	
+					<?php echo $this->Form->input('factory_location',array('label'=>'Location','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase'));?>	
 				</div>
 				<div class="col-lg-4">
-					<?php echo $this->Form->input('contract_manufacturing',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm'));?>
+					<?php echo $this->Form->input('contract_manufacturing',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase'));?>
 				</div>
 			</div><br/>
 			<div class="row">	

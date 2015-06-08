@@ -15,23 +15,23 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.name',array('field'=>'name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.name',array('field'=>'name','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.details',array('field'=>'details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.standard_package',array('field'=>'standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
-						</div>
-						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.specification',array('field'=>'specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.details',array('field'=>'details','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.technical_description',array('field'=>'technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.standard_package',array('field'=>'standard_package','label'=>'Standard Pkg & Ordering Leadtime','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase','div'=>false))?>			
+						</div>
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.specification',array('field'=>'specification','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase','div'=>false))?>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<?php echo $this->Form->input('Pr.technical_description',array('field'=>'technical_description','rows'=>'3','type'=>'textbox','class'=>'form-control input-sm toUpperCase','div'=>false))?>			
 						</div>
 						<div class="col-lg-3">
 							<?php echo $this->Form->input('Pr.monetary_currency_id',array('label'=>'Cost Currency','field'=>'monetary_currency','options'=>$monetaryCurrencies,'empty'=>'Select','class'=>'form-control input-sm','div'=>false))?>
@@ -42,7 +42,7 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.unit_of_measure',array('field'=>'unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.unit_of_measure',array('field'=>'unit_of_measure','label'=>'Unit of Measure Code','class'=>'form-control input-sm toUpperCase','div'=>false))?>
 						</div>
 						<div class="col-lg-3">
 							<?php echo $this->Form->input('Pr.stock_on_hand',array('field'=>'stock_on_hand','class'=>'form-control input-sm numeric','div'=>false))?>			
@@ -53,15 +53,15 @@
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.payment_terms',array('field'=>'payment_terms','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.payment_terms',array('field'=>'payment_terms','class'=>'form-control input-sm toUpperCase','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.shipping_terms',array('field'=>'shipping_terms','class'=>'form-control input-sm','div'=>false))?>
+							<?php echo $this->Form->input('Pr.shipping_terms',array('field'=>'shipping_terms','class'=>'form-control input-sm toUpperCase','div'=>false))?>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-6">
-							<?php echo $this->Form->input('Pr.contact_name',array('field'=>'product_contact_name','class'=>'form-control input-sm','div'=>false))?>			
+							<?php echo $this->Form->input('Pr.contact_name',array('field'=>'product_contact_name','class'=>'form-control input-sm toUpperCase','div'=>false))?>			
 						</div>
 						<div class="col-lg-6">
 							<?php echo $this->Form->input('Pr.contact_no',array('field'=>'contact_no','class'=>'form-control input-sm numeric','div'=>false))?>
