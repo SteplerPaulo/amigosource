@@ -31,84 +31,45 @@
  * @subpackage    cake.app
  */
 class AppController extends Controller {	
-	public $components = array(
+	var $components = array(
 		'RequestHandler',
         'Session',
-		'securimage',
-		'Acl',
-		'Access',
+		'Securimage',
 		'Auth' => array(
             'loginRedirect' => array(
-                'controller' => 'users',
-                'action' => 'view'
+                'controller' => 'pages',
+                'action' => 'display',
+				'home'
             ),
             'logoutRedirect' => array(
                 'controller' => 'pages',
-                'action' => 'home'
+                'action' => 'display',
+				'home'
             ),
-			'authorize '=>'controller'
+			'authorize '=>'controller',
+			'autoRedirect'=>false,
         ), 
     );
 	
 	
 	function beforeFilter() {
-		if ($this->params['controller'] == 'pages') {
-			$this->Auth->allow('*'); 
-			return;
+		switch($this->params['controller']){
+			case 'pages':
+				$this->Auth->allow('*'); 
+			break;
+			case 'businesses':
+				$this->Auth->allow('add','success'); 
+			break;
+			case 'products':
+				$this->Auth->allow('search'); 
+			break;
+			case 'pictures':
+				$this->Auth->allow('add'); 
+			break;
+			case 'users':   case 'countries': case 'provinces':  case 'barangays': case 'categories': case 'business_types': case 'currencies':
+				$this->Auth->allow('index'); 
+			break;
 		}
+		parent::beforeFilter();
 	}
-	
-
-	/////////////////////////////////////////////////////////////
-	public function admin_switch($field = null, $id = null) {
-        $this->autoRender = false;
-        $model = $this->modelClass;
-        if ($this->$model && $field && $id) {
-            $field = $this->$model->escapeField($field);
-            return $this->$model->updateAll(array($field => '1 -' . $field), array($this->$model->escapeField() => $id));
-        }
-        if(!$this->RequestHandler->isAjax()) {
-            return $this->redirect($this->referer());
-        }
-    }
-	
-	
-	////////////////////////////////////////////////////////////
-    public function admin_editable() {
-        $model = $this->modelClass;
-
-        $id = trim($this->params['form']['pk']);
-        $field = trim($this->params['form']['name']);
-        $value = trim($this->params['form']['value']);
-
-        $data[$model]['id'] = $id;
-        $data[$model][$field] = $value;
-        $this->$model->save($data, false);
-
-        $this->autoRender = false;
-
-    }
-
-	////////////////////////////////////////////////////////////
-    public function admin_tagschanger() {
-
-        $value = '';
-
-        asort($this->params['form']['value']);
-
-        foreach ($this->params['form']['value'] as $k => $v) {
-            $value .= $v . ', ';
-        }
-
-        $value = trim($value);
-        $value = rtrim($value, ',');
-
-
-        $this->Product->id = $this->params['form']['pk'];
-        $s = $this->Product->saveField('tags', $value, false);
-
-        $this->autoRender = false;
-
-    }
-	////////////////////////////////////////////////////////////
 }

@@ -1,5 +1,5 @@
 <?php
-/* Products Test cases generated on: 2015-03-10 12:18:41 : 1425986321*/
+/* Products Test cases generated on: 2015-05-26 06:38:33 : 1432622313*/
 App::import('Controller', 'Products');
 
 class TestProductsController extends ProductsController {
@@ -11,7 +11,7 @@ class TestProductsController extends ProductsController {
 }
 
 class ProductsControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.product', 'app.category', 'app.brand', 'app.cart', 'app.order_item', 'app.order', 'app.productmod');
+	var $fixtures = array('app.product', 'app.category', 'app.classification', 'app.picture');
 
 	function startTest() {
 		$this->Products =& new TestProductsController();
@@ -40,26 +40,6 @@ class ProductsControllerTestCase extends CakeTestCase {
 	}
 
 	function testDelete() {
-
-	}
-
-	function testAdminIndex() {
-
-	}
-
-	function testAdminView() {
-
-	}
-
-	function testAdminAdd() {
-
-	}
-
-	function testAdminEdit() {
-
-	}
-
-	function testAdminDelete() {
 
 	}
 

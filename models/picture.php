@@ -1,11 +1,12 @@
 <?php
 class Picture extends AppModel {
 	var $name = 'Picture';
-	var $displayField = 'name';
+	//The Associations below have been created with all possible keys, those that are not needed can be removed
+
 	var $belongsTo = array(
-		'TemporaryRegistrationProduct' => array(
-			'className' => 'TemporaryRegistrationProduct',
-			'foreignKey' => 'tmp_product_id',
+		'Product' => array(
+			'className' => 'Product',
+			'foreignKey' => 'product_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

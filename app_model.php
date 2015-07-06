@@ -31,4 +31,31 @@
  * @subpackage    cake.app
  */
 class AppModel extends Model {
+	public function findForJS($type,$options = array()){
+		$results = $this->find($type,$options);
+		$modelName = $this->name;
+		$response = array();
+		foreach($results as $index=>$result){
+			$obj = array();
+			foreach($result[$modelName] as $key=>$value){
+				$obj[$key]=$value;
+			}
+			array_push($response,$obj);
+		}
+		return $response;
+	}
+	protected function convertToHex($value){
+		$conversion = array();
+		$new_str = '';
+		$str_len = strlen($value);
+		for($i = 0; $i < $str_len; $i++) {
+			$letter = substr($value, $i, 1);
+			if(!isset($conversion[$letter])){
+				$conversion[$letter] = '\\x' .dechex(ord($letter));
+			}
+
+			$new_str .=  $conversion[$letter];
+		}
+		return $new_str;
+	}
 }

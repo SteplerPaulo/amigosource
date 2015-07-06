@@ -2,10 +2,6 @@
 class PicturesController extends AppController {
 
 	var $name = 'Pictures';
-	
-	function beforeFilter(){ 
-		$this->Auth->allow('*');	
-    } 
 
 	function index() {
 		$this->Picture->recursive = 0;
@@ -18,28 +14,33 @@ class PicturesController extends AppController {
 			$this->redirect(array('action' => 'index'));
 		}
 		$this->set('picture', $this->Picture->read(null, $id));
-	}	
+	}
+
 	function add() {
 		$response = array();
 		$pictures = array();
-		
 		foreach($_FILES['pictures']as $key=>$value){
-			foreach($value as $index =>$content){
-				if(!isset($pictures[$index])) $pictures[$index] = array();
-				$pictures[$index][$key] = $content;
+			if(is_array($value)){
+				foreach($value as $index =>$content){
+					if(!isset($pictures[$index])) $pictures[$index] = array();
+					$pictures[$index][$key] = $content;
+				}
+			}else{
+				$pictures[0][$key] = $value;
 			}
 		}
-		
 		$fileOK = $this->uploadFiles('img/files', $pictures);
 		if(array_key_exists('urls', $fileOK)) {
 			$response['initialPreview'] = array();
 			$response['imageUrls'] = array();
 			$response['thumbnailUrls'] = array();
+			$response['filenames'] = array();
 			foreach($fileOK['urls'] as $index=>$url){
 				$img_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$url;
 				$tmb_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.APP_DIR.'/'.$fileOK['thumbnail_urls'][$index];
 				$markup  = "<img src='$tmb_url' class='file-preview-image'>";
 				array_push($response['initialPreview'],$markup);
+				array_push($response['filenames'],$fileOK['filenames'][$index]);
 				array_push($response['imageUrls'],$img_url);
 				array_push($response['thumbnailUrls'],$tmb_url);
 			}
@@ -66,6 +67,8 @@ class PicturesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Picture->read(null, $id);
 		}
+		$products = $this->Picture->Product->find('list');
+		$this->set(compact('products'));
 	}
 
 	function delete($id = null) {
@@ -80,15 +83,6 @@ class PicturesController extends AppController {
 		$this->Session->setFlash(__('Picture was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-	/**
-	 * uploads files to the server
-	 * @params:
-	 *		$folder 	= the folder to upload the files e.g. 'img/files'
-	 *		$formdata 	= the array containing the form files
-	 *		$itemId 	= id of the item (optional) will create a new sub folder
-	 * @return:
-	 *		will return an array with the success of each file upload
-	 */
 	protected function uploadFiles($folder, $formdata, $itemId = null) {
 		// Import phpThumb class
 		App::import('Vendor','phpthumb', array('file' => 'phpThumb'.DS.'phpthumb.class.php'));
@@ -157,6 +151,7 @@ class PicturesController extends AppController {
 						if($success) {
 							// save the url of the file
 							$result['urls'][] = $url;
+							$result['filenames'][] = $filename;
 							
 							$thumbnail = $folder_url.'/thumb-'.$filename;
 							$thumbnail_url = $rel_url.'/thumb/thumb-'.$filename;
@@ -212,4 +207,5 @@ class PicturesController extends AppController {
             strtolower($clean) :
         $clean;
 }
+
 }

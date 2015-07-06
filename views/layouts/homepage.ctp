@@ -1,57 +1,62 @@
-<?php
-/**
- *
- * PHP versions 4 and 5
- *
- * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
- * Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
- *
- * @copyright     Copyright 2005-2012, Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       cake
- * @subpackage    cake.cake.console.libs.templates.skel.views.layouts
- * @since         CakePHP(tm) v 0.10.0.1076
- * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
- */
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<?php echo $this->Html->charset(); ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>
-		<?php __('amigosource:'); ?>
+		<?php __(Configure::read('BrandName')); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php
-		echo $this->Html->meta('icon',"/amigosource/img/amigosource.png", array('type' =>'icon'));
-		echo $this->Html->css('bootstrap');
-		echo $this->Html->css('homepage');
-		echo $this->Html->script('jquery-1.11.0');
-		echo $this->Html->script('bootstrap.min');
-
-		echo $scripts_for_layout;
+		echo $this->Html->meta('icon');
+		echo $this->Html->css('/bower_components/bootstrap/dist/css/bootstrap.min');
+		echo $this->Html->css('custom');
 	?>
 </head>
-<body>
-	<div class="container-fluid">
-		<!--
-		<div id="a-Header" class="row">
-			<div class="col-lg-6">Update Profile</div>
-			<div class="col-lg-6 text-right">Administrator</div>
-		</div>
-		-->
-		<div id="content">
-			<?php echo $this->Session->flash(); ?>
+<body ng-app="AmigoApp" class="home">
+	<div class="background"></div>
+	<div class="gradient"></div>
+	<div id="container" class="container">
+		<header class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="col-xs-12">
+					<?php if(!isset($_SESSION['Auth']['User'])):?>
+					<?php echo $this->Html->link('Log in',array('controller'=>'users','action'=>'login'),array('class'=>'btn btn-primary navbar-btn navbar-right btn-sm')); ?>
+					<?php else:?>
+					<div class="btn-group btn-group-sm  navbar-btn navbar-right ">
+					<div class="btn btn-default"><?php echo($_SESSION['Auth']['User']['email']);?></div>
+					<?php echo $this->Html->link('Log out',array('controller'=>'users','action'=>'logout'),array('class'=>'btn btn-primary')); ?>
+					</div>
+					<?php endif;?>
+				</div>
+			</div>
+		</header>
+		<div id="content" class="row">
 			<?php echo $content_for_layout; ?>
-
 		</div>
+		<footer class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container">
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><?php echo $this->Html->link(__(Configure::read('BrandName'), true), '/'); ?></li>
+					</ul>
+					<ul class="nav navbar-nav ">
+						<li><a href="#">Buyers</a></li>
+						<li><a href="#">Suppliers</a></li>
+						<li><a href="#">About</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 	</div>
-	<?php // echo $this->element('sql_dump'); 
+	<?php
+		echo $this->Html->script('/bower_components/angular/angular.min');
+		echo $this->Html->script('/bower_components/jquery/dist/jquery.min');
+		echo $this->Html->script('/bower_components/bootstrap/dist/js/bootstrap.min');
 	?>
+	<script type="text/javascript">(function(){window.AmigoApp = angular.module('AmigoApp',[])})();</script>
+	<script type="text/javascript">$(document).ready(function(){$('div.background').addClass('animate');});</script>
+	<?php echo $scripts_for_layout; ?>
 </body>
+</html>

@@ -1,5 +1,5 @@
 <?php
-/* Users Test cases generated on: 2015-05-19 09:59:31 : 1432022371*/
+/* Users Test cases generated on: 2015-05-26 06:38:33 : 1432622313*/
 App::import('Controller', 'Users');
 
 class TestUsersController extends UsersController {
@@ -11,7 +11,7 @@ class TestUsersController extends UsersController {
 }
 
 class UsersControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.user', 'app.document');
+	var $fixtures = array('app.user');
 
 	function startTest() {
 		$this->Users =& new TestUsersController();
@@ -21,6 +21,26 @@ class UsersControllerTestCase extends CakeTestCase {
 	function endTest() {
 		unset($this->Users);
 		ClassRegistry::flush();
+	}
+
+	function testIndex() {
+
+	}
+
+	function testView() {
+
+	}
+
+	function testAdd() {
+
+	}
+
+	function testEdit() {
+
+	}
+
+	function testDelete() {
+
 	}
 
 }

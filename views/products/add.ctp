@@ -3,17 +3,24 @@
 	<fieldset>
 		<legend><?php __('Add Product'); ?></legend>
 	<?php
+		echo $this->Form->input('business_id');
 		echo $this->Form->input('category_id');
-		echo $this->Form->input('brand_id');
+		echo $this->Form->input('classification_id');
 		echo $this->Form->input('name');
-		echo $this->Form->input('slug');
-		echo $this->Form->input('description');
-		echo $this->Form->input('image');
-		echo $this->Form->input('price');
-		echo $this->Form->input('weight');
-		echo $this->Form->input('tags');
-		echo $this->Form->input('views');
-		echo $this->Form->input('active');
+		echo $this->Form->input('details');
+		echo $this->Form->input('standard_pckg');
+		echo $this->Form->input('specifications');
+		echo $this->Form->input('technical_desc');
+		echo $this->Form->input('cost_currency');
+		echo $this->Form->input('cost');
+		echo $this->Form->input('unit_measure_code');
+		echo $this->Form->input('stock_on_hand');
+		echo $this->Form->input('min_order_qty');
+		echo $this->Form->input('payment_terms');
+		echo $this->Form->input('shipping_terms');
+		echo $this->Form->input('contact_name');
+		echo $this->Form->input('contact_number');
+		echo $this->Form->input('contact_email');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit', true));?>
@@ -23,15 +30,11 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Products', true), array('action' => 'index'));?></li>
+		<li><?php echo $this->Html->link(__('List Businesses', true), array('controller' => 'businesses', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Business', true), array('controller' => 'businesses', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Brands', true), array('controller' => 'brands', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Brand', true), array('controller' => 'brands', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Carts', true), array('controller' => 'carts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cart', true), array('controller' => 'carts', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Order Items', true), array('controller' => 'order_items', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Order Item', true), array('controller' => 'order_items', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Productmods', true), array('controller' => 'productmods', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Productmod', true), array('controller' => 'productmods', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Pictures', true), array('controller' => 'pictures', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Picture', true), array('controller' => 'pictures', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

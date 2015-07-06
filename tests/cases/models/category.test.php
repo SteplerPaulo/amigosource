@@ -1,9 +1,9 @@
 <?php
-/* Category Test cases generated on: 2014-12-02 08:37:42 : 1417505862*/
+/* Category Test cases generated on: 2015-06-02 12:02:07 : 1433246527*/
 App::import('Model', 'Category');
 
 class CategoryTestCase extends CakeTestCase {
-	var $fixtures = array('app.category');
+	var $fixtures = array('app.category', 'app.product', 'app.business', 'app.business_type', 'app.tmp_business', 'app.certification', 'app.factory', 'app.picture');
 
 	function startTest() {
 		$this->Category =& ClassRegistry::init('Category');

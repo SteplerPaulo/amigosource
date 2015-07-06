@@ -32,18 +32,11 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
+	Router::connect('/dashboard', array('controller' => 'pages', 'action' => 'display','dashboard'));	
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	Router::connect('/register', array('controller' => 'businesses', 'action' => 'add'));	
+	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));	
+	Router::connect('/success', array('controller' => 'businesses', 'action' => 'success'));	
+	Router::connect('/search', array('controller' => 'products', 'action' => 'search'));	
 	
-	Router::connect( 
-		'/:pagename',  
-		array( 
-			'controller' => 'pages',  
-			'action' => 'display' 
-		),  
-		array( 
-			'pagename' => 'slide-2|search-as|user-account|supplier-member-details|buyer-member-details|product-details|certification-profile',  
-			'pass' => array( 
-				'pagename' 
-			) 
-		) 
-	); 
+	Router::parseExtensions('js','json');

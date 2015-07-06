@@ -1,0 +1,7 @@
+<div class="action-buttons pull-right form-inline loading <?php if(in_array($model,$fields)) echo 'change'; ?>"  ng-init="<?php echo $model;?>={approve:false,edit:false,comment:null}" id="action-butons-<?php echo md5($model);?>">
+	<input type="text" class="form-control comment-box" ng-show="<?php echo $model.'.comment_active';?>" ng-model="<?php echo $model;?>.comment" ng-change="addComment('<?php echo $model;?>')"   ng-disabled="SubmitInProgress"  placeholder="Comment here" id="comment-box-<?php echo md5($model);?>"/>
+	<button class="btn btn-default approve" ng-class="{ 'btn-default' : !<?php echo $model.'.edit';?> ,'btn-success' :<?php echo $model.'.approve';?>,'btn-inverse': <?php echo $model.'.edit';?>}" ng-disabled=" <?php echo $model.'.edit';?> || SubmitInProgress" ng-click="approveField('<?php echo $model?>')">&#10003;</button>
+	<button class="btn edit" ng-class="{ 'btn-default' : !<?php echo $model.'.approve';?>, 'btn-warning' :<?php echo $model.'.edit';?>, 'btn-inverse' : <?php echo $model.'.approve';?>}" ng-disabled="<?php echo $model.'.approve';?> || SubmitInProgress" ng-click="editField('<?php echo $model?>')">&#10000;</button>
+	<button class="btn comment" ng-class="{ 'btn-default' : <?php echo $model.'.edit';?> , 'btn-inverse': !<?php echo $model.'.edit';?>}" ng-disabled="!<?php echo $model.'.edit';?> || SubmitInProgress" ng-click="commentField('<?php echo $model?>','<?php echo md5($model)?>')">&#10077;</button>
+	
+</div>

@@ -6,14 +6,19 @@
 			<?php echo $product['Product']['id']; ?>
 			&nbsp;
 		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Business'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $this->Html->link($product['Business']['name'], array('controller' => 'businesses', 'action' => 'view', $product['Business']['id'])); ?>
+			&nbsp;
+		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Category'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
 			<?php echo $this->Html->link($product['Category']['name'], array('controller' => 'categories', 'action' => 'view', $product['Category']['id'])); ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Brand'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Classification'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $this->Html->link($product['Brand']['name'], array('controller' => 'brands', 'action' => 'view', $product['Brand']['id'])); ?>
+			<?php echo $this->Html->link($product['Classification']['name'], array('controller' => 'categories', 'action' => 'view', $product['Classification']['id'])); ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Name'); ?></dt>
@@ -21,44 +26,74 @@
 			<?php echo $product['Product']['name']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Slug'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Details'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['slug']; ?>
+			<?php echo $product['Product']['details']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Description'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Standard Pckg'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['description']; ?>
+			<?php echo $product['Product']['standard_pckg']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Image'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Specifications'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['image']; ?>
+			<?php echo $product['Product']['specifications']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Price'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Technical Desc'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['price']; ?>
+			<?php echo $product['Product']['technical_desc']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Weight'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cost Currency'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['weight']; ?>
+			<?php echo $product['Product']['cost_currency']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Tags'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Cost'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['tags']; ?>
+			<?php echo $product['Product']['cost']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Views'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Unit Measure Code'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['views']; ?>
+			<?php echo $product['Product']['unit_measure_code']; ?>
 			&nbsp;
 		</dd>
-		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Active'); ?></dt>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Stock On Hand'); ?></dt>
 		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
-			<?php echo $product['Product']['active']; ?>
+			<?php echo $product['Product']['stock_on_hand']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Min Order Qty'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['min_order_qty']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Payment Terms'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['payment_terms']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Shipping Terms'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['shipping_terms']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contact Name'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['contact_name']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contact Number'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['contact_number']; ?>
+			&nbsp;
+		</dd>
+		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Contact Email'); ?></dt>
+		<dd<?php if ($i++ % 2 == 0) echo $class;?>>
+			<?php echo $product['Product']['contact_email']; ?>
 			&nbsp;
 		</dd>
 		<dt<?php if ($i % 2 == 0) echo $class;?>><?php __('Created'); ?></dt>
@@ -80,60 +115,42 @@
 		<li><?php echo $this->Html->link(__('Delete Product', true), array('action' => 'delete', $product['Product']['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $product['Product']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Products', true), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Product', true), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Businesses', true), array('controller' => 'businesses', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Business', true), array('controller' => 'businesses', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Categories', true), array('controller' => 'categories', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Category', true), array('controller' => 'categories', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Brands', true), array('controller' => 'brands', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Brand', true), array('controller' => 'brands', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Carts', true), array('controller' => 'carts', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cart', true), array('controller' => 'carts', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Order Items', true), array('controller' => 'order_items', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Order Item', true), array('controller' => 'order_items', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Productmods', true), array('controller' => 'productmods', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Productmod', true), array('controller' => 'productmods', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Pictures', true), array('controller' => 'pictures', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Picture', true), array('controller' => 'pictures', 'action' => 'add')); ?> </li>
 	</ul>
 </div>
 <div class="related">
-	<h3><?php __('Related Carts');?></h3>
-	<?php if (!empty($product['Cart'])):?>
+	<h3><?php __('Related Pictures');?></h3>
+	<?php if (!empty($product['Picture'])):?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php __('Id'); ?></th>
-		<th><?php __('Sessionid'); ?></th>
+		<th><?php __('Url'); ?></th>
 		<th><?php __('Product Id'); ?></th>
-		<th><?php __('Name'); ?></th>
-		<th><?php __('Weight'); ?></th>
-		<th><?php __('Price'); ?></th>
-		<th><?php __('Quantity'); ?></th>
-		<th><?php __('Weight Total'); ?></th>
-		<th><?php __('Subtotal'); ?></th>
 		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
 		<th class="actions"><?php __('Actions');?></th>
 	</tr>
 	<?php
 		$i = 0;
-		foreach ($product['Cart'] as $cart):
+		foreach ($product['Picture'] as $picture):
 			$class = null;
 			if ($i++ % 2 == 0) {
 				$class = ' class="altrow"';
 			}
 		?>
 		<tr<?php echo $class;?>>
-			<td><?php echo $cart['id'];?></td>
-			<td><?php echo $cart['sessionid'];?></td>
-			<td><?php echo $cart['product_id'];?></td>
-			<td><?php echo $cart['name'];?></td>
-			<td><?php echo $cart['weight'];?></td>
-			<td><?php echo $cart['price'];?></td>
-			<td><?php echo $cart['quantity'];?></td>
-			<td><?php echo $cart['weight_total'];?></td>
-			<td><?php echo $cart['subtotal'];?></td>
-			<td><?php echo $cart['created'];?></td>
-			<td><?php echo $cart['modified'];?></td>
+			<td><?php echo $picture['id'];?></td>
+			<td><?php echo $picture['url'];?></td>
+			<td><?php echo $picture['product_id'];?></td>
+			<td><?php echo $picture['created'];?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'carts', 'action' => 'view', $cart['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'carts', 'action' => 'edit', $cart['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'carts', 'action' => 'delete', $cart['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $cart['id'])); ?>
+				<?php echo $this->Html->link(__('View', true), array('controller' => 'pictures', 'action' => 'view', $picture['id'])); ?>
+				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'pictures', 'action' => 'edit', $picture['id'])); ?>
+				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'pictures', 'action' => 'delete', $picture['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $picture['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -142,115 +159,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Cart', true), array('controller' => 'carts', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php __('Related Order Items');?></h3>
-	<?php if (!empty($product['OrderItem'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Order Id'); ?></th>
-		<th><?php __('Product Id'); ?></th>
-		<th><?php __('Name'); ?></th>
-		<th><?php __('Quantity'); ?></th>
-		<th><?php __('Weight'); ?></th>
-		<th><?php __('Price'); ?></th>
-		<th><?php __('Subtotal'); ?></th>
-		<th><?php __('Productmod Name'); ?></th>
-		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($product['OrderItem'] as $orderItem):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $orderItem['id'];?></td>
-			<td><?php echo $orderItem['order_id'];?></td>
-			<td><?php echo $orderItem['product_id'];?></td>
-			<td><?php echo $orderItem['name'];?></td>
-			<td><?php echo $orderItem['quantity'];?></td>
-			<td><?php echo $orderItem['weight'];?></td>
-			<td><?php echo $orderItem['price'];?></td>
-			<td><?php echo $orderItem['subtotal'];?></td>
-			<td><?php echo $orderItem['productmod_name'];?></td>
-			<td><?php echo $orderItem['created'];?></td>
-			<td><?php echo $orderItem['modified'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'order_items', 'action' => 'view', $orderItem['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'order_items', 'action' => 'edit', $orderItem['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'order_items', 'action' => 'delete', $orderItem['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $orderItem['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Order Item', true), array('controller' => 'order_items', 'action' => 'add'));?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php __('Related Productmods');?></h3>
-	<?php if (!empty($product['Productmod'])):?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php __('Id'); ?></th>
-		<th><?php __('Product Id'); ?></th>
-		<th><?php __('Sku'); ?></th>
-		<th><?php __('Name'); ?></th>
-		<th><?php __('Value'); ?></th>
-		<th><?php __('Price'); ?></th>
-		<th><?php __('Weight'); ?></th>
-		<th><?php __('Active'); ?></th>
-		<th><?php __('Views'); ?></th>
-		<th><?php __('Created'); ?></th>
-		<th><?php __('Modified'); ?></th>
-		<th class="actions"><?php __('Actions');?></th>
-	</tr>
-	<?php
-		$i = 0;
-		foreach ($product['Productmod'] as $productmod):
-			$class = null;
-			if ($i++ % 2 == 0) {
-				$class = ' class="altrow"';
-			}
-		?>
-		<tr<?php echo $class;?>>
-			<td><?php echo $productmod['id'];?></td>
-			<td><?php echo $productmod['product_id'];?></td>
-			<td><?php echo $productmod['sku'];?></td>
-			<td><?php echo $productmod['name'];?></td>
-			<td><?php echo $productmod['value'];?></td>
-			<td><?php echo $productmod['price'];?></td>
-			<td><?php echo $productmod['weight'];?></td>
-			<td><?php echo $productmod['active'];?></td>
-			<td><?php echo $productmod['views'];?></td>
-			<td><?php echo $productmod['created'];?></td>
-			<td><?php echo $productmod['modified'];?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View', true), array('controller' => 'productmods', 'action' => 'view', $productmod['id'])); ?>
-				<?php echo $this->Html->link(__('Edit', true), array('controller' => 'productmods', 'action' => 'edit', $productmod['id'])); ?>
-				<?php echo $this->Html->link(__('Delete', true), array('controller' => 'productmods', 'action' => 'delete', $productmod['id']), null, sprintf(__('Are you sure you want to delete # %s?', true), $productmod['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Productmod', true), array('controller' => 'productmods', 'action' => 'add'));?> </li>
+			<li><?php echo $this->Html->link(__('New Picture', true), array('controller' => 'pictures', 'action' => 'add'));?> </li>
 		</ul>
 	</div>
 </div>

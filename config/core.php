@@ -77,7 +77,7 @@
  * Set to an array of prefixes you want to use in your application. Use for
  * admin or other prefixed routes.
  *
- *	Routing.prefixes = array('admin', 'manager');
+ * 	Routing.prefixes = array('admin', 'manager');
  *
  * Enables:
  *	`admin_index()` and `/admin/controller/index`
@@ -85,7 +85,7 @@
  *
  * [Note Routing.admin is deprecated in 1.3.  Use Routing.prefixes instead]
  */
-	Configure::write('Routing.prefixes', array('admin'));
+	//Configure::write('Routing.prefixes', array('admin'));
 
 /**
  * Turn off all caching application-wide.
@@ -201,12 +201,12 @@
 /**
  * A random string used in security hashing methods.
  */
-	Configure::write('Security.salt', '138ea19f0ed85b8d0fd38f820b14f6ebff898188');
+	Configure::write('Security.salt', '96789ae8fb17017ac2f0aca86db69ccdb138dbf5');
 
 /**
  * A random numeric string (digits only) used to encrypt/decrypt strings.
  */
-	Configure::write('Security.cipherSeed', '663331393736326665396563306135');
+	Configure::write('Security.cipherSeed', '313839616263313439343138613139');
 
 /**
  * Apply timestamps with the last modified time to static assets (js, css, images).
@@ -302,3 +302,7 @@
  *
  */
 	Cache::config('default', array('engine' => 'File'));
+	Configure::write('BrandName', 'Amigosource');
+	Configure::write('BrandTagLine', 'Make the right choice.');
+	Configure::write('JS.async', true);
+	Configure::write('JS.defer', true);

@@ -240,7 +240,7 @@ class SecurimageComponent extends Object {
         // Saving the controller reference for later use 
         $this->controller = &$controller;
         // Instantiate SecurImage class and store a reference
-        $this->controller->Securimage = & new securimage();
+        $this->controller->Securimage = & new Securimage();
         // Set Configuration options for Component
         $this->_set( $settings );
         // Set the same for SecurImage

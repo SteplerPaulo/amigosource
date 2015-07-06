@@ -1,5 +1,5 @@
 <?php
-/* Categories Test cases generated on: 2015-03-07 13:47:46 : 1425732466*/
+/* Categories Test cases generated on: 2015-05-26 06:38:32 : 1432622312*/
 App::import('Controller', 'Categories');
 
 class TestCategoriesController extends CategoriesController {
@@ -11,7 +11,7 @@ class TestCategoriesController extends CategoriesController {
 }
 
 class CategoriesControllerTestCase extends CakeTestCase {
-	var $fixtures = array('app.category', 'app.product', 'app.brand', 'app.cart', 'app.order_item', 'app.order', 'app.productmod');
+	var $fixtures = array('app.category', 'app.product', 'app.classification', 'app.picture');
 
 	function startTest() {
 		$this->Categories =& new TestCategoriesController();
@@ -40,26 +40,6 @@ class CategoriesControllerTestCase extends CakeTestCase {
 	}
 
 	function testDelete() {
-
-	}
-
-	function testAdminIndex() {
-
-	}
-
-	function testAdminView() {
-
-	}
-
-	function testAdminAdd() {
-
-	}
-
-	function testAdminEdit() {
-
-	}
-
-	function testAdminDelete() {
 
 	}
 
