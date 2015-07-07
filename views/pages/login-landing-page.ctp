@@ -2,8 +2,8 @@
 	<div class="container">
 		<div id="search-types" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav search-tabs ">
-				<li role="presentation"><a href="#">Profile</a></li>
-				<li role="presentation" class="active">
+				<li role="presentation" class="active"><a href="#">Profile</a></li>
+				<li role="presentation">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 						Auction <span class="caret"></span>
 					</a>
