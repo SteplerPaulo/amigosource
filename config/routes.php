@@ -38,5 +38,9 @@
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));	
 	Router::connect('/success', array('controller' => 'businesses', 'action' => 'success'));	
 	Router::connect('/search', array('controller' => 'products', 'action' => 'search'));	
+	Router::connect('/auction-platform', array('controller' => 'pages', 'action' => 'display','auction-platform'));	
+	Router::connect('/login-landing-page', array('controller' => 'pages', 'action' => 'display','login-landing-page'));	
+	Router::connect('/create-project', array('controller' => 'pages', 'action' => 'display','create-project'));	
+	Router::connect('/view-projects', array('controller' => 'pages', 'action' => 'display','view-projects'));	
 	
 	Router::parseExtensions('js','json');

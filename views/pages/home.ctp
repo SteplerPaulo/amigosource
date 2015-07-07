@@ -3,7 +3,7 @@
 	<div class="col-sm-12 col-md-8 col-md-offset-2">
 		<?php echo $this->Html->image('amigosource.png',array('class'=>'logo','alt'=>Configure::read('BrandName').' logo','title'=>Configure::read('BrandName')));?>
 		
-		<form action="/amigo/search" id="ProductSearchForm" method="get" accept-charset="utf-8">	
+		<form action="/amigosource/search" id="ProductSearchForm" method="get" accept-charset="utf-8">	
 		<p class="tagline">Make the right choice. <?php echo $this->Html->link('Register',array('controller'=>'businesses','action'=>'add'));?> today!</p>
 		<div class="input-group input-group-lg">
 			<span class="input-group-btn" id="search-filter-dropdown">

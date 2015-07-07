@@ -7,8 +7,9 @@
 	  <li role="presentation" class="<?php if($type=='products') echo 'active';?>"><a href="<?php echo $link.'&type=products'?>">Products</a></li>
 	  <li role="presentation" class="<?php if($type=='suppliers') echo 'active';?>"><a href="<?php echo $link.'&type=suppliers'?>">Suppliers</a></li>
 	  <li role="presentation" class="<?php if($type=='buyers') echo 'active';?>"><a href="<?php echo $link.'&type=buyers'?>">Buyers</a></li>
+	  <li role="presentation" ><a href="/amigosource/login-landing-page">More</a></li>
 	  <li class="dropdown">
-		 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
 		  Search tools <span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu" role="menu">
