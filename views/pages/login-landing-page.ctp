@@ -10,7 +10,7 @@
 					<ul class="dropdown-menu" role="menu">
 					  <li><a href="/amigosource/create-project">Create</a></li>
 					  <li><a href="/amigosource/view-projects">View</a></li>
-					  <li><a href="/amigosource/auctions">Join</a></li>
+					  <li><a href="/amigosource/auction-platform">Join</a></li>
 					</ul>
 	  
 				</li>

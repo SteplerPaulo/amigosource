@@ -4,7 +4,7 @@
 			<ul class="nav navbar-nav search-tabs ">
 				<li role="presentation" class="active"><a href="#">Create Project</a></li>
 				<li role="presentation">
-					<?php echo $this->Html->link('View Projects',array('controller'=>'pages','action'=>'view-projects'));?>
+					<?php echo $this->Html->link('View Projects',array('controller'=>'/','action'=>'view-projects'));?>
 				</li>
 			</ul>
 		</div>

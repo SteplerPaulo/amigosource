@@ -11,7 +11,7 @@
 					<a href="javascript:void()">View Projects</a>
 				</li>
 				<li role="presentation">
-					<?php echo $this->Html->link('Create Project',array('controller'=>'pages','action'=>'create-project'));?>
+					<?php echo $this->Html->link('Create Project',array('controller'=>'/','action'=>'create-project'));?>
 				</li>
 				
 			</ul>
