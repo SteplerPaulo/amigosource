@@ -10,6 +10,7 @@
 		echo $this->Html->css('/bower_components/jquery-ui/themes/flick/jquery-ui.min');
 		echo $this->Html->css('custom');
 		echo $this->Html->css('ss/ssMetrics');
+		echo $this->Html->css('plugins/jquery.downCount');
 	?>
 </head>
 <body ng-app="AmigoApp">
@@ -89,8 +90,8 @@
 	<script type="text/javascript">(function(){window.AmigoApp = angular.module('AmigoApp',[])})();</script>
 	<script type="text/javascript">(function(){$(document).ready(function(){$('div.form-group>input,div.form-group>select,div.form-group>textarea').addClass('form-control');});})();</script>
 	<?php 
-		//echo $this->Html->script(array('plugins/jquery.downCount'));
-		//echo $this->Html->script(array('biz/auction-platfform',array('inline'=>false)));
+		echo $this->Html->script(array('plugins/jquery.downCount'));
+		echo $this->Html->script(array('biz/auction-platfform'));
 	?>
 	<?php  echo $scripts_for_layout; ?>
 </body>
