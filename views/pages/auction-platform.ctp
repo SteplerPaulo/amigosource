@@ -99,6 +99,4 @@
 		</div>
 	</div>
 </div>
-
-
-
+<?php echo $this->Html->script('biz/auction-platfform',array('inline'=>false));?>

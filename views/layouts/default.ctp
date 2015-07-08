@@ -85,14 +85,11 @@
 		echo $this->Html->script('/bower_components/bootstrap/dist/js/bootstrap.min');
 		echo $this->Html->script('admin');
 		echo $this->Html->script(array('plugins/lightbox.min'));
-		
+		echo $this->Html->script(array('plugins/jquery.downCount'));
 	?>
 	<script type="text/javascript">(function(){window.AmigoApp = angular.module('AmigoApp',[])})();</script>
 	<script type="text/javascript">(function(){$(document).ready(function(){$('div.form-group>input,div.form-group>select,div.form-group>textarea').addClass('form-control');});})();</script>
-	<?php 
-		echo $this->Html->script(array('plugins/jquery.downCount'));
-		echo $this->Html->script(array('biz/auction-platfform'));
-	?>
+	
 	<?php  echo $scripts_for_layout; ?>
 </body>
 </html>
