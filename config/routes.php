@@ -42,5 +42,6 @@
 	Router::connect('/login-landing-page', array('controller' => 'pages', 'action' => 'display','login-landing-page'));	
 	Router::connect('/create-project', array('controller' => 'pages', 'action' => 'display','create-project'));	
 	Router::connect('/view-projects', array('controller' => 'pages', 'action' => 'display','view-projects'));	
+	Router::connect('/view-project-details', array('controller' => 'pages', 'action' => 'display','view-project-details'));	
 	
 	Router::parseExtensions('js','json');

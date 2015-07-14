@@ -56,7 +56,7 @@
 					<td></td>
 					<td></td>
 					<td class="text-center">
-						<a><i type="button" class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#ViewProject"></i></a>
+						<a href="/amigosource/view-project-details"><i type="button" class="glyphicon glyphicon-eye-open"></i></a>
 					</td>
 				</tr>
 				<?php endfor; ?>
@@ -92,28 +92,3 @@
 	<?php echo $this->Form->input('city_municipality_lists',array('id'=>'CityAndMunicipalityList','options'=>$cityAndMunicipalities,'empty'=>'Select','class'=>'form-control input-sm','label'=>'City/Municipality'));?>
 	<?php echo $this->Form->input('classification',array('options'=>$classificationLists,'empty'=>'Select','class'=>'form-control input-sm classification-category hide','div'=>false,'label'=>false))?>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="ViewProject" tabindex="-1" role="dialog" aria-labelledby="ViewProjectLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="ViewProjectLabel">Project Name</h4>
-			</div>
-			<div class="modal-body">
-				<div>ID:</div>
-				<div>Name:</div>
-				<div>Business Type:</div>
-				<div>Country:</div>
-				<div>Status:</div>
-				<div>Actions:</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Participate</button>
-				<button type="button" class="btn btn-warning" disabled="disabled">Check in</button>
-			</div>
-		</div>
-	</div>
-</div>
-

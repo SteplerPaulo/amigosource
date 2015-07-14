@@ -1,4 +1,5 @@
 <div class="container">
+	<button id="START" class="btn btn-primary hide">START</button>
 	<b>
 	<div>Project Name:</div>
 	<div>Project Description: </div>
