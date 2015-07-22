@@ -102,10 +102,18 @@ class PagesController extends AppController {
 					$child_index++;
 				}	
 			}
-			
-			
-			$this->set(compact('generalCategoristLists','classificationLists'));
+				
+										
+			$supplierQualifications = array(	'0'=>'Agent',
+					'1'=>'Distributor/Wholesaler',
+					'2'=>'Manufacturer',
+					'Manufacturer and Trading Company',
+					'Services',
+					'Trading Company',
+				);
+			$this->set(compact('generalCategoristLists','classificationLists','supplierQualifications'));
 		}
+		
 		
 		if($page=='home') $this->layout='homepage';
 		$this->set(compact('page', 'subpage', 'title_for_layout'));

@@ -23,26 +23,15 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
-					<?php echo $this->Form->input('title',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
+					<?php echo $this->Form->input('project_name',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
 				</div>
 				<div class="col-lg-6">
 					<?php echo $this->Form->input('description',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-6">
-					<?php echo $this->Form->input('packing',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
-				</div>
-				<div class="col-lg-6">
-					<?php echo $this->Form->input('specifications',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-6">
-					<?php echo $this->Form->input('technical_description',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
-				</div>
-				<div class="col-lg-6">
-					<?php echo $this->Form->input('quantity_required',array('class'=>'form-control input-sm','div'=>false))?>
+				<div class="col-lg-12">
+					<?php echo $this->Form->input('other_conditions',array('rows'=>'3','type'=>'textbox','class'=>'form-control input-sm','div'=>false))?>			
 				</div>
 			</div>
 			<div class="row">
@@ -55,7 +44,7 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
-					<?php echo $this->Form->input('suplier_qualifications',array('empty'=>'Select','options'=>array('0'=>'All','1'=>'Regular','2'=>'Gold'),'class'=>'form-control input-sm toUpperCase','div'=>false))?>			
+					<?php echo $this->Form->input('suplier_qualifications',array('empty'=>'Select','options'=>$supplierQualifications,'class'=>'form-control input-sm toUpperCase','div'=>false))?>
 				</div>
 				<div class="col-lg-6">
 					<?php echo $this->Form->input('contract_value',array('class'=>'form-control input-sm','div'=>false))?>			
@@ -67,14 +56,17 @@
 					<?php echo $this->Form->input('incoterms',array('class'=>'form-control input-sm','div'=>false))?>			
 				</div>
 				<div class="col-lg-6">
-					<?php echo $this->Form->input('payment_tearms',array('class'=>'form-control input-sm','div'=>false))?>			
+					<?php echo $this->Form->input('payment_terms',array('class'=>'form-control input-sm','div'=>false))?>			
 				</div>
 			</div>
 			<div class="row">
 				<br/>
-				<div class="col-lg-6 col-lg-offset-6 text-right">
-					<button type="button" class="btn">Post</button>
+				<div class="col-lg-12 text-right">
 					<button type="button" class="btn btn-primary">Request for List</button>
+					<button type="button" class="btn">Post</button>
+					<button type="button" class="btn">Edit</button>
+					<button type="button" class="btn">Save</button>
+					<button type="button" class="btn">Cancel</button>
 				</div>
 			</div>
 
